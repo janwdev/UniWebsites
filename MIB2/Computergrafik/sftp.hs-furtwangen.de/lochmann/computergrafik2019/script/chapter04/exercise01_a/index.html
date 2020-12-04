@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Übung 4.1 - Shading und Rendering - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Übung 4.1 - Shading und Rendering
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Übung 4.1 - Shading und Rendering </h1>
+
+			
+
+<p><strong>In der folgenden Übung werden wir eine Unterwasserszene rendern, um in den nachfolgenden Übungen unsere bisherig erstellten Objekte hineinzusetzen.</strong></p>
+
+<p><img src="img/result.png" alt="render" /></p>
+
+<h2 id="1-wasseroberfläche">1. Wasseroberfläche</h2>
+
+<h3 id="1-1-setup">1.1 Setup</h3>
+
+<p><img src="img/01_plane.png" alt="5.1.1" /></p>
+
+<ul>
+<li>Startet eine neue Blender Szene</li>
+<li>Löscht den Würfel und das Punktlicht aus der Szene heraus</li>
+<li>Fügt der Szene eine neue <strong>Plane</strong> hinzu (<code>Shift + A</code> <strong>→ Mesh → Plane</strong>). Diese Plane soll unsere Wasseroberfläche werden. Benennt sie entsprechend.</li>
+<li><strong>Skaliert</strong> die Plane ca. um das 50 fache (<code>S + 5 + 0</code>)</li>
+<li>Verschiebt und dreht die Kamera so, dass sie die Wasseroberfläche von leicht schräg unten betrachtet.</li>
+</ul>
+
+<blockquote>
+<p><img src="img/02_walk_mode.png" alt="img" />
+Hilfreich zum Platzieren der Kamera kann der <strong>Walk Navigation</strong> Modus sein. Wechselt dazu in die Kameraansicht <span class="counter">1</span> und wählt *<strong>View → Navigation → Walk Navigation</strong> <span class="counter">2</span>. In diesem Modus könnt ihr euch nun wie in einem First Person Spiel mit der Maus umsehen und mit <code>W</code> <code>A</code> <code>S</code> <code>D</code> bewegen.</p>
+</blockquote>
+
+<p><img src="img/03_sun.png" alt="img" /></p>
+
+<ul>
+<li><p>Fügt der Szene ein <a href="https://docs.blender.org/manual/en/latest/render/lights/light_object.html#sun-light"><strong>Sun</strong></a> Licht hinzu (<code>Shift + A</code>  <strong>→ Light → Sun</strong>) <span class="counter">1</span></p></li>
+
+<li><p>Rotiert das Licht so, dass es (aus Sicht der Kamera) von schräg rechts oben auf die Szene leuchtet. Kann später nach Bedarf noch angepasst werden.</p></li>
+
+<li><p>Stellt die Stärke des Sonnenlichts ca. auf 12 <span class="counter">2</span></p></li>
+</ul>
+
+<p><img src="img/04_workspace.png" alt="img" /></p>
+
+<ul>
+<li>wechselt nun in den <strong>Shading</strong> Workspace <span class="counter">1</span></li>
+<li>Wechselt Viewport Shading zu <strong>Rendered</strong> <span class="counter">2</span></li>
+<li>Geht in die <strong>Kamera Ansicht</strong> <span class="counter">3</span></li>
+<li>Stellt den Hintergrund auf ein mattes dunkelblau <span class="counter">4</span></li>
+<li>Selektiert die <strong>Wasseroberfläche</strong> und fügt ihr im <strong>Shader Editor</strong> ein neues Material hinzu <span class="counter">5</span></li>
+</ul>
+
+<blockquote>
+<p>Nun haben sich einige neue Bereiche geöffnet:</p>
+
+<ul>
+<li>unten seht ihr nun den <em>Shader Editor</em>. Hier wird immer das Material des markierten Objekts
+angezeigt.</li>
+<li>links daneben der bereits bekannte Image Editor hier können Texturen angesehen und bearbeitet werden.</li>
+<li>oben links ist der Dateiexplorer zu finden. Per Drag &amp; Drop können z.b. Bilddateien in den Image Editor oder als Textur in den Shader Editor gesetzt werden.</li>
+<li>Rechts hat sich im bereits bekannten Properties Editor der <em>World</em>-Tab geöffnet. Hier kann der Hintergrund der Szene eingefärbt werden.</li>
+<li>Der 3D Viewport ist nun in der <em>Lookdev</em> Ansicht [1]. Diese Ansicht erlaubt es, Objekte in einigen Voreingestellten Lichtsituationen darzustellen und die Materialien richtig anzuzeigen. Im <em>Shading</em> Menü oben rechts finden sich die Optionen dazu.</li>
+</ul>
+</blockquote>
+
+<h3 id="1-2-material">1.2 Material</h3>
+
+<p><img src="img/05_nodes1.png" alt="img" /></p>
+
+<ul>
+<li>Fügt im <strong>Shader Editor</strong> einen <strong>Bump</strong> und einen <strong>Noise Texture</strong> Node hinzu</li>
+</ul>
+
+<blockquote>
+<p>Für die Textur verwenden wir hier prozedurale Texturen. So werden Texturen genannt, die nicht in einer Bilddatei gespeichert sind, sondern beim Rendern generiert werden. Die wohl bekannteste prozedurale Textur ist das sogen. <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin Noise</a>, das von Ken Perlin für den Film Tron entwickelt wurde. Ähnlich funktioniert auch Blenders Noise Texture Node.</p>
+</blockquote>
+
+<ul>
+<li>Verbindet die Nodes wie im Screenshot gezeigt und passt die eingerahmten Werte entsprechen an (Werte müssen nicht genau so übernommen werden - so dass es gut aussieht.)</li>
+<li>Rotiert eventuell das Sonnenlicht nocheinmal, so dass die Struktur des Wassers aus Kamerasicht gut hervorgehoben wird.</li>
+</ul>
+
+<h2 id="2-wasservolumen">2. Wasservolumen</h2>
+
+<h3 id="2-1-material">2.1 Material</h3>
+
+<p>Nun wollen wir ein Volumen hinzufügen um die Färbung des Wassers zu simulieren, sowie Lichtstrahlen darin darzustellen.</p>
+
+<p><br> <video width=60% autoplay controlls loop src="img/volume_scale.mp4"></video></p>
+
+<ul>
+<li>Fügt im <strong>Laylout Tab</strong> einen <strong>Cube</strong> hinzu und skaliert und verschiebt ih so, dass er direkt unter der Wasseroberfläche sitzt und die ganze Szene umschließt.</li>
+</ul>
+
+<p><img src="img/06_nodes2.png" alt="img" /></p>
+
+<ul>
+<li>Gebt dem Objekt (im Shading Tab) ein neues Material und löscht den <strong>Principled BSDF</strong> Shader.</li>
+<li>Fügt stattdessen ein <strong><em>Shader → <a href="https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/volume_principled.html">Principled Volume</a></em></strong> Node hinzu und verbindet ihn mit dem <strong>Volume</strong> Slot des <strong>Material Output</strong> Nodes.</li>
+<li>Stellt die <em>Color, Density, Anisotropy</em> und <em>Absorption Color</em> Werte ähnlich wie im Screenshot ein.</li>
+</ul>
+
+<blockquote>
+<p><img src="img/anisotropie.png" alt="img" />
+<a href="https://docs.arnoldrenderer.com/display/A5AFMUG/Volume+Attributes#VolumeAttributes-Anisotropy">Anisotropie</a> kontrolliert die Richtung, in welche Lichtstrahlen in Volumetrischen Materialien gestreut werden.</p>
+</blockquote>
+
+<h3 id="2-2-lichtstrahlen">2.2 Lichtstrahlen</h3>
+
+<p>Da Blenders <em>Echtzeitrenderengine</em> <a href="https://docs.blender.org/manual/en/latest/render/eevee/introduction.html">Eevee</a> nicht live die Streuung von Licht unter der Wasseroberfläche berechnen kann, müssen wir hier ein wenig trixen um überzeugend refraktierte Sollenstrahlen unter der Wasseroberfläche zu bekommen.</p>
+
+<p><img src="img/07_material_options.png" alt="img" /></p>
+
+<ul>
+<li>Selektiert nun wieder die Wasseroberfläche.</li>
+<li>Öffnet im Shader Editor die Sidebar mit <code>N</code></li>
+<li>Stellt im <strong><em>Options Tab → <a href="https://docs.blender.org/manual/en/2.82/render/eevee/materials/settings.html#transparent-shadow">Shadow Mode</a></em></strong> auf <strong>Alpha Hashed</strong></li>
+</ul>
+
+<p><img src="img/08_nodes3.png" alt="img" /></p>
+
+<ul>
+<li>Fügt einen <strong><em>Shader → Transparent BSDF</em></strong> Node hinzu und verbindet ihn wie im Screenshot mit einem <strong><em>Converter → Color Ramp</em></strong>  neuen <strong><em>Noise Texture</em></strong></li>
+<li>Fügt einen <strong><em>Shader → Mix Shader</em></strong> Node hinzu, um das Hauptmaterial (Principled BSDF) mit dem Transparent Node zu mixen.</li>
+<li>In den <strong>Factor</strong> Input des Mix Nodes leiten wir nun den <strong>Shadow Ray</strong> Output eines <strong>Light Path</strong> Nodes</li>
+<li>Stellt deren Werte ca. entsprechend dem Screenshot ein. Hier gibt es kein richtig oder Falsch, testet aus was gut aussieht.</li>
+</ul>
+
+<blockquote>
+<p>Damit sagen wir der Renderengine, dass immer wenn es darum geht einen Schatten zu werfen der untere Input des Mix Nodes verwendet werden soll, in jedem anderen Fall jedoch trotzdem der obere. Die &ldquo;Maske&rdquo; für den Schatten erzeugen wir hier mit der <strong>Noise Textur</strong>, deren Kontrast wir mit dem <strong>Color Ramp</strong> erhöhen.</p>
+
+<p>Der ColorRamp Node nimmt als Input Graustufen und gibt dann abhängig von der Helligkeit des Inputs die im Verlauf angegebenen Farben aus. Schwarz (links) nach Weiß (rechts).</p>
+</blockquote>
+
+<p><img src="img/result_water.png" alt="img" /></p>
+
+<p>Nun sollte euere Szene etwa so aussehen.</p>
+
+<h3 id="3-sandboden">3. Sandboden</h3>
+
+<p><img src="img/09_sand.png" alt="img" /></p>
+
+<ul>
+<li>Verwendet ein hochskaliertes <strong><em>Add → Mesh → Plane</em></strong> mit einem Material ähnlich dem im Screenshot, um einen Sandboden zu erstellen.</li>
+</ul>
+
+<p><br> <video width=60% autoplay controlls loop src="img/floor.mp4"></video></p>
+
+<ul>
+<li>Fügt einige Hügel und Unebenheiten hinzu. Unterteilt dazu das Mesh im Editmode mit <strong><em>Rechtsklick → Subdivide</em></strong> mehrmals und nutzt Proportional Editing, um das Mesh organisch zu formen. Beim Verformen des Meshes mit Proportional Editing kann das Mausrad benutzt werden, um dessen Radius zu erhöhen.</li>
+</ul>
+
+<blockquote>
+<p>Beim Proportional Editing werden Verticies in der Nähe der selektierten Geomtrie abfallend zur Distanz mitbewegt.</p>
+</blockquote>
+
+<h2 id="4-ein-stein">4. Ein Stein</h2>
+
+<ul>
+<li>Nutzt die Techniken aus Übung 3, um um mit Subdivision Surface Modeling schnell einen einfachen Stein zu modellieren.</li>
+</ul>
+
+<p><img src="img/stone_modelling.gif" alt="steinmod" /></p>
+
+<ul>
+<li>Gebt dem Stein ein neues Material.</li>
+
+<li><p>Da Stein unpoliert recht rau ist, stellt Roughness auf einen recht hohen Wert, z.b. 0.8</p></li>
+
+<li><p>Fügt im Node-Editor <em>Texture → Noise Texture</em> hinzu und verbindet den <em>Fac</em> Output der Textur mit dem <em>Base Color</em> Input des Principled BSDF Shaders.</p></li>
+
+<li><p>Da die Farben noch recht blass sind, nutzen wir einen <em>Conveerter → ColorRamp</em> Node, um die Textur einzufärben. Zieht diesen Node zwischen die Textur und den Principled Shader.</p></li>
+</ul>
+
+<p><img src="img/5.1.5.1.gif" alt="pl1" /></p>
+
+<p><img src="img/5.1.5.2.png" alt="vector distort" /></p>
+
+<ul>
+<li>Fügt nun eine zweite Noise Texture hinzu und vermischt diese mit einem <em>MixRGB</em> Node mit den Texturkoordinaten.</li>
+</ul>
+
+<blockquote>
+<p>Die Texturkoordinaten werden in Blender auf die gleicheWeise behandelt wie Farben (<em>X = Rot, Y = Grün, Z = Blau</em>) und können dementsprechend auch mit Texturen vermischt werden. In diesem Beispiel ist das Ergebnis davon die Verzerrung der ersten Noise-Textur mithilfe der Zweiten. Damit lässt sich eine natürlicher wirkende Textur erzugen.</p>
+</blockquote>
+
+<ul>
+<li>Die Verzerrung kann nun mit dem <em>Fac</em> des Mix Nodes kontrolliert werden.</li>
+<li>Experimentiert solange mit den Scale Werten der beiden Texturen, bis ihr zufrieden mit dem Ergebnis seid. Stellt <em>Detail</em> beider Texturen vorerst ca. auf 8 (mehr Detail, detailliertes Ergebnis aber längere Renderzeit)</li>
+</ul>
+
+<p><img src="img/5.1.5.3.png" alt="bump" /></p>
+
+<ul>
+<li>Fügt einen <a href="https://docs.blender.org/manual/en/2.80/render/shader_nodes/vector/bump.html">Bump Node</a> hinzu und verbindet dessen <em>Height</em> Wert mit dem <em>Fac</em> Output der Noise Textur und den Output mit dem <em>Normal</em> Input des Principled BSDF Nodes.</li>
+<li>Stellt den <em>Distance</em> Wert im Bump Node auf einen realistischeren Wert, z.b. 0.1</li>
+</ul>
+
+<blockquote>
+<p><a href="https://de.wikipedia.org/wiki/Bumpmapping">Bumpmapping</a> manipuliert die Normalen des Materials abhängig der verwendeten Graustufentextur. Somit entsteht die Illusion einer Struktur auf der Oberfläche. Dabei werden mit dunklen Farben auf der Textur Rillen erzeugt und mit hellen Farben Erhebungen.</p>
+</blockquote>
+
+<ul>
+<li>setzt den Stein entsprechend in Szene und dupliziert ihn nach Bedarf.</li>
+</ul>
+
+<p><img src="img/stone_scene.png" alt="img" /></p>
+
+<h2 id="4-rendern">4. Rendern</h2>
+
+<p><img src="img/settings.png" alt="settings" /></p>
+
+<ul>
+<li>Damit das Bild nicht so verrauscht erscheint, erhöht die <strong>Samples</strong> im <strong>Render Tab</strong> des Properties Editors z.b. auf 128 (Das Ergebnis wird erst beim Rendern sichtbar.)</li>
+<li>Erhöht auch die Einstellungen für Volumetrische Materialien. Stellt die <strong>Tile Size</strong> auf 4px und erhöht auch hier die Samples auf 128.</li>
+</ul>
+
+<p><img src="img/save.png" alt="img" /></p>
+
+<ul>
+<li>Rendert nun die Szene mit F12 oder über <code>Render  → Render Image</code></li>
+<li>Speichert die gerenderte Szene als Bilddatei ab</li>
+</ul>
+
+<h2 id="aufgabe">Aufgabe</h2>
+
+<ul>
+<li>Erstellt mit der gezeigten Technik eine Unterwasserszene und rendert das Ergebnis</li>
+<li>Die Abgabe besteht aus der .blend Datei und dem gerenderten Bild.</li>
+</ul>
+
+<h2 id="ressourcen-tutorials-zum-thema">Ressourcen &amp; Tutorials zum Thema</h2>
+
+<p><strong>Einige Informationen zu Materialnodes finden sich in <a href="../lecture01/index.html#2-materialnodes-grundlagen">Lektion 4</a></strong></p>
+
+<p>Visuelle Repräsentation der Parameter der Principled BSDF Shadernodes:
+<img src="img/principled.jpg" alt="" /></p>
+
+<table>
+<thead>
+<tr>
+<th>Art/Länge</th>
+<th>Titel</th>
+<th>Thema</th>
+<th>Quelle</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 7:14</td>
+<td><a href="https://youtu.be/0zrd37k2tJM"><strong>Shading Editor - Blender 2.80 Fundamentals</strong></a></td>
+<td>Materialien</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 9:00</td>
+<td><a href="https://youtu.be/5TcBWJva9aE"><strong>Blender 2.8 - The Node Editor</strong></a></td>
+<td>Materialien</td>
+<td><a href="https://www.youtube.com/channel/UCKMMfozbLS4wdZEWjMgwflA">YouTube - Rory Allen</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 2:59</td>
+<td><a href="https://youtu.be/_deRNqDcwRk"><strong>Procedural Textures - Blender 2.80 Fundamentals</strong></a></td>
+<td>Materialien</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 15:04</td>
+<td><a href="https://youtu.be/66lvjTVu06c"><strong>Blender 2.8 Beginner Tutorial - Part 9: Procedural Materials</strong></a></td>
+<td>Prozedurale Texturen</td>
+<td><a href="https://www.youtube.com/channel/UCWWybvw9jnpOdJq_6wTHryA">YouTube - CG Boost</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/article.png" class="resicon"></td>
+<td><a href="https://docs.blender.org/manual/en/latest/index.html"><strong>Blender Reference Manual - Shader Nodes</strong></a></td>
+<td>Dokumentation zu jedem verfügbaren Shadernode</td>
+<td><a href="https://docs.blender.org/manual/en/latest/index.html">Blender Dokumentation</a></td>
+</tr>
+</tbody>
+</table>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../exercise01_b/index.html" title="Übung 4.1 - Shading">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Übung 4.1 - Shading
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../exercise02_b/index.html" title="Übung 4.2 - Licht und Rendering">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Übung 4.2 - Licht und Rendering
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

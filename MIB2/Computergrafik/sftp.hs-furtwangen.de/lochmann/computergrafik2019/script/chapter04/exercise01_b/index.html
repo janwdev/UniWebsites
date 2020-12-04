@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Übung 4.1 - Shading - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Übung 4.1 - Shading
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a class="current" title="4.1 - Übung - Shading" href="index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Übung 4.1 - Shading </h1>
+
+			
+
+<p><strong>In der folgenden Übung werden wir unserem Schwert Materialien geben und zum Rendern in Szene setzen. Das Schild wird in Übung 5 dazukommen.</strong></p>
+
+<p><img src="img/render.png" alt="render" /></p>
+
+<h2 id="1-vorbereitung">1. Vorbereitung</h2>
+
+<ul>
+<li>Öffnet das in Übung 2 modellierte Schwert. Alternativ kann auch <a href="res/schwert.html">dieses</a> Modell verwendet werden.</li>
+<li>Wechselt in den <em>Shading</em> Workspace</li>
+</ul>
+
+<p><img src="img/5.1.1.png" alt="5.1.1" /></p>
+
+<blockquote>
+<p>Nun haben sich einige neue Bereiche geöffnet:</p>
+
+<ul>
+<li>unten seht ihr nun den <em>Shader Editor</em>. Hier wird immer das Material des markierten Objekts
+angezeigt.</li>
+<li>links daneben der bereits bekannte Image Editor hier können Texturen angesehen und bearbeitet werden.</li>
+<li>oben links ist der Dateiexplorer zu finden. Per Drag &amp; Drop können z.b. Bilddateien in den Image Editor oder als Textur in den Shader Editor gesetzt werden.</li>
+<li>Rechts hat sich im bereits bekannten Properties Editor der <em>World</em>-Tab geöffnet. Hier kann der Hintergrund der Szene eingefärbt werden.</li>
+<li>Der 3D Viewport ist nun in der <em>Lookdev</em> Ansicht [1]. Diese Ansicht erlaubt es, Objekte in einigen Voreingestellten Lichtsituationen darzustellen und die Materialien richtig anzuzeigen. Im <em>Shading</em> Menü oben rechts finden sich die Optionen dazu.</li>
+</ul>
+</blockquote>
+
+<ul>
+<li><p>wechselt im Propertier Editor vorerst zum <em>Material</em> Tab [2]</p></li>
+
+<li><p>Selektiert das Schwert</p></li>
+</ul>
+
+<h2 id="2-klinge">2. Klinge</h2>
+
+<p>Als erstes wird das Metall für die Klinge des Schwertes erstellt. Zu dem im Shader Editor bereits vorhandenen <em>Principled BSDF</em> Node findet ihr <a href="https://docs.blender.org/manual/en/2.80/render/shader_nodes/shader/principled.html">hier</a> detailierte Infos.</p>
+
+<p><img src="img/5.2.1.png" alt="5.3.1" /></p>
+
+<ul>
+<li>stellt den <em>Metallic</em> Wert auf 1.0</li>
+</ul>
+
+<blockquote>
+<p>Generell sind die meisten Materialien <strong>entweder</strong> Nichtleiter (metallic = 0.0) <strong>oder</strong> Metalle (metallic = 1.0). Daher ergibt es nur für Ausnahmefällen (z.b. bestimmte Arten von Autolack) Sinn, Werte dazwischen zu verwenden.</p>
+</blockquote>
+
+<ul>
+<li>stellt den Roughness Wert auf ca. 0.03 (perfekt glatte Materialen gibt es kaum)</li>
+</ul>
+
+<h2 id="3-griff">3. Griff</h2>
+
+<h3 id="3-1-mehrere-materialien-pro-objekt">3.1 Mehrere Materialien pro Objekt</h3>
+
+<p><img src="img/assign.gif" alt="assign" /></p>
+
+<p><strong>Folgenderweise werden einem einzelnen Objekt mehrere Materialien zugewiesen</strong></p>
+
+<ul>
+<li><p>Wechselt in den Editmode (schaltet dafür zudem Overlays im 3D View wieder an)</p></li>
+
+<li><p>markiert den Teil des Meshes, der das neue Material bekommen soll</p></li>
+
+<li><p>Erstellt ein neues Material (z.b. für den Griff). Klickt dafür im Material Editor rechts auf <code>+</code> um einen neuen Materialslot hinzuzufügen und dann darunter auf <code>New</code> um dem Slot ein neues Material zuzuweisen.</p></li>
+
+<li><p>Klickt im Material Editor auf <code>Assign</code></p></li>
+</ul>
+
+<h3 id="3-2-griff-materialien">3.2 Griff Materialien</h3>
+
+<ul>
+<li>Nutzt die Parameter der zugewiesenen Materialien, um zusätzlich Materialien für den Griff zu erstellen.</li>
+</ul>
+
+<p><img src="img/5.3.1.png" alt="5.3.1" /></p>
+
+<h2 id="4-stein">4. Stein</h2>
+
+<ul>
+<li>Nutzt die Techniken aus Übung 3, um um mit Box-Modelling schnell einen einfachen Stein zu modellieren (ohne Sculpting).</li>
+</ul>
+
+<p><img src="img/stone_modelling.gif" alt="steinmod" /></p>
+
+<ul>
+<li>Gebt dem Stein ein neues Material.</li>
+<li>Da Stein unpoliert recht rau ist, stellt Roughness auf einen recht hohen Wert, z.b. 0.8</li>
+</ul>
+
+<blockquote>
+<p>Für die Textur wollen wir prozedurale Texturen verwenden. So werden Texturen genannt, die nicht in einer Bilddatei gespeichert sind, sondern beim Rendern generiert werden. Die wohl bekannteste prozedurale Textur ist das sogen. Perlin Noise, das von Ken Perlin für den Film Tron entwickelt wurde. Ähnlich funktioniert auch Blenders Noise Texture Node.</p>
+</blockquote>
+
+<ul>
+<li>Fügt im Node-Editor <em>Texture → Noise Texture</em> hinzu und verbindet den <em>Fac</em> Output der Textur mit dem <em>Base Color</em> Input des Principled BSDF Shaders.</li>
+<li>Da die Farben noch recht blass sind, nutzen wir einen <em>Conveerter → ColorRamp</em> Node, um die Textur einzufärben. Zieht diesen Node zwischen die Textur und den Principled Shader.</li>
+</ul>
+
+<p><img src="img/5.1.5.1.gif" alt="pl1" /></p>
+
+<blockquote>
+<p>Der ColorRamp Node nimmt als Input Graustufen und gibt dann abhängig von der Helligkeit des Inputs die im Verlauf angegebenen Farben aus. Schwarz (links) nach Weiß (rechts).</p>
+</blockquote>
+
+<p><img src="img/5.1.5.2.png" alt="vector distort" /></p>
+
+<ul>
+<li>Fügt nun eine zweite Noise Texture hinzu und verischt diese mit einem <em>MixRGB</em> Node mit den Texturkoordinaten.</li>
+</ul>
+
+<blockquote>
+<p>Die Texturkoordinaten werden in Blender auf die gleicheWeise behandelt wie Farben (<em>X = Rot, Y = Grün, Z = Blau</em>) und können dementsprechend auch mit Texturen vermischt werden. In diesem Beispiel ist das Ergebnis davon die Verzerrung der ersten Noise-Textur mithilfe der Zweiten. Damit lässt sich eine natürlicher wirkende Textur erzugen.</p>
+</blockquote>
+
+<ul>
+<li>Die Verzerrung kann nun mit dem <em>Fac</em> des Mix Nodes kontrolliert werden.</li>
+<li>Experimentiert solange mit den Scale Werten der beiden Texturen, bis ihr zufrieden mit dem Ergebnis seid. Stellt <em>Detail</em> beider Texturen vorerst ca. auf 8 (mehr Detail, detailliertes Ergebnis aber längere Renderzeit)</li>
+</ul>
+
+<p><img src="img/5.1.5.3.png" alt="bump" /></p>
+
+<ul>
+<li>Fügt einen <a href="https://docs.blender.org/manual/en/2.80/render/shader_nodes/vector/bump.html">Bump Node</a> hinzu und verbindet dessen <em>Height</em> Wert mit dem <em>Fac</em> Output der Noise Textur und den Output mit dem <em>Normal</em> Input des Principled BSDF Nodes.</li>
+<li>Stellt den <em>Distance</em> Wert im Bump Node auf einen realistischeren Wert, z.b. 0.1</li>
+</ul>
+
+<blockquote>
+<p><a href="https://de.wikipedia.org/wiki/Bumpmapping">Bumpmapping</a> manipuliert die Normalen des Materials abhängig der verwendeten Graustufentextur. Somit entsteht die Illusion einer Struktur auf der Oberfläche. Dabei werden mit dunklen Farben auf der Textur Rillen erzeugt und mit hellen Farben Erhebungen.</p>
+</blockquote>
+
+<h2 id="ressourcen-tutorials-zum-thema">Ressourcen &amp; Tutorials zum Thema</h2>
+
+<p><strong>Einige Informationen zu Materialnodes finden sich in <a href="../lecture01/index.html#2-materialnodes-grundlagen">Lektion 4</a></strong></p>
+
+<p>Visuelle Repräsentation der Parameter der Principled BSDF Shadernodes:
+<img src="img/principled.jpg" alt="" /></p>
+
+<table>
+<thead>
+<tr>
+<th>Art/Länge</th>
+<th>Titel</th>
+<th>Thema</th>
+<th>Quelle</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 7:14</td>
+<td><a href="https://youtu.be/0zrd37k2tJM"><strong>Shading Editor - Blender 2.80 Fundamentals</strong></a></td>
+<td>Materialien</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 9:00</td>
+<td><a href="https://youtu.be/5TcBWJva9aE"><strong>Blender 2.8 - The Node Editor</strong></a></td>
+<td>Materialien</td>
+<td><a href="https://www.youtube.com/channel/UCKMMfozbLS4wdZEWjMgwflA">YouTube - Rory Allen</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 2:59</td>
+<td><a href="https://youtu.be/_deRNqDcwRk"><strong>Procedural Textures - Blender 2.80 Fundamentals</strong></a></td>
+<td>Materialien</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 15:04</td>
+<td><a href="https://youtu.be/66lvjTVu06c"><strong>Blender 2.8 Beginner Tutorial - Part 9: Procedural Materials</strong></a></td>
+<td>Prozedurale Texturen</td>
+<td><a href="https://www.youtube.com/channel/UCWWybvw9jnpOdJq_6wTHryA">YouTube - CG Boost</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/article.png" class="resicon"></td>
+<td><a href="https://docs.blender.org/manual/en/latest/index.html"><strong>Blender Reference Manual - Shader Nodes</strong></a></td>
+<td>Dokumentation zu jedem verfügbaren Shadernode</td>
+<td><a href="https://docs.blender.org/manual/en/latest/index.html">Blender Dokumentation</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="aufgabe">Aufgabe</h2>
+
+<p>Gebt dem Schwert und Stein passende Materialen. Details zur Abgabe in 4.2</p>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../../chapter03/exercise02_b/index.html" title="Übung 3.2 - Sculpting">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Übung 3.2 - Sculpting
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../exercise01_a/index.html" title="Übung 4.1 - Shading und Rendering">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Übung 4.1 - Shading und Rendering
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
