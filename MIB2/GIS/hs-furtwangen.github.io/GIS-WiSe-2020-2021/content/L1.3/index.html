@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L1.3/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-13-grundlagen-css"><em>V</em> <strong>1.3</strong> Grundlagen CSS</h2>
+
+<hr />
+
+<h3 id="einführung">Einführung</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/01_Einstieg_in_CSS.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/01_Einstieg_in_CSS.mp4">Zum Video</a>
+</video>
+
+<p>CSS (steht für Cascading Style Sheets) ist eine browser-basierte Gestaltungssprache, mit der Webanwendungen visuell angepasst werden können. CSS-Anweisungen können auf drei Arten eingebunden werden:</p>
+<ul>
+  <li><strong>Inline</strong>: nicht zu empfehlen, da Redundanzen in der Regeldefinition mehrerer Elemente entsteht und ab einer gewissen Deklarationsmenge die Eigenschafts-Werte-Paare nicht mehr pflegbar sind. Zudem ist eine klare Trennung zwischen Inhalt und Gestaltung nicht mehr möglich.</li>
+  <li><strong>Style-Tag im Head</strong>: schafft eine Trennung zwischen Inhalt und Gestaltung, verursacht aber auch eine Redundanz über mehrere HTML-Seiten.</li>
+  <li><strong>externes CSS-Stylesheet</strong>: empfohlen. im Head des HTML-Dokuments verlinkt. Schafft eine klare Trennung zwischen Inhalt und Gestaltung, kann in beliebig vielen HTML-Seiten genutzt und an einer zentralen Stelle administiert werden.</li>
+</ul>
+
+<p>Eine CSS-Anweisung besteht immer aus einem Selektor und der Deklaration, die aus Eigenschaft und Wert besteht.</p>
+
+<p><strong>Links im Video</strong></p>
+
+<p>Übersicht von sämtlichen aktuellen CSS-Anweisungen mit Beispielen git es hier:
+<em><a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a></em></p>
+
+<hr />
+
+<h3 id="eigenschaften">Eigenschaften</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/02_CSS_Eigenschaften.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/02_CSS_Eigenschaften.mp4">Zum Video</a>
+</video>
+
+<p>Die aktuellen Möglichkeiten der visuellen Gestaltung mit CSS sind scheinbar endlos. In diesem Video werden die gängigsten Eigenschaften sowie ein effizienter Workflow mit <em>Visual Studio Code</em> vorgestellt und die Funktionen der verschiedenen CSS-Anweisungen erklärt.</p>
+
+<p>Eigenschaften stehen immer in Abhängigkeit zu dem entsprechenden Element, sodass nicht alle Eigenschaften bei allen Elementen sinnvoll sind oder schlicht keine Auswirkung haben.</p>
+
+<hr />
+
+<h3 id="selektoren">Selektoren</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/03_CSS_Selektoren.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/03_CSS_Selektoren.mp4">Zum Video</a>
+</video>
+
+<p>Um CSS-Anweisungen an bestimmte Elemente eines HTML-Dokument zu adressieren, kann man mithilfe von Selektoren auf ein oder mehrere Elemente zugreifen.</p>
+
+<p>Es gibt verschiedene Arten von Selektoren: die drei Haupt-Selektoren sind <strong>Element-Selektoren</strong> (gebildet aus dem Tag-Namen), <strong>ID-Selektoren</strong> (wirken sich auf Elemente aus, die mit einer eindeutigen ID versehen wurden) und <strong>Klassen-Selektoren</strong> (ermöglichen die Auswahl mehrerer HTML-Elemente, auf die mit der Formatierung zugegriffen werden soll).</p>
+
+<hr />
+
+<h3 id="kaskadierung-und-vererbung">Kaskadierung und Vererbung</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/04_Kaskadierung_und_Vererbung.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/04_Kaskadierung_und_Vererbung.mp4">Zum Video</a>
+</video>
+
+<p>Das Grundprinzip der Kaskadierung bewirkt eine Reihen- oder Rangfolge, in der Eigenschaften in CSS vererbt werden, denn die einzelnen CSS-Selektoren werden unterschiedlich schwer gewichtet. Es ist hilfreich, diese Regeln zu kennen, um zu verstehen, wann welche Anweisungen umgesetzt werden (bzw. warum nicht) und welche Anweisungen andere überschreiben.</p>
+
+<p>Definierte Eigenschaften werden an die (semantisch untergeordneten) Kinderelemente des selektierten Elements vererbt. Werden jedoch die Eigenschaften für die untergeordneten Elemente neu definiert, überschreiben diese die vererbten Eigenschaften.</p>
+
+<hr />
+
+<h3 id="box-model-und-maßeinheiten">Box Model und Maßeinheiten</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/05_CSS_Box_Model_und_Masseinheiten.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/05_CSS_Box_Model_und_Masseinheiten.mp4">Zum Video</a>
+</video>
+
+<p>Das CSS-Box-Model beschreibt, dass alle Elemente im Browser auf Basis einer Box beschrieben werden können, die aus einer bestimmten Größe (Höhe x Breite), einem Innenabstand (<strong>padding</strong>), einem Rahmen (<strong>border</strong>) und einem Außenabstand (<strong>margin</strong>) bestehen.</p>
+
+<p>Der Browser arbeitet mit verschiedenen Maßeinheiten, für den Anfang genügt das Pixelmaß (<strong>px</strong>). Ansonsten gibt es beispielsweise noch Angaben in <strong>pt</strong> (statisch, Anwendung im Druck), <strong>em</strong> und <strong>rem</strong> (relative Angabe) oder <strong>Prozent</strong>.</p>
+
+<hr />
+
+<h3 id="take-aways">Take Aways</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/06_Take_Aways.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L03/06_Take_Aways.mp4">Zum Video</a>
+</video>
+
+<ul>
+  <li>CSS definiert die Darstellung von Inhalten im Browser und kann auf drei Wegen eingebunden werden: Inline, im Head oder als externes Stylesheet.</li>
+  <li>CSS-Anweisungen bestehen aus Selektor(-pfad/-kette) und Deklaration und es gibt viele verschiedene CSS-Eigenschaften zur Manipulation der Darstellung im Browser.</li>
+  <li>Es gibt drei Haupt-Selektoren, welche eine Art Rangfolge besitzen.</li>
+  <li>Eigenschaften werden von Eltern- an Kinderelemente vererbt, können aber auch überschrieben werden.</li>
+  <li>Das CSS-Box-Model beschreibt verschiedene Abstandsmaße für Elemente.</li>
+</ul>
+
+<p><em><a href="Cheatsheet_CSS.pdf">CSS Cheatsheet zum Herunterladen</a></em></p>
+
+<hr />
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/TawsTm">&lt;TawsTm&gt;</a></p>
+
+<h3 id="mein-inhalt-ist-nicht-zentriert-wie-geht-das">Mein Inhalt ist nicht zentriert. Wie geht das?</h3>
+<p>Die Möglichkeiten in CSS Dinge zu zentrieren sind sozusagen endlos. Es gibt Standard-Ansätze wenn man z.B. Text zentrieren möchte (text-align: center). Aber an sich ist es ihnen überlassen wie Sie ihre Inhalte zentrieren. Einige Beispiele wären: “margin: 0 auto” oder ein flexbox-System mit “justify-content: center” bzw. “align-items: center”.</p>
+
+<h3 id="was-bedeutet-die-800px-beschränkung-in-der-aufgabe">Was bedeutet die 800px Beschränkung in der Aufgabe?</h3>
+<p>Der Seiteninhalt soll eine maximale Breite von 800px im Browser einnehmen.</p>
+
+<h3 id="muss-ich-meine-css-datei-immer-abspeichern-um-veränderungen-im-browser-zu-sehen">Muss ich meine CSS-Datei immer abspeichern um Veränderungen im Browser zu sehen?</h3>
+<p>Sie können für das testen von verschiedenen Properties die Entwicklertools ihres Browsers unter dem Tab Elements nutzen. Dort können Sie Veränderungen der CSS Properties direkt einsehen. Vergessen Sie aber nicht bei einer gefundenen Lösung auch ihre Datei dementsprechend anzupassen.</p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L1.3/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:26 GMT -->
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L2.2/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-22-weiterführende-konzepte-typescript"><em>V</em> <strong>2.2</strong> Weiterführende Konzepte Typescript</h2>
+
+<h3 id="inhaltsverzeichnis">Inhaltsverzeichnis</h3>
+
+<ul>
+  <li><a href="#vorgehensweisen-bei-der-programmierung">Vorgehensweisen bei der Programmierung</a>
+    <ul>
+      <li><a href="#planung">Planung</a></li>
+      <li><a href="#divide-and-conquer">Divide and Conquer</a></li>
+      <li><a href="#code-duplizierung-ist-schlecht">Code Duplizierung ist schlecht</a></li>
+      <li><a href="#zuständigkeiten-trennen">Zuständigkeiten Trennen</a></li>
+    </ul>
+  </li>
+  <li><a href="#komplexe-typen">Komplexe Typen</a>
+    <ul>
+      <li><a href="#array">Array</a></li>
+      <li><a href="#assoziatives-array">Assoziatives Array</a></li>
+      <li><a href="#interface">Interface</a></li>
+      <li><a href="#javascript-objekt">JavaScript Objekt</a></li>
+      <li><a href="#klassen">Klassen</a>
+        <ul>
+          <li><a href="#zugriffsmodifikatoren">Zugriffsmodifikatoren</a></li>
+          <li><a href="#vererbung">Vererbung</a></li>
+          <li><a href="#polymorphie">Polymorphie</a></li>
+          <li><a href="#instanceof">instanceof</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#weitere-typescript-konzepte">Weitere Typescript Konzepte</a>
+    <ul>
+      <li><a href="#namespaces">Namespaces</a></li>
+      <li><a href="#optionale-parameter">Optionale Parameter</a></li>
+      <li><a href="#rest-parameter">Rest Parameter</a></li>
+      <li><a href="#callstack-und-rekursion">Callstack und Rekursion</a></li>
+      <li><a href="#call-by-reference--call-by-value">Call by reference / call by value</a></li>
+      <li><a href="#spezielle-for-schleifen">Spezielle for-Schleifen</a>
+        <ul>
+          <li><a href="#forof">for..of</a></li>
+          <li><a href="#forin">for..in</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#canvas">Canvas</a>
+    <ul>
+      <li><a href="#path2d">Path2D</a></li>
+    </ul>
+  </li>
+  <li><a href="#-fragen-und-antworten">Q&amp;A</a></li>
+</ul>
+
+<p>Diese Woche geht es darum, die in der letzten Woche erlernten Grundlagen von JS/TS zu erweitern, um die ganze Bandbreite an wichtigen Sprach-spezifischen Konzepten zu kennen und anzuwenden.</p>
+
+<p>In diesem Kurs sind gewisse Formatvorgaben bzw. <a href="../../codingstyle/index.html">Codingstyle Guidelines</a> einzuhalten. Diese dienen zusammen mit dem TSLinter vorallem der Lesbarkeit und damit dem Verständis sowohl der Studierenden als auch der Prüfer. Sollten Sie diese Guidelines noch nicht gelesen haben, so ist es nun höchste Zeit sich damit vertraut zu machen. Abgaben müssen diesen Regeln entsprechen.</p>
+
+<h3 id="vorgehensweisen-bei-der-programmierung">Vorgehensweisen bei der Programmierung</h3>
+
+<p>Zusätzlich zu den stylistischen Guidelines sollen hier auch logische Hilfestellungen gegeben werden, welche es einfacher machen sollen, effizienten, effektiven und guten Code zu schreiben.</p>
+
+<h4 id="planung">Planung</h4>
+
+<p>Dass Planung wichtig ist, ist eine oftmals belächelte Aussage. Auch ich habe immer wieder darüber geschmunzelt, bis ich damit auf die Nase gefallen bin. Inzwischen weiß ich: Kaum irgendetwas ist in der Entwicklung neben dem eigentlichen Verständnis des Ziels und der Sprache so wichtig wie eine Planung der Konzepte. Es ist so wichtig, dass dafür eine ganze Sprache entwickelt wurde, die <a href="https://de.wikipedia.org/wiki/Unified_Modeling_Language">Unified Modeling Language (UML)</a>. Diese deckt in ihren Möglichkeiten jeden erdenklichen Fall ab und wird von Entwicklern auf der ganzen Welt genutzt, um gemeinsam Vorgänge zu erarbeiten, Strukturen zu klassifizieren und vieles mehr. In diesem Kurs haben wir nicht die Zeit, uns damit zu beschäftigen, auch weil es in einem späteren Semester nochmal vermehrt um das Design von Software gehen wird. Darum an dieser Stelle nur der Hinweis auf die Existenz dieser Sprache sowie ein <a href="UML_TS_EIA.pdf">UML Cheatsheet</a> von Prof. Jirka Dell’Oro Friedl, welches die für dieses Semester wichtigesten UML Elemente Beispielhaft abbildet und erklärt.</p>
+
+<h4 id="divide-and-conquer">Divide and Conquer</h4>
+
+<p>Oder manchmal auch “Divide et impera” (lat.: Teile und herrsche) genannt, ist eine Vorgehensweise in der Softwareentwicklung, bei der man sich von den großen Problemen zu den kleinen durcharbeitet. Dieses Prinzip kann auf jede noch so kleine oder große Aufgabe angewandt werden, und hilft gerade am Anfang eine Übersicht über die benötigten Schritte zu erhalten.</p>
+
+<p>Dabei wird das große, als ganzes scheinbar unüberwindbare Problem, so lange in kleinere Teile aufgeteilt, bis diese gelöst sind. Dieser kleinste Schritt kann dabei je nach Wissensstand jede einzelne Zeile Code darstellen oder ganze Subsysteme in einem großen komplexen System.</p>
+
+<p>Durch diese Planung und Vorbereitung fallen einem oftmals im Voraus schon potenzielle Probleme, Wissenslücken und Optimierungsmöglichkeiten ein, welche man dann im Voraus umgehen, schließen und nutzen kann, um so ein besseres Endergebnis zu erhalten. Auch kann so Code Duplizierung im Voraus entgegen gewirkt werden, da man einen besseren Überblick hat, welche Teile mehrfach genutzt werden.</p>
+
+<blockquote>
+  <p>Hinweis: Die Implementation und der Test einzelner Subsysteme sollte stets isoliert vom Gesamtsystem sein. So können einzelne Teilaspekte auf ihre Funktionalität überprüft werden, ohne dass alles Implementiert sein muss. Testen Sie darum wenn es sein muss jede Zeile die Sie schreiben einzeln, damit Sie sich sicher sein können, dass diese das tut was sie soll.</p>
+</blockquote>
+
+<h4 id="code-duplizierung-ist-schlecht">Code Duplizierung ist schlecht</h4>
+
+<p>Um Code sowohl übersichtlich als auch anpassbar und wartbar zu halten, ist es ratsam, sich wiederholende Anweisungen und Abschnitte in Funktionen zu kapseln, um diese Abschnitte wiederverwenden zu können. Dank Übergabeparametern können Funktionen im Regelfall so modular entwickelt werden, dass sie für alle ähnlichen Anwendungsfälle auch funktionieren.<br />
+Ähnlich, wenn auch offensichtlicher, verhält es sich mit Schleifen. Niemand würde 10 mal die gleiche Zeile schreiben, wenn man stattdessen eine Schleife nutzen kann. Allerdings ist es natürlich nicht immer so offensichtlich, darum sollte man sowohl bei der Planung als auch bei der Umsetzung immer folgende Faustregel im Kopf haben.</p>
+
+<blockquote>
+  <p>Faustregel: Statt einen Codeabschnitt zu kopieren, um ihn an anderer Stelle einzufügen und wieder zu verweden, sollte dieser besser in eine Funktion ausgelagert werden, welche - ggf. mit passenden Übergabeparametern versehen - an beiden Stellen aufgerufen werden kann.</p>
+</blockquote>
+
+<h4 id="zuständigkeiten-trennen">Zuständigkeiten trennen</h4>
+
+<p>Selbst ohne duplizierten oder sich wiederholenden Code ist es oft ratsam, ein großes Programm in mehrere Funktionen zu unterteilen, welche verschiedene Zuständigkeiten haben. So so ist, statt einer 200 Zeilen langen <code class="language-plaintext highlighter-rouge">main</code> Funktion, es deutlich besser zu lesen, verstehen und warten, wenn man diese auf 10 kleinere, übersichtlichere Funktionen mit klaren Aufgaben verteilt. Wenn man z.B. eine Webseite aus Daten generieren möchte (wie wir das in den kommenden Wochen tun werden), könnte man das aufteilen in eine Funktion welche die Daten einließt, eine welche in der statischen Seite die Interaktivität (EventListener, s. <a href="../L2.3/index.html">DOM Manipulation und Eventhandling</a>)) verleiht, eine Funktion welche die Daten durchgeht und eine welche die HTML Seitenelemente anlegt und befüllt.</p>
+
+<p>Aufgrund dieses Grundsatzes sollten auch Daten (json, Datenbanken), Struktur (HTML), Darstellung (CSS) und Funktionalität (JS/TS) getrennt werden. So sollten CSS oder JS nicht in der HTML Datei eingbettet werden (auch wenn das möglich ist) oder Dateien, welche ausschließlich Daten beinhalten, von denen die Funktionalität beinhalten getrennt gehalten werden.</p>
+
+<h3 id="komplexe-typen">Komplexe Typen</h3>
+
+<p>Neben den einfachen Typen (<code class="language-plaintext highlighter-rouge">number, string, boolean</code>) hat JS/TS auch komplexe Typen zu bieten, welche einige Besonderheiten aufweisen. Die hier dargestellte Liste zeigt bei weitem nicht alle existierenden / eingebauten Typen auf, sondern lediglich die relevantesten.</p>
+
+<h4 id="array">Array</h4>
+
+<p>Ein (homogenes) Array erlaubt es, mehrere Elemente des gleichen Typs in einer Art Liste zu speichern. Es wird deklariert indem hinter den zu verwendenden Typ eckige Klammern geschrieben werden. Auch werden die Werte in eckigen Klammern definiert.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">numberArray</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">42</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">emptyArray</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+</code></pre></div></div>
+
+<p>Dabei wird jedem Eintrag in dieser Liste automatisch ein fortlaufender index zugeordnet, beginnend bei 0. Arrays haben in JS/TS eine dynamische Länge, sind also immer genau so lang wie sie sein müssen um alle Elemente speichern zu können.</p>
+
+<p>Über eckige Klammern hinter dem Bezeichner kann auch auf bestimmte Stellen in diesem Array zugegriffen werden, wie man auf normale Variablen zugreifen würde.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numberArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="c1">// 0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numberArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">// 10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numberArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>  <span class="c1">// 42</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numberArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">numberArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span> <span class="c1">// 52</span>
+</code></pre></div></div>
+
+<p><strong>Wichtigste Methoden und Attribute</strong></p>
+
+<p>-<code class="language-plaintext highlighter-rouge">length</code> gibt die Gesamtanzahl der enthaltenen Elemente zurück.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numberArray</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 3</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">.push()</code> fügt ein Element ans Ende des Arrays an.</p>
+
+<p><code class="language-plaintext highlighter-rouge">.pop()</code> entfernt das letzte Element aus einem Array und gibt dieses zurück.</p>
+
+<p><code class="language-plaintext highlighter-rouge">.slice()</code> selektiert einen Teil des Arrays und gibt nur diesen als neues Array zurück.</p>
+
+<p><code class="language-plaintext highlighter-rouge">.splice()</code> entfernt (und ersetzt) Elemente aus dem Array</p>
+
+<blockquote>
+  <p>Die Offenheit von JS erlaubt es, jede Art von Variable in ein Array zu speichern (heterogen), selbst andere Arrays. Und während letzteres praktisch ist, um <em>mehrdimensionale Arrays</em> anzulegen, so ist ersteres in Typescript nicht erlaubt.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Hallo</span><span class="dl">"</span><span class="p">]</span>   <span class="c1">//JS: okay, TS: error</span>
+
+<span class="c1">// ein Array welches zwei Dimensionen hat.</span>
+<span class="kd">let</span> <span class="nx">mult</span><span class="p">:</span> <span class="kr">number</span><span class="p">[][]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mult</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span> <span class="c1">// 30</span>
+</code></pre></div></div>
+
+<h4 id="assoziatives-array">Assoziatives Array</h4>
+
+<p>In einem Assoziativen Array wird statt dem automatisch generierten Index eines normalen Arrays der Index / Schlüssel durch den Entwickler selbst bestimmt (im häufigsten Fall ein <code class="language-plaintext highlighter-rouge">string</code>) und dieser dann mit dem Wert verknüpft. Ein solches assoziatives Array wird in der Regel mit Hilfe geschweifter Klammern erzeugt, wobei innerhalb der Klammern bereits Schlüssel-Werte-Paare angegeben werden können. Die Assoziation wird durch den Doppelpunkt : dargestellt.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">assoArray</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">zahl</span><span class="dl">"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="dl">"</span><span class="s2">wahr</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hallo</span><span class="dl">"</span><span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">assoArray</span><span class="p">[</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">])</span> <span class="c1">// "Hallo"</span>
+</code></pre></div></div>
+
+<p>Nicht nur die Datentypen sind heterogen, sondern auch die Schlüssel können beliebig gewählt werden. Das ermöglicht große Flexibilität, aber auch Fehler, die schwer zu finden sind. Um assoziative Arrays stringenter zu strukturieren, stellt TypeScript interfaces zur Verfügung. Damit lassen sich Schlüssel vordefinieren und die Datentypen für Werte und Schlüssel einschränken.</p>
+
+<p>Im folgenden Beispiel sind die Schlüssel frei wählbar, sind aber auf den Typ string beschränkt, und das Array ist auf Wahrheitswerte homogenisiert.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">MapStringToBoolean</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">MapStringToBoolean</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">wert1</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="dl">"</span><span class="s2">wert2</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="dl">"</span><span class="s2">wert1</span><span class="dl">"</span><span class="p">]);</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<h4 id="interface">Interface</h4>
+
+<p>Interfaces erlauben aber noch mehr als nur Arrays zu definieren. Sie können jede Form von eigenem Datentyp definieren, und so die Entwicklungszeit und das Programm als ganzes deutlich verbessern.</p>
+
+<p>Dabei werden im Interface feste Namen für verschiedene Attribute festgelegt, welche dann auch so vom Typescript compiler eingefordert werden. Attribute sind Variablen, die einem bestimmten Objekt zugeordnet sind. Sie können über die Punktnotation abgefragt werden.</p>
+
+<blockquote>
+  <p>Da wir mit interfaces sozusagen unsere eigenen Komplexen Typen definieren, sollten diese groß geschrieben werden.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Dog</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">owner</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">d1</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bello</span><span class="dl">"</span><span class="p">}</span> <span class="c1">// Error: Es fehlen owner und age</span>
+<span class="kd">let</span> <span class="nx">d2</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sir Woofalot</span><span class="dl">"</span><span class="p">,</span> <span class="na">owner</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Martin</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d2</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// 5</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Auch in interfaces können Werte als optional markiert werden, die Syntax ist dabei die gleiche wie in Funktionen.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Dog</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">owner</span><span class="p">?:</span> <span class="kr">string</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="javascript-objekt">JavaScript Objekt</h4>
+
+<p>Ein Objekt ist ein heterogenes assoziatives Array, dem Funktionen anheften. Diese Funktionen können die Elemente des Arrays verändern, ohne dass ihnen Informationen zu dem Objekt mitgegeben werden müssen, denn sie sind ja ein Teil davon und haben Zugriff darauf. Um diese Funktionen von den üblichen zu unterscheiden werden sie Methoden genannt. Ein Objekt verfügt also über Methoden, mit der es sich, oder auch seine Umwelt, verändern kann.</p>
+
+<p>Tatsächlich ist alles in JS im Kern ein Objekt. Selbst die primitiven Datentypen gaukeln nur ihre Primitivität vor, wodurch sie sich einsetzen lassen wie in ‘klassischen’ Programmiersprachen (und so zum Beispiel auch eigene Methoden und Attribute haben können wie <code class="language-plaintext highlighter-rouge">string.length</code> oder <code class="language-plaintext highlighter-rouge">number.toFixed()</code>).</p>
+
+<h4 id="klassen">Klassen</h4>
+
+<p>Klassen sind ein in JS erst kürzlich integriertes Konstrukt, welches dem Ansatz der etablierteren objektorientierten Programmierung folgt. Darum sind diese nicht vollständig in JS integriert worden. Aber TS gibt uns hier die Möglichkeiten, dieses Konstrukt voll zu nutzen.</p>
+
+<p>Klassen sind fest definierte JS Objekte, welche wie interfaces auch ihre <em>Attribute</em>  definieren, zusätzlich aber auch eigene <em>Methoden</em> haben können. Diese Methoden erlauben es, wie in JS Objekt bereits erläutert, dem Objekt selbst beizubringen, wie es sich zu verhalten hat. Genau wie die Attribute brauchen auch sie keine Schlüsselworte zur Definition sondern werden durch Klammern <code class="language-plaintext highlighter-rouge">()</code> von den Attributen unterschieden.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Vector</span> <span class="p">{</span>
+  <span class="nl">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="nx">scale</span><span class="p">(</span><span class="nx">_factor</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">*=</span> <span class="nx">_factor</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">*=</span> <span class="nx">_factor</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">add</span><span class="p">(</span><span class="nx">_addend</span><span class="p">:</span> <span class="nx">Vector</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">_addend</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">_addend</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Das Praktische an einer solchen Kapselung ist, dass das Programm, das einen solchen Vektor nutzt, nun nicht mehr wissen muss, wie man einen Vektor skaliert oder einen zweiten hinzuaddiert. Es genügt zu wissen, dass man es tun kann und welche Parameter der Vektor hierzu braucht. Den Rest macht der Vektor selbst. Damit wird der Vektor zu einer Black-Box, deren interne Arbeitsweise nicht bekannt sein muss, um sie zu verwenden. Der Vektor ist “gekapselt”.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Dog</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="nx">createDog</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">increaseAge</span><span class="p">(</span><span class="nx">_age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">+=</span> <span class="nx">_age</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">bark</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2"> and I say: Woof!`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Um eine Klasse nutzen zu können, muss eine neue <em>Instanz</em> dieser Klasse angelegt werden. Dies wird durch das <code class="language-plaintext highlighter-rouge">new</code> Schlüsselwort erzielt. Klassen brauchen eine Instanz um zu funktionieren, da die Attribute und Methoden dieser Instanz zugeordnet werden müssen, um so den Zusammenhang herzustellen.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">d</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">createDog</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bello</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">bark</span><span class="p">();</span> <span class="c1">// "My name is Bello and I say: Woof!"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// 0</span>
+</code></pre></div></div>
+
+<p>Das <code class="language-plaintext highlighter-rouge">this</code> Schlüsselwort bezieht sich dabei auf die aktuelle Instanz. So kann von innerhalb der Klasse auf ihre eigenen Attribute und Methoden zugegriffen werden.</p>
+
+<blockquote>
+  <p>⚠️ <code class="language-plaintext highlighter-rouge">this</code> ist stark Kontextabhängig und kann sich unter Umständen unerwartet ändern (z.B. wenn eine Methode von außerhalb aufgerufen wird). Korrektes <code class="language-plaintext highlighter-rouge">this</code>-Handling ist eines der schwierigsten Konzepte in JS, darum scheuen Sie sich nicht vor Fragen wenn dabei etwas schief gehen sollte!</p>
+</blockquote>
+
+<p>Im obigen Beispiel wird ein neuer Hund angelegt und dieser dann in der nächsten Zeile über die <code class="language-plaintext highlighter-rouge">createDog()</code> Funktion mit Namen und Alter initialisiert. Ohne diese Funktion wäre es also ein undefinierter Hund.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">d</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// undefined</span>
+</code></pre></div></div>
+
+<p>Diese Initialisierung von Klasseninstanzen ist so ein häufiges Problem, dass die Entwickler dieser Welt sich auf eine einheitliche Methode geeinigt haben: einen <strong>Konstruktor</strong>.</p>
+
+<p>Dieser Konstruktor ist eine fest definierte Methode mit dem Namen <code class="language-plaintext highlighter-rouge">constructor()</code> und jede Klasse hat implizit einen Konstruktor, auch wenn diese Methode nicht explizit implementiert wird. Um genau zu sein ist das die Methode, die hinter <code class="language-plaintext highlighter-rouge">new</code> aufgerufen wird (<code class="language-plaintext highlighter-rouge">Dog()</code>) und die neue Instanz erzeugt. Da dies die neue Instanz zurückgeben muss, darf <strong>diese spezielle Methode nichts zurückgeben</strong>. Hier die geänderte Dog Klasse.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Dog</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span> <span class="k">void</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">increaseAge</span><span class="p">(</span><span class="nx">_age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">+=</span> <span class="nx">_age</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">bark</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2"> and I say: Woof!`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">d</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bello</span><span class="dl">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h5 id="zugriffsmodifikatoren">Zugriffsmodifikatoren</h5>
+
+<p>In den meisten Objektorientierten Sprachen gibt es Zugriffsmodifikatoren welche steuern sollen, wer auf gewisse Attribute und Variablen Zugriff hat. So auch in Typescript.</p>
+
+<p><code class="language-plaintext highlighter-rouge">private</code> nur die Klasse selbst hat Zugriff.</p>
+
+<p><code class="language-plaintext highlighter-rouge">protected</code> nur die Klasse selbst und alle Subklassen (s. <a href="#vererbung">Vererbung</a>) haben Zugriff.</p>
+
+<p><code class="language-plaintext highlighter-rouge">public</code> jeder hat Zugriff. Standard.</p>
+
+<p>Wenn wir unseren Hund nun so modifizieren, dass sein Alter privat ist, damit man dieses nicht einfach ändern kann, dann ergäbe sich folgendes Bild:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Dog</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>  <span class="c1">//⚠️ Den Konstruktor private zu machen bedeutet, es unmöglich zu machen, von dieser Klasse Instanzen anzulegen! </span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">public</span> <span class="nx">increaseAge</span><span class="p">(</span><span class="nx">_age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">+=</span> <span class="nx">_age</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">public</span> <span class="nx">bark</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2"> and I say: Woof!`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">d</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bello</span><span class="dl">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Schnuffel</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// kein Error</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>   <span class="c1">// TSError: "age" ist nicht öffentlich zugreifbar</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>           <span class="c1">// TSError: "age" ist nicht öffentlich zugreifbar</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>⚠️ Diese Zugriffsmodifikatoren sind nur ein von TS eingebauter Kniff und wirken sich nicht auf JS aus. Erst mit der neusten JS Version wurden private Modifikatoren eingeführt, welche durch ein <code class="language-plaintext highlighter-rouge">#</code> als erstes Zeichen des Attributnames definiert werden.</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Dog</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="err">#</span><span class="nx">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="vererbung">Vererbung</h5>
+
+<p>Eine Klasse kann ihre Eigenschaften und Methoden an andere Klassen weitergeben. Oder anders herum formuliert: Eine Klasse kann eine bereits bestehende Klasse um weitere Eigenschaften und Methoden erweitern. Die Klasse, von der geerbt wird, nennt sich dabei <strong>Superklasse</strong>. Die Klasse die erbt, nennt sich <strong>Subklasse</strong>.</p>
+
+<p>Ein solches Vererbungsverhältnis wird oft genutzt, wenn verschiedene Klassen viele Gemeinsamkeiten haben, welche dann als gemeinsame Oberklasse realsiert werden. Will man Beispielsweise neben der <code class="language-plaintext highlighter-rouge">Dog</code> Klasse noch eine <code class="language-plaintext highlighter-rouge">Cat</code> Klasse entwickeln, dann hätten diese viele Gemeinsamkeiten. Diese könnte man dann in einer gemeinsamen Klasse zusammenfassen und nur die Tierspezifischen Änderungen in den jeweiligen Klassen implementieren.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">DomesticAnimal</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">owner</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_color</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">_owner</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">""</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Animal Constructor</span><span class="dl">"</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">_name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">_age</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">_color</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">owner</span> <span class="o">=</span> <span class="nx">_owner</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">makeSound</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;undefined Animal Sound&gt;</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Dog</span> <span class="kd">extends</span> <span class="nx">DomesticAnimal</span> <span class="p">{</span>
+  <span class="nl">goodBoyOrGirl</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">_name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_color</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_age</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">_goodBoyOrGirl</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">_owner</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Dog Constructor</span><span class="dl">"</span><span class="p">)</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">_name</span><span class="p">,</span> <span class="nx">_color</span><span class="p">,</span> <span class="nx">_age</span><span class="p">,</span> <span class="nx">_owner</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">goodBoyOrGirl</span> <span class="o">=</span> <span class="nx">_goodBoyOrGirl</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">makeSound</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">woof!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Cat</span> <span class="kd">extends</span> <span class="nx">DomesticAnimal</span> <span class="p">{</span>
+  <span class="nx">makeSound</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">maunz!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">DomesticAnimal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DomesticAnimal</span><span class="p">(</span><span class="dl">"</span><span class="s2">Anim</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">schwarz</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">c</span><span class="p">:</span> <span class="nx">Cat</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Rey</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">getiegert</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">d</span><span class="p">:</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bello</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">weiß</span><span class="dl">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span> <span class="c1">// "&lt;undefined Animal Sound&gt;"</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span> <span class="c1">// "maunz!"</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span> <span class="c1">// "woof!"</span>
+</code></pre></div></div>
+
+<p>Dabei kann eine Klasse nicht nur erweitert, sonder ähnlich wie mit lokalen Variablen auch überschrieben werden. So überschreiben sowohl die Katze als auch der Hund die <code class="language-plaintext highlighter-rouge">makeSound</code> Funktion so, dass diese jeweils etwas anderes tun wenn sie aufgerufen werden.</p>
+
+<p>Der Konstruktor stellt dabei wieder mal einen Spezielfall dar, da eine Subklasse nur eine “verfeinerung” der Superklasse darstellt, muss die Superklasse auch weiterhin angelegt werden. Um auf Methoden der Superklasse zuzugreifen, wird das Schlüsselwort <code class="language-plaintext highlighter-rouge">super</code> verwendet, so kann der Konstruktor der Superklasse über <code class="language-plaintext highlighter-rouge">super()</code> aufgerufen werden.
+Während <code class="language-plaintext highlighter-rouge">Cat</code> keinen eigenen Konstruktor definiert und darum automatisch den Animal Konstruktor mitverwendet, überschreibt Dog den Konstruktor da dieser ein neues Attribut befüllen möchte.</p>
+
+<p><code class="language-plaintext highlighter-rouge">super.makeSound()</code> würde in der Katze oder Hunde Klasse <code class="language-plaintext highlighter-rouge">"&lt;undefined Animal Sounds&gt;"</code> auf der Konsole ausgeben. So ist es also möglich die spezifische Funktionalität der Superklasse beizubehalten / explizit zu verwenden, selbst wenn eine eigene Implementation diese Überschreibt.</p>
+
+<blockquote>
+  <p>Weitere Informationen zu Klassen in Typescript finden Sie in der <a href="https://www.typescriptlang.org/docs/handbook/classes.html">offiziellen Dokumentation</a> (Englisch) oder auch in den <a href="https://jirkadelloro.github.io/EIA2-Inverted/L09_Classes/">Kursmaterialien zu EIA2</a>.</p>
+</blockquote>
+
+<h5 id="polymorphie">Polymorphie</h5>
+
+<p>Polymorphie / Polymorphismus (griechisch: Vielgstaltigkeit) ist ein Konzept in der objektorientierten Programmierung das es erlaubt, dass Subklassen auch als Variablen der Superklasse gespeichert werden können.</p>
+
+<p>Dank diesem Prinzip können wir alle drei Tiere in ein <code class="language-plaintext highlighter-rouge">DomesticAnimal</code> Array packen, auch wenn <code class="language-plaintext highlighter-rouge">c</code> und <code class="language-plaintext highlighter-rouge">d</code> Spezialisierungen dieser Klasse sind und nicht mehr die Superklasse selbst.</p>
+
+<p>Dies ist sehr praktisch, wenn man statt mehrerer Variablen / Arrays für verschiedene Subklassen diese alle in einer gemeinsamen Struktur speichern möchte und sie alle das gleiche tun lassen(mit den jeweils eigenen Implementationen) .</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">allAnimals</span><span class="p">:</span> <span class="nx">DomesticAnimal</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">];</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">animal</span> <span class="k">of</span> <span class="nx">allAnimals</span><span class="p">){</span>
+  <span class="nx">animal</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="instanceof">instanceof</h5>
+
+<p>Wenn es nun aber doch wieder wichtig ist, von welcher Klasse eine Variable ist, so kann der (Vergleichs-)Operator <code class="language-plaintext highlighter-rouge">instanceof</code> genutzt werden.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span> <span class="k">instanceof</span> <span class="nx">Dog</span><span class="p">);</span> <span class="c1">// false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span> <span class="k">instanceof</span> <span class="nx">Dog</span><span class="p">);</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">instanceof</code> gibt auch dann <code class="language-plaintext highlighter-rouge">true</code> zurück, wenn die überprüfte Klasse eine Instanz einer Subklasse ist.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span> <span class="k">instanceof</span> <span class="nx">DomesticAnimal</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span> <span class="k">instanceof</span> <span class="nx">DomesticAnimal</span><span class="p">);</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<h3 id="weitere-typescript-konzepte">Weitere Typescript Konzepte</h3>
+<h4 id="namespaces">Namespaces</h4>
+
+<p>Alle Dateien in einem TS Projekt werden als “global bekannt” angesehen. Da das gesamte Repository als ein großes Projekt angesehen wird, ist jede <code class="language-plaintext highlighter-rouge">.ts</code> Datei Teil des globalen Namensraums. Das bedeutet wiederum, dass ein Variablenname immer nur einmal vorkommen kann.</p>
+
+<p><code class="language-plaintext highlighter-rouge">aufgabe1.ts</code></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">aufgabe2.ts</code></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>   <span class="c1">//ERROR: Doppelte Variablendeklaration </span>
+</code></pre></div></div>
+
+<p>Um dieses Problem zu umgehen, können Namensbereiche / Namespaces genutzt werden. Sie schaffen, wie der Name impliziert, einen Bereich, in dem Variablennamen von andereren Variablennamen abgeschirmt werden, um Namenskonflikten vorzubeugen oder logische Unterteilungen zu schaffen.</p>
+
+<p><code class="language-plaintext highlighter-rouge">aufgabe1.ts</code></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nx">Aufgabe1</span> <span class="p">{</span>  
+  <span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">aufgabe2.ts</code></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nx">Aufgabe2</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>   <span class="c1">//kein Error</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Will man auf die Variablen / Interfaces / Klassen / etc. anderer Dateien zugreifen, so kann man dies explizit tun, indem man die zu verwendende Variable mit <code class="language-plaintext highlighter-rouge">export</code> markiert. So ist diese automatisch in anderen Dateien mit dem gleichen Namespace verfügbar und kann außerdem in anderen Namensräumen importiert werden.</p>
+
+<blockquote>
+  <p>⚠️ Ggf. muss man auch den namespace mit einem export markieren. In anderen Fällen sorgt eben dies für eine Fehlermeldung. Dies hängt von der lokalen Typescriptversion ab und kann bei jedem Computer unterschiedlich sein.</p>
+</blockquote>
+
+<blockquote>
+  <p>Bei dieser Nutzung mehrerer Dateien muss auf die import Reihenfolge in der HTML Datei geachtet werden, damit die Daten der ersten Datei vorliegen um in der zweiten Datei verwendet zu werden.</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">aufgabe1.ts</code></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">export</span><span class="p">)</span> <span class="k">namespace</span> <span class="nx">Aufgabe1</span> <span class="p">{</span>  
+  <span class="k">export</span> <span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">aufgabe2.ts</code></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Aufgabe1</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./aufgabe1</span><span class="dl">"</span>
+<span class="k">namespace</span> <span class="nx">Aufgabe2</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Aufgabe1</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Auf diese so exportierten Variablen kann über die Objekt-Punkt-Notation zugegriffen werden.</p>
+
+<h4 id="optionale-parameter">Optionale Parameter</h4>
+
+<p>Während Javascript willentlich ignorant über die Menge an übergebenen und erwarteten Paramtern hinwegsieht, ist Typescript da deutlich restriktiver.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">square</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Käsekuchen</span><span class="dl">"</span><span class="p">)</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>Dieser Code funktioniert ohne Probleme in JS, da es die zusätzlich übergebenen Parameter einfach ignoriert. Auf der anderen Seite wird JS Parameter, welche nicht befüllt wurden, einfach mit einem <code class="language-plaintext highlighter-rouge">undefined</code> versehen.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">)</span> <span class="c1">//-&gt; Gibt folgendes auf der Konsole aus: "hi" undefined</span>
+</code></pre></div></div>
+
+<p>Dies verhindert Typescript standardmäßig, und haut dem Entwickler auf die Finger wenn eine falsche Anzahl an Parametern übergeben werden. Allerdings hat diese Vorgehensweise auch Vorteile, darum gibt es in Typescript die Möglichkeit einen Parameter als “optional” zu markieren: <code class="language-plaintext highlighter-rouge">?:</code>. Dabei müssen optionale Parameter sich stets am Ende der Parameterliste befinden.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">minus</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">?:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">b</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="nx">a</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minus</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>     <span class="c1">// -&gt; -10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">minus</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>  <span class="c1">// -&gt; 5</span>
+</code></pre></div></div>
+
+<p>Diese Funktion gibt je nach Menge der Parameter entweder die übergebene Zahl negiert zurück, oder subtrahiert die zweite von der ersten.</p>
+
+<p>Alternativ kann eine Variable auch einen Standardwert zugewiesen bekommen, der nicht <code class="language-plaintext highlighter-rouge">undefined</code> ist, indem einfach im Funktionskopf der Wert zugewiesen wird. In der folgenden Funktion welche das exponential berechnet, wird standardmäßig die Quadratur angenommen (“hoch 2”), sofern kein zweiter Parameter übergeben wird.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">power</span><span class="p">(</span><span class="nx">base</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">exponent</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">){</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">count</span> <span class="o">&lt;</span> <span class="nx">exponent</span><span class="p">;</span> <span class="nx">count</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">*=</span> <span class="nx">base</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">power</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>    <span class="c1">// -&gt; 100</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1">// -&gt; 64</span>
+</code></pre></div></div>
+
+<h4 id="rest-parameter">Rest Parameter</h4>
+
+<p>Für eine Funktion kann es sinnvoll sein, eine unspezifische Menge an Parametern entgegen zu nehmen. Die Funktion <code class="language-plaintext highlighter-rouge">console.log()</code> zum Beispiel kann eine beliebige Anzahl von Parametern auf der Konsole ausgeben, während die <code class="language-plaintext highlighter-rouge">Math.max()</code> Funktion aus beliebig vielen Parametern das Maximum zurück gibt.</p>
+
+<p>Um eine solche Funktion zu definieren, schreibt man drei Punkte vor den <em>letzten Parameter</em> der Funktion. Wenn die Funktion aufgerufen wird, werden alle Variablen, welche nicht in eine der vorherigen Parameter gehören, in ein Array gespeichert und können so genutzt werden.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printAll</span><span class="p">(...</span><span class="nx">outputs</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="na">i</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">outputs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">printAll</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="callstack-und-rekursion">Callstack und Rekursion</h4>
+
+<p>Wenn ein Programm ausgeführt wird und dabei von Funktion zu Funktion gesprungen wird, muss gespeichert werden, an welche Stelle der Code zurückkehren muss, wenn eine Funktion beendet wird. Der Ort an welchem diese Information gespeichert wird nennt sich der “Stack”.</p>
+
+<p>Diesen Stack zu speichern und verwalten kostet Speicherplatz. Und wenn der für den Stack zugewiesene Speicher überschritten wird, wird das Programm mit einem Fehler beendet (meist “too much/deep recursion” oder “Out of stack space”). Der folgende Code demonstriert das, indem er dem Computer eine Frage stellt, für die er unendlich lange zur Berechnung braucht (da sie unmöglich zu lösen ist). Oder er würde unendlich lange brauchen, wenn der Callstack da nicht dazwischen grätschen würde.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">chicken</span><span class="p">():</span> <span class="kr">string</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">egg</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">egg</span><span class="p">():</span> <span class="kr">string</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">chicken</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chicken</span><span class="p">(),</span> <span class="dl">"</span><span class="s2">war zuerst da.</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Ein solches Auslösen von Funktionen, bei denen sich die Funktionen selbst aufrufen (auch über Umwege) nennt man auch <strong>Rekursion</strong> (lat.: recurre, “zurücklaufen”). Sie erlauben es, teilweise komplizierte Probleme einfach und effizient zu lösen. Allerdings steht dem gegenüber eine limitierte Stack Größe, welche das Programm abstürzen lassen kann, sofern es überschritten wird.</p>
+
+<blockquote>
+  <p>Jede (direkte) Rekursion lässt sich auch als Schleife umschreiben (und umgekehrt), was in manchen Fällen (tiefe zu erwartende Rekursion) ratsam ist.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="nx">result</span> <span class="o">*=</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Beide Funktionen berechnen die Fakultät (<code class="language-plaintext highlighter-rouge">1*2*3*...*n</code>) einer Zahl. Die erste Iterativ, die zweite Rekursiv.</p>
+
+<h4 id="call-by-reference--call-by-value">Call by reference / call by value</h4>
+
+<p>Bei den einfachen Typen (number, string, boolean, (void)) wird in JS/TS der <em>Wert</em> direkt in der Variable selbst gespeichert und bei Kopien wird der Wert selbst kopiert, zum Beispiel wenn die Variable in eine andere Variable gespeichert wird oder an eine Funktion übergeben wird.</p>
+
+<p>Dagegen wird in der Variable für komplexe Typen (Arrays, JS Objekte, etc), nur ein <em>Verweis</em> auf die eigentlichen Werte gespeichert. Dies dient unter anderem der Variabilität und erlaubt so, dass bestehende Objekte erweitert werden können, ohne dass manuell neuer Speicherplatz angelegt werden muss. In diesem Fall wird nur die Referenz übergeben/kopiert, was bedeutet, dass mit den eigentlichen Werten gearbeitet wird, statt mit einer Kopie.</p>
+
+<p>Es folgt ein Beispiel über die Auswirkungen die dieser Unterschied haben kann. Die Situation bevor der Code ausgeführt wird:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">c</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">z</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span> <span class="o">-</span><span class="mi">30</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><img src="cbv_cbr.png" alt="Call by reference vs call by value" /></p>
+
+<p>Nun wird der folgende Code ausgeführt. Versuchen Sie nachzuvollziehen, wie es zu der Endsituation kommt.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Call by Value</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>            <span class="c1">// a = 6, b = 6</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>           <span class="c1">// a = 6, b = 10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>   <span class="c1">// 6</span>
+
+<span class="c1">//Call by Reference</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>              <span class="c1">// (x = y) --&gt; [10, 20, 30]</span>
+<span class="nx">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>         <span class="c1">// (x = y) --&gt; [100, 20, 30]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="c1">// 100</span>
+</code></pre></div></div>
+
+<p><img src="cbv_cbr_2.png" alt="Call by reference vs call by value nach den Änderungen" /></p>
+
+<p>Gleiches gilt bei Funktionsaufrufen mit Parametern.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Call by Value</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">addOne</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>          <span class="c1">// 100, 101</span>
+
+<span class="kd">function</span> <span class="nx">addOne</span><span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">n</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//Call by Reference</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">appendOne</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>          <span class="c1">// [1, 2, 3, 0], [1, 2, 3, 0]</span>
+
+<span class="kd">function</span> <span class="nx">appendOne</span><span class="p">(</span><span class="nx">arr</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]):</span> <span class="kr">number</span><span class="p">[]</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>        <span class="c1">//hier wird direkt auf dem übergebenen Array gearbeitet</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Dies ist zu beachten, wenn mit komplexen Typen gearbeitet wird, da dies viele unerwartete Nebenwirkungen haben kann.</p>
+
+<h4 id="spezielle-for-schleifen">Spezielle for-Schleifen</h4>
+
+<p>Neben der bekannten <code class="language-plaintext highlighter-rouge">for (Vorbedingung/Startwert; Laufbedingung; Änderung der Zählvariable / Schrittweite) {}</code> Variante der for-Schleife gibt es zwei weitere und sehr praktische Varianten, die den häufigen Nutzungsfall abdecken, ein komplexes Objekt mit Schlüssel-Werte Paaren (Arrays, JS Objekte) zu durchlaufen.</p>
+
+<h5 id="forof">for..of</h5>
+
+<p>Die for-of Schleife deckt dabei alle iterierbaren Objekte (z.B. Arrays, Listen) ab und gibt die <em>Werte</em> der Liste nacheinander aus.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">42</span><span class="p">];</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">){</span>        <span class="c1">//keine Typannotation für num</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>         <span class="c1">//10, 20, 42</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Der Typ der Variable wird implizit aus dem zu iterierenden Objekt übernommen.</p>
+
+<h5 id="forin">for..in</h5>
+
+<p>for-in Schleifen iterieren zusätzlich zu den von for-of Schleifen abgedeckten Elementen auch über JS Objekte (und damit letztendlich über alles was ein komplexer Typ ist). Der Unterschied zur for-of Schleife ist aber auch, dass for-in den <em>Schlüssel</em> ausgibt, während for-of den <em>Wert</em> ausgibt.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">42</span><span class="p">];</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">arr</span><span class="p">){</span>        <span class="c1">//keine Typannotation für key, immer string.</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>         <span class="c1">// "0", "1", "2"</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>    <span class="c1">// 10, 20, 42 </span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">obj</span><span class="p">:</span> <span class="nx">SomeInterface</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Lukas</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">25</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>         <span class="c1">// "name", "age"</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>    <span class="c1">// "Lukas", 25 </span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Der Typ des Schlüsselwertes den for-in ausgibt, ist immer ein String.</p>
+
+<h3 id="canvas">Canvas</h3>
+
+<p>Der Canvas (engl.: Leinwand) ist ein HTML Element, welches es erlaubt auf ihm zu zeichnen und Bilder anzeigen zu lassen. Dieses kann man einfach in sein HTML Dokument einfügen und dann im JS/TS nutzen. Dabei ist es ratsam, dem canvas eine feste ID zu geben, um ihn einfacher aus dem Dokument heraus zu finden. Dem Canvas sollte außerdem eine Höhe und Breite gegben werden.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"myFirstCanvas"</span> <span class="na">width=</span><span class="s">"500px"</span> <span class="na">height=</span><span class="s">"400px"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+</code></pre></div></div>
+
+<p>So kann dann aus dem Dokument der Canvas wie folgt herausgefunden werden (mehr zu diesen Befehlen in der kommenden Woche):</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">HTMLCanvasElement</span><span class="o">&gt;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">myFirstCanvas</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Der Canvas stellt einen <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext2D</a> zur Verfügung, auf welchem die Zeichenoperationen ausgeführt werden können.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">context</span><span class="p">:</span> <span class="nx">CanvasRenderingContext2D</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">"</span><span class="s2">2d</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">context</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nx">context</span><span class="p">.</span><span class="nx">strokeRect</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">110</span><span class="p">);</span>
+
+<span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+
+<span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">140</span><span class="p">);</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">140</span><span class="p">);</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Da es zu umfangreich wäre, sämtliche Canvas Funktionalitäten hier zu erläutern, sollten Sie sich selbst damit auseinandersetzen. Hier ist ein <a href="HTML5_Canvas_Cheat_Sheet.pdf">Canvas CheatSheet</a> das Ihnen dabei helfen soll.</p>
+
+<p>Nutzen Sie auch <a href="https://www.html5canvastutorials.com/">https://www.html5canvastutorials.com/</a> für weitere Informationen und einfache Schritt für Schritt Anleitungen.</p>
+
+<h4 id="path2d">Path2D</h4>
+
+<p>Wie man am obigen Codebeispiel sehen kann, müssen beim context zunächst Pfade gestarted und beendet werden, welche dann jeweils gezeichnet (<code class="language-plaintext highlighter-rouge">stroke</code>) und gefüllt (<code class="language-plaintext highlighter-rouge">fill</code>) werden können. Statt diese aber auf dem Canvas zu halten und ggf. zu überschreiben (mit <code class="language-plaintext highlighter-rouge">beginPath</code> wird der enthaltene Pfad gelöscht und ein neuer angelegt), können sie stattdessen in Path2D Objekten angelegt, verwaltet und wiederverwendet werden.</p>
+
+<p>Auf einer Instanz der Path2D Klasse können alle Pfad-relevanten Funktionen ausgeführt werden, die sonst direkt auf dem context ausgeführt worden wären.</p>
+
+<p>Zum Zeichnen eines solchen Pfadobjektes wird es schließlich als Parameter der Zeichenmethode einfach mitgegeben.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">path</span><span class="p">:</span> <span class="nx">Path2D</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>
+<span class="nx">path</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/">&lt;username&gt;</a></p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L2.2/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:29 GMT -->
+</html>

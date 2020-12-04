@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L2.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-21-typescript-und-javascript-einstieg"><em>V</em> <strong>2.1</strong> Typescript und Javascript Einstieg</h2>
+
+<h3 id="inhaltsverzeichnis">Inhaltsverzeichnis</h3>
+
+<ul>
+  <li><a href="#einrichtung-typescript-in-vscode">Einrichtung Typescript in VSCode</a></li>
+  <li><a href="#vorwort-javascript--typescript">Vorwort JavaScript / Typescript</a></li>
+  <li><a href="#javascript--typescript-einführung">JavaScript / Typescript Einführung</a>
+    <ul>
+      <li><a href="#zahlen">Zahlen</a></li>
+      <li><a href="#zeichenketten">Zeichenketten</a></li>
+      <li><a href="#boolsche-werte">Boolsche Werte</a></li>
+      <li><a href="#vergleiche">Vergleiche</a></li>
+      <li><a href="#logische-operatoren">Logische Operatoren</a></li>
+      <li><a href="#leere-werte">Leere Werte</a></li>
+      <li><a href="#konvertierung">Konvertierung</a></li>
+    </ul>
+  </li>
+  <li><a href="#typescript-kontrollstrukturen">Typescript Kontrollstrukturen</a>
+    <ul>
+      <li><a href="#funktionen">Funktionen</a></li>
+      <li><a href="#programmablauf-und-kontrollstrukturen">Programmablauf und Kontrollstrukturen</a>
+        <ul>
+          <li><a href="#if--else">if / else</a></li>
+          <li><a href="#schleifen">Schleifen</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#-fragen-und-antworten">Q&amp;A</a></li>
+</ul>
+
+<h3 id="einrichtung-typescript-in-vscode">Einrichtung Typescript in VSCode</h3>
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/05_Einrichtung_Typescript.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/05_Einrichtung_Typescript.mp4">Zum Video</a>
+</video>
+
+<p>Denken Sie daran, immer wenn Sie Ihren VSCode Editor öffnen, den BuildTask zu starten. Wenn Sie es automatisieren möchten, schauen Sie eigenverantwortlich <a href="https://code.visualstudio.com/docs/editor/tasks">hier</a> oder <a href="https://marketplace.visualstudio.com/search?term=Typescript%20Auto%20Compiler&amp;target=VSCode&amp;category=All%20categories&amp;sortBy=Relevance">hier</a>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Strg + Shift + B</code> für die Build Tasks oder über <code class="language-plaintext highlighter-rouge">Terminal &gt; Buildaufgabe ausführen</code>. Wählen Sie “watch/Überwachen” um bis Sie VSCode schließen die js Dateien immer übersetzt zu bekommen oder “make/Erstellen” um einmal das gesamte Projekt zu übersetzen.</p>
+
+<p><em>Laden Sie die .js.map Dateien und selbstverständlich auch die .ts Dateien mit hoch.</em></p>
+
+<h4 id="hinweis">Hinweis</h4>
+
+<ul>
+  <li>sollte Ihnen VSCode einmal einen Fehler anzeigen bei dem Sie sich sicher sind, dass alles korrekt ist, starten Sie VSCode neu. Sollte der Fehler dann immernoch angezeigt werden, liegt es zu 99.9% doch an ihrem Code. Dieses Problem einer falschen Fehlermeldung ist sehr selten, soll hier aber trotzdem erwähnt werden.</li>
+</ul>
+
+<p><strong>Links im Video</strong></p>
+
+<ul>
+  <li><a href="https://nodejs.org/">NodeJS</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin">TSLint Erweiterung</a></li>
+  <li><a href="https://github.com/hs-furtwangen/GIS-WiSe-2020-2021/tree/master/config_files">Konfigurations Dateien (<em>tsconfig</em> und <em>tslint</em>)</a></li>
+</ul>
+
+<p><strong>Terminal Befehle</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">npm -v</code></li>
+  <li><code class="language-plaintext highlighter-rouge">npm i -g typescript</code>
+    <ul>
+      <li>falls Sie auf Mac oder Linux sind, müssen Sie eventuell <code class="language-plaintext highlighter-rouge">sudo</code> vor diesen und den nächsten Befehl schreiben. Dies führt die Befehle mit Administratorrechten aus.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">npm i -g tslint</code></li>
+  <li><code class="language-plaintext highlighter-rouge">tsc --version</code>
+    <ul>
+      <li>falls es dabei in Powershell Probleme gibt, Powershell als Administrator ausführen, den folgenden Befehl ausführen und mit J/Y bestätigen.<br />
+<code class="language-plaintext highlighter-rouge">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="vorwort-javascript--typescript">Vorwort JavaScript / Typescript</h3>
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/05_JSTS_Vorwort.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/05_JSTS_Vorwort.mp4">Zum Video</a>
+</video>
+
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/05_JSTS_Vorwort.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<h3 id="javascript--typescript-einführung">JavaScript / Typescript Einführung</h3>
+
+<p>JavaScript ist die primäre Sprache wenn es darum geht, in einem Browser / auf einer Webseite Code auzuführen. 1995 eingeführt für den Netscape Browser wurde sie bald weit verbreitet eingesetzt und ist heute in den Top 10 der meistgenutzten Sprachen Weltweit. Ursprünglich auch nur als Frontend (Nutzerseite) Sprache entwickelt, kann Sie heute auch als Backend (Serverseite, Datenbanken) eingesetzt werden.</p>
+
+<p>JS wird stetig weiterentwickelt. Der im Video angesprochene ECMAScript Standard (welcher in vielerlei Hinsicht Synonym zu JS ist), wird jedes Jahr erweitert und ergänzt. Dabei wird stets darauf geachtet, dass eine volle Rückwärtskompatibilität möglich ist, so dass ältere Programme auch weiterhin laufen. Dies bedeutet allerdings auch, dass die Browser immer wieder neu angepasst werden müssen, um mit dem aktuellen Standard mitzuhalten, weswegen neuere Konzepte in älteren Browsern / Browserversionen gegebenenfalls nicht funktionieren. Diese Einschränkung soll uns in dieser Veranstaltung nicht zurückhalten, da wir davon ausgehen dass aktuelle Browser verwendet werden, sollte aber im Hinterkopf behalten werden wenn kommerzielle Produkte entwickelt werden.</p>
+
+<p>Es gibt Menschen, die schlimme Dinge über JavaScript sagen. Und die meisten dieser Dinge sind wahr. JS akzeptiert beinahe alles was man ihm an den Kopf wirft, interpretiert und konvertiert es dann aber in oft unerwarteten / ungewollten Arten und Weisen, was sich auf die beinahe lächerliche Freizügigkeit der Sprache zurückführen lässt. Die Idee dahinter ist es, den Enstieg für Neulinge einfacher zu machen. Leider hat dies häufig den gegenteiligen Effekt, da die Fehlerfindung in den eigenen Systemen dadurch deutlich erschwert wird. Diese Freiheiten haben aber natürlich auch Vorteile, allerdings muss man bereits eine hohe Menge an Wissen haben, um diese Freiheiten sinnvoll einsetzen zu können.</p>
+
+<p>Typescript ist einer der erfolgreichsten Versuche, diese Nachteile und Hürden zu kompensieren, ohne die Vorteile der Sprache zu schmälern. Aus diesem Grund werden wir in dieser Vorlesung ausschließlich mit Typescript arbeiten.</p>
+
+<h4 id="beispiel">Beispiel</h4>
+
+<p>Schauen Sie sich den folgenden Code zunächst einfach nur an. Fällt ihnen irgendetwas seltsames auf, erwarten Sie irgendwelche Fehlermeldungen? Versuchen Sie vorherzusagen, was auf der Konsole ausgegeben würde.<br />
+Nun können sie über F12 in ihrem Browser die Konsole öffnen und (in reinem Javascript) die Befehle ausführen. Stimmen Ihre Erwartungen mit dem Ergebnis überein? Kopieren Sie den Code anschließend in eine .ts Datei.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">+</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">5</span><span class="dl">'</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">5</span><span class="dl">'</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">//BONUS:</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="dl">'</span><span class="s1">b</span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span> <span class="o">+</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>Bei einigen dieser Anweisungen sollte der Typescript Compiler Ihnen Fehler anzeigen. Zum Glück, denn diese Anweisungen sind allesamt legitimer Javascript Code bei denen JS einfach wild hin und her konvertiert und sorgen für die seltsamsten Ergebnisse. Typescript schützt uns vor diesem seltsam anmutenden Verhalten. Kommentieren Sie die Fehlerhaften Zeilen aus und lassen Sie den übersetzten Code im Browser ausführen.</p>
+
+<hr />
+
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/05_JSTS_Einfuehrung.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/05_JSTS_Einfuehrung.mp4">Zum Video</a>
+</video>
+
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/05_JS_Einfuehrung.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<h4 id="zahlen">Zahlen</h4>
+
+<p>Zahlen, der Typ <code class="language-plaintext highlighter-rouge">number</code> in Typescript, stellen alle möglichen (nicht-imaginären) Zahlen dar. Sowohl Ganzzahlen (integer in Java) als auch Gleitkommazahlen (float / double in Java) werden darüber abgebildet. Für eine <code class="language-plaintext highlighter-rouge">number</code> wird 64bit Speicherplatz bereitgestellt. Das erste Bit wird genutzt zur Speicherung des Vorzeichens, dadurch können ganzzahlige Werte bis zu astronomischen +/- 2^63 (~9 Trillionen) gespeichert und berechnet werden, ohne dass man an Grenzen stößt und so exakte Werte berechnen kann. Bei Gleitkommazahlen sieht die Sache etwas komplizierter aus, da diese eine andere Darstellungsform nutzen müssen, was zu Genauigkeitsverlusten führen kann. Genauso wie man die Kreiszahl Pi nicht mit einer endlichen Anzahl von Zeichen exakt beschreiben kann, verlieren viele Zahlen etwas Genauigkeit wenn wir nur 64 bits zur Verfügung haben um diese abzubilden. Das ist in den meisten Fällen aber kein Problem, da die Näherungswerte immernoch genau genug sind.</p>
+
+<p>Zahlen können als Ganzzahl (<code class="language-plaintext highlighter-rouge">10</code>), Kommazahl (mit einem Punkt als Trennzeichen <code class="language-plaintext highlighter-rouge">3.1415</code>) oder in wissenschaftlicher Notation (<code class="language-plaintext highlighter-rouge">2.98e8</code> = 2.98 * 10^8 = 298’000’000) geschrieben werden.</p>
+
+<p>Arithmetische Operationen die auf Zahlen angewandt werden können sind Addition (<code class="language-plaintext highlighter-rouge">+</code>), Subtraktion (<code class="language-plaintext highlighter-rouge">-</code>), Multiplikation (<code class="language-plaintext highlighter-rouge">*</code>), Division (<code class="language-plaintext highlighter-rouge">/</code>) sowie Modulo (<code class="language-plaintext highlighter-rouge">%</code>). JS folgt der Punkt-Vor-Strich und Klammernregelung.</p>
+
+<p>In JS gibt es drei <strong>spezielle Zahlen</strong>. Die ersten beiden sind <code class="language-plaintext highlighter-rouge">Infinity</code> und <code class="language-plaintext highlighter-rouge">-Infinity</code>, welche positive und negative Unendlichkeit darstellen. Die dritte und wahrscheinlich häufiger genutzte ist <code class="language-plaintext highlighter-rouge">NaN</code>, was für “not a number” (keine Zahl) steht. Dieses Ergebnis erhält man unter anderem, wenn man versucht mathematischen Schwachsinn zu berechnen (<code class="language-plaintext highlighter-rouge">0 / 0</code>), oder versucht strings, welche keine Zahlen beinhalten, in Zahlen zu konvertieren (<code class="language-plaintext highlighter-rouge">parseInt("hello")</code>).</p>
+
+<h4 id="zeichenketten">Zeichenketten</h4>
+
+<p>Zeichenketten, <code class="language-plaintext highlighter-rouge">string</code> in Typescript, repräsentieren Text und werden angelegt indem Text innerhalb von Anführungszeichen eingeschlossen wird. Dabei gibt es drei Möglichkeiten:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">''</code> Das einzelne Anführungszeichen</li>
+  <li><code class="language-plaintext highlighter-rouge">""</code> Das doppelte Anführungszeichen (in diesem Kurs bevorzugt)</li>
+  <li><code class="language-plaintext highlighter-rouge">` `</code> Der “Backtick”. Hat besondere Funktionen, welche die anderen beiden nicht haben:
+    <ol>
+      <li>Eine neue Zeile im Code wird darin als neue Zeile übernommen</li>
+      <li>Kann mit Werten befüllt werden, ist dann ein sogenannter “Template String/Literal”: <code class="language-plaintext highlighter-rouge">`Die Hälfte von 10 ist ${10 / 2}`</code>. Diese Werte werden berechnet, in einen string konvertiert und schließlich eingefügt</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Strings können nicht Multipliziert, Dividiert oder Subtrahiert werden, aber Addieren funkioniert. <code class="language-plaintext highlighter-rouge">"G" + "I" + "S" -&gt; "GIS"</code></p>
+
+<h4 id="boolsche-werte">Boolsche Werte</h4>
+<p>Wahrheitswete, <code class="language-plaintext highlighter-rouge">boolean</code> in Typescript, sind entweder <code class="language-plaintext highlighter-rouge">true</code> oder <code class="language-plaintext highlighter-rouge">false</code>, 1 oder 0, an oder aus. Diese an sich können schon sinnvoll sein, werden aber oft bei Vergleichen gebraucht.</p>
+
+<h4 id="vergleiche">Vergleiche</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// -&gt; true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// -&gt; false</span>
+</code></pre></div></div>
+
+<p>Die größer-als und kleiner-als Operatoren resultieren in einem Boolschen Wert, welcher Angibt ob die Aussage korrekt ist.</p>
+
+<p>Ähnlich wie Zahlen, können auch Strings verglichen werden:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Aal</span><span class="dl">"</span> <span class="o">&lt;</span> <span class="dl">"</span><span class="s2">Zebra</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+</code></pre></div></div>
+<p>Aber vorsicht, obwohl der Vergleich auf den ersten Blick dem Alphabet entspricht, werden Großbuchstaben immer als kleiner angesehen als Kleinbuchstaben. Zeichen die keine Buchstaben (!, -, etc) sind, werden dabei auch mit einbezogen. Der Grund für diese Sortierung ist, dass strings in JS Zeichen für Zeichen nach der <a href="https://unicode-table.com/de/">Unicode Tabelle</a> abgearbeitet werden.</p>
+
+<p>Andere Vergleichende Operatoren sind <code class="language-plaintext highlighter-rouge">&gt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">==</code> und <code class="language-plaintext highlighter-rouge">!=</code>.</p>
+
+<p>Der einzige Wert der nicht gleich zu sich selbst ist, ist <code class="language-plaintext highlighter-rouge">NaN</code>, da dieser per Definition das Ergbnis einer unsinnigen Berechnung ist, und somit nicht gleich zu jeder anderen unsinnigen Berechnung sein kann.</p>
+
+<h4 id="logische-operatoren">Logische Operatoren</h4>
+
+<p>Verschiedene Operatoren können auch auf Wahrheitswerte direkt angewandt werden. JS/TS stellt dafür drei verschiedene Operatoren zur Verfügung.</p>
+
+<ol>
+  <li>UND <code class="language-plaintext highlighter-rouge">a &amp;&amp; b</code> ist nur dann <code class="language-plaintext highlighter-rouge">true</code>, wenn beide Werte <code class="language-plaintext highlighter-rouge">true</code> sind.
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// -&gt; false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; false</span>
+</code></pre></div>    </div>
+  </li>
+  <li>ODER <code class="language-plaintext highlighter-rouge">a || b</code> ist dann <code class="language-plaintext highlighter-rouge">true</code>, wenn mindestens einer der beiden Werte <code class="language-plaintext highlighter-rouge">true</code> ist.
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">||</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">||</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; false</span>
+</code></pre></div>    </div>
+  </li>
+  <li>NICHT <code class="language-plaintext highlighter-rouge">!a</code> invertiert den nachfolgenden Wahrheitswert.
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">!</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// -&gt; false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">!</span><span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h4 id="leere-werte">Leere Werte</h4>
+<p>In JS/TS gibt es zwei spezielle Werte, welche die Abwesenheit von Daten ausdrücken sollen: <code class="language-plaintext highlighter-rouge">null</code> und <code class="language-plaintext highlighter-rouge">undefined</code>. Viele Operationen, welche keine bedeutungsvollen Werte zurückliefern (können), liefern <code class="language-plaintext highlighter-rouge">undefined</code>, einfach weil sie ein Wert liefern <em>müssen</em>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">null</code> und <code class="language-plaintext highlighter-rouge">undefined</code> sind dadurch wie sie in JS definiert sind, in den meisten Fällen, besonders in dieser Veranstaltung, austauschbar.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+</code></pre></div></div>
+
+<p>Das ist praktisch, denn so kann man testen, ob eine Variable mit einem Wert befüllt ist oder nicht.</p>
+
+<h4 id="konvertierung">Konvertierung</h4>
+<p>Wie in <a href="#beispiel">Beispiel</a> bereits angesprochen, konvertiert JS gerne alles in alles. Das gilt auch für alle Operatoren, auch Vergleiche. Dadurch kommt es zu solchen Ergebnissen:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; true </span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">""</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; true </span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; true </span>
+</code></pre></div></div>
+<p>Die 0 sowie der leere string werden implizit zu einem boolschen wert konvertiert, welcher <code class="language-plaintext highlighter-rouge">false</code> ist. Wenn man eine solche Konvertierung vermeiden möchte, kann man statt <code class="language-plaintext highlighter-rouge">==</code> den <code class="language-plaintext highlighter-rouge">===</code> (oder <code class="language-plaintext highlighter-rouge">!==</code>) Operator verwenden. Dieser testet ob ein wert <em>ohne</em> Konvertierungen exakt gleich (oder eben ungleich) ist.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">""</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; false </span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// -&gt; true </span>
+</code></pre></div></div>
+
+<p><strong>Typescript sorgt auch hier dafür, dass wir uns um diesen Fall keine Sorgen machen müssen indem es uns vor solchen Konvertierungen warnt, es soll aber der Vollständigkeit und dem Verständnis halber erwähnt werden.</strong></p>
+
+<hr />
+
+<h3 id="typescript-kontrollstrukturen">Typescript Kontrollstrukturen</h3>
+
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/05_TS_Kontrollstrukturen.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/05_TS_Kontrollstrukturen.mp4">Zum Video</a>
+</video>
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/05_TS_Kontrollstrukturen.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<p><strong>Das Lesen und Schreiben von Code sind unverzichtbar wenn es darum geht, Programmieren zu lernen!</strong> Versuchen Sie darum, nicht über Beispiele schnell hinweg zu lesen, sondern lesen Sie diese Aufmerksam und versuchen Sie, sie zu verstehen, probieren Sie sie ggf. selbst aus. Ähnliches gilt für Übungen im Text sowie Wochen- und Kapitelaufgaben: Gehen Sie nicht davon aus, dass Sie sie verstanden haben, bis sie tatsächlich selbst eine funktionierende Lösung gefunden und getestet haben. Dies ist eventuell zunächst langsam und verwirrend, aber mit etwas Übung haben Sie schnell den Dreh raus.</p>
+
+<p>Machen Sie alle Übungen und lassen Sie diese auch tatsächlich im Browser (oder einem anderen Interpreter) ausführen. So bekommen Sie direktes Feedback über den Code den Sie geschreiben haben und ob es funktioniert. Vielleicht, so hoffe ich, verspüren Sie dann auch die Versuchung, etwas anderes auszuprobieren und mit dem Code herumzuexperimentieren.</p>
+
+<blockquote>
+  <p><strong>Denken Sie daran, dass sie, um den Code ausführen zu können, ihn in eine HTML Datei über ein <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> tag einbinden und diese dann im Browser aufrufen müssen.</strong> Der so eingebundene Code wird in dem Moment ausgeführt, wo der Browser diesen im HTML findet (oder mit <code class="language-plaintext highlighter-rouge">defer</code> nachdem der Rest der Seite geladen wurde).</p>
+</blockquote>
+
+<h3 id="ein-paar-beispiele">Ein paar Beispiele</h3>
+
+<p>Schauen Sie sich diese einfachen Beispiele an und versuchen Sie diese zu verstehen, nachzuvollziehen und die ausgegebenen Werte vorauszusagen. Überprüfen Sie dann Ihre Vorhersagen.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">five</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">five</span> <span class="o">*</span> <span class="nx">five</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">weather</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">sunny</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">weather</span><span class="p">);</span>
+<span class="nx">weather</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">dark</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">weather</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">lukasDebt</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="nx">lukasDebt</span> <span class="o">=</span> <span class="nx">lukasDebt</span> <span class="o">-</span> <span class="mi">50</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lukasDebt</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">one</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">two</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">one</span> <span class="o">+</span> <span class="nx">two</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Lukas</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">greeting</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello </span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greeting</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="funktionen">Funktionen</h3>
+<p>Funktionen dienen dazu, einen Teilablauf des Gesamtprogrammes auszuführen. In einem Browser stehen viele Funktionen vom Browser selbst implementiert zur Verfügung, z.B. <code class="language-plaintext highlighter-rouge">prompt()</code> ist eine Funktion, welche eine kleine Dialogbox öffnet und den Nutzer um eine Eingabe bittet.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Passwort eingeben</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Eine Funktion ist wie alle anderen Variablen in TS/JS auch unter einem Namen gespeichert und hat einen Typen, in diesem Fall <code class="language-plaintext highlighter-rouge">function</code>.</p>
+
+<p>Funktionen erlauben es unter anderem, Teile des Codes wiederzuverwenden und so Codedopplungen zu vermeiden.</p>
+
+<h4 id="parameter">Parameter</h4>
+
+<p>Eine Funktion wird aufgerufen, indem man ihrem Namen eine öffnende und schließende Klammer anhängt. Die Werte zwischen den Klammern nennt man <strong>(Übergabe)Parameter</strong>. Unterschiedliche Funktionen brauchen unterschiedlich viele Parameter. Die <code class="language-plaintext highlighter-rouge">prompt</code> Funktion aus dem Beispiel von oben nutzt die übergebene Zeichenkette als Text der Dialogbox.</p>
+
+<blockquote>
+  <p>Prompt wird in moderner Webprogrammierung nicht mehr häufig genutzt da man keine Möglichkeiten hat, das Aussehen der Box zu beeinflussen. Es ist aber für kleine Webseiten und Experimente immernoch sehr hilfreich.</p>
+</blockquote>
+
+<p>Ein weiteres Beispiel was schon oft in dieser Woche genutzt wurde ist <code class="language-plaintext highlighter-rouge">console.log()</code>, welches auf einer vorhandenen Konsole die übergebenen Werte ausgibt. Obwohl Funktionennamen kein <code class="language-plaintext highlighter-rouge">.</code> enthalten dürfen, hat diese Funktion einen. Das liegt daran, dass es nicht eine einfache globale Funktion (wie prompt) ist, sondern dass es auf einem globalen <code class="language-plaintext highlighter-rouge">console</code> Objekt die Methode <code class="language-plaintext highlighter-rouge">log</code> aufruft. Dazu in einem späteren Kapitel mehr.</p>
+
+<h4 id="rückgabe">Rückgabe</h4>
+
+<p>Funktionen können Werte zurück an die aufrufende Stelle geben, welche daraufhin weiterverwendet werden können. Ggf. passieren dazwischen solche Nebeneffekte wie eine Dialogbox, um dem Nutzer eine Eingabe abzufragen. Andere Funktionen produzieren Werte und brauchen darum keine Nebeneffekte um Sinnvoll zu sein. Zum Beispiel <code class="language-plaintext highlighter-rouge">Math.max</code> nimmt eine beliebige Anzahl an Argumenten entgegen und gibt den größten davon zurück.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Ein so zurückgegebener Wert kann auch direkt wie ein normaler Wert verwendet werden.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">userInput</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Pick a number</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">userNumber</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">userInput</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">The square of your number is </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">userNumber</span> <span class="o">*</span> <span class="nx">userNumber</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Um einen Wert von innerhalb der Funktion zurück zu geben, wird das Schlüsselwort <code class="language-plaintext highlighter-rouge">return</code> verwendet.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">_a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">_b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">_a</span> <span class="o">+</span> <span class="nx">_b</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In dem Moment wo <code class="language-plaintext highlighter-rouge">return</code> ausgeführt wird, wird die Funktion beendet.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">example</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This will be print to the console</span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This won't, because the code will never reach here.</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>An diesem Beispiel sieht man auch eine weitere Besonderheit von Funktionen: Diese können als Rückgabetyp <code class="language-plaintext highlighter-rouge">void</code> (engl.: das Nichts) besitzen, das bedeutet dass sie nichts (bzw <code class="language-plaintext highlighter-rouge">undefined</code>) zurückgeben. <code class="language-plaintext highlighter-rouge">return</code> funktionert aber auch weiterhin um die Funktion zu beenden, nimmt aber keinen Parameter an.</p>
+
+<blockquote>
+  <p>Normale Variablen können theoretisch auch den Typ <code class="language-plaintext highlighter-rouge">void</code> besitzen, dann kann man in Ihnen aber nichts speichern und sie wird damit sinnlos.</p>
+</blockquote>
+
+<h4 id="definition">Definition</h4>
+
+<p>Um eigene Funktionen zu definieren, wird <code class="language-plaintext highlighter-rouge">let</code> durch <code class="language-plaintext highlighter-rouge">function</code> ersetzt. Außerdem werden innerhalb der Klammern die erwarteten Übergabeparameter definiert. Der Rückgabewert wird wie bei “normalen” Variablen dahinter geschrieben. Aber statt einem <code class="language-plaintext highlighter-rouge">=</code> folgen nun geschweifte Klammern in welchen die Funktionalität beschrieben wird.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">_stringParam</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_numberParam</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="c1">// function implementation</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em>(Der Unterstrich vor den Parametern folgt den <a href="../../codingstyle/index.html">Codingstyle Guidelines</a> dieses Kurses.)</em></p>
+
+<blockquote>
+  <p>Diese Form beschreibt exakt was als Übergabeparameter erwartet wird sowie als Rückgabewert zu erwarten ist. VSCode zeigt diese Form an, wenn man mit der Maus über einen Funktionsnamen hovert. So kann man Informationen über unbekannte Funktionen einholen und diese dann korrekt benutzen.</p>
+</blockquote>
+
+<p>Da Funktionen in JS/TS auch ein Typ sind, können diese auch in Variablenschreibweise definiert werden und wie Variablen genutzt werden. Diese Definitionsform steht aber im Kontrast zu anderen Sprachen, darum ist sie in diesem Kurs nicht empfohlen. Außerdem können Funktionen, welche auf diese Weise definiert wurden, erst nach ihrer Definition aufgerufen werden, während die erste Variante immer aufgerufen werden kann.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_stringParam</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">_numberParam</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{...}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>⚠️ Dies bedeutet auch, dass Funktionen wie Variablen neue Werte zugewiesen bekommen können und so komplett überschrieben werden können. Dies ist nicht nur ein Sicherheitsproblem für Webseiten, sondern kann auch sehr unübersichtlich werden. Wir raten in diesem Kurs daher davon ab, dies zu nutzen.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">launchMissles</span> <span class="o">=</span> <span class="kd">function</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">missileSystem</span><span class="p">.</span><span class="nx">launch</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">safeMode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">launchMissles</span> <span class="o">=</span> <span class="kd">function</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span><span class="cm">/* tue nichts */</span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="programmablauf-und-kontrollstrukturen">Programmablauf und Kontrollstrukturen</h3>
+<p>JS/TS Programme laufen in einer klar definierten Reihenfolge ab. Immer eine Zeile bzw. eine Anweisung nach der anderen. Wird eine Funktion aufgerufen, so wird der Hauptlauf des Programmes pausiert, bis die Funktion beendet wurde.</p>
+
+<h4 id="if--else">If / Else</h4>
+
+<p>Über <code class="language-plaintext highlighter-rouge">if</code> Abfragen kann der Fluss des Programmes gesteuert werden und Teile des Codes nur ausgeführt werden, wenn eine Bedingung erfüllt ist.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This will be in the console</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This won't</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Oft will man etwas tun wenn eine Bedingung erfüllt ist, aber auch auch, wenn die Bedingung nicht erfüllt ist. Dafür kann man <code class="language-plaintext highlighter-rouge">else</code> verwenden. Im nachfolgenden Beispiel wird <code class="language-plaintext highlighter-rouge">isNaN</code> genutzt, um zu überprüfen ob eine Zahl NaN ist.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Number please</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">inputNumber</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">inputNumber</span><span class="p">)){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">You have given me the number</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">inputNumber</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hey! I wanted a number!</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">if</code> and <code class="language-plaintext highlighter-rouge">else</code> can be chained together.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Number please</span><span class="dl">"</span><span class="p">));</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">inputNumber</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Small</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">inputNumber</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Medium</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Big</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In manchen Fällen will man die gleiche Variable auf mehrere Werte abfragen, dann bietet sich <code class="language-plaintext highlighter-rouge">switch case</code> statt einer langen elseif Schlange an. Switches haben noch einige weitere Funktionalitäten, auf welche an dieser Stelle aber nicht eingegeangen wird.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Command please</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">input</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is a test.</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">input</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">laugh</span><span class="dl">"</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hahahahaa. Ha.</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">input</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">I don't know that command.</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is a test.</span><span class="dl">"</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">case</span> <span class="dl">"</span><span class="s2">laugh</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hahahahaa. Ha.</span><span class="dl">"</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+  <span class="k">default</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">I don't know that command.</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h4 id="schleifen">Schleifen</h4>
+
+<p>Es gibt verschiedene Schleifenarten aus denen man sich eine aussuchen kann um seinen Code wiederholt ausführen zu lassen. Sie können alle ineinander überführt werden, haben also funktional die gleichen Fähigkeiten. Sie sind aber trotzdem unterschiedlich in ihren Anwendungsfällen durch ihren eingebauten Aufbau.</p>
+
+<blockquote>
+  <p>⚠️ Vorsicht vor Schleifen die sich nie beenden. Das kann schon mal den Browser abstürzen lassen.</p>
+</blockquote>
+
+<p><strong>While</strong></p>
+
+<p>Whileschleifen wiederholen einen Codeabschnitt so lange, bis die gegebene Bedingung nicht mehr erfüllt ist.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">){</span>
+  <span class="nx">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Sie eignen sich besonders für Schleifen, in denen man nicht direkt im Voraus weiß, wie oft der Code wiederholt werden muss.</p>
+
+<p><strong>Do While</strong></p>
+
+<p>Ähnlich wie die <code class="language-plaintext highlighter-rouge">while</code> Schleife führt eine do while schleife die Anweisungen so lange aus, bis die Wiederholungsbedingung nicht mehr gegeben ist. Der Unterschied ist jedoch, dass es auf jeden Fall einmal durchgeführt wird.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">yourAge</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+  <span class="nx">yourAge</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">Tell me your age please</span><span class="dl">"</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">yourAge</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">yourAge</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Diese eignen sich besonders für Schleifen, welche so lange etwas wiederholen müssen bis es den Vorgaben genügt, dies aber mindestens einmal tun müssen.</p>
+
+<p><strong>For</strong></p>
+
+<p>Die Forschleife unterscheidet sich in ihrem Aufbau, da sie in ihrem Schleifenkopf statt nur der Laufbedingung auch die Initialbedingung als auch die Änderungsanweisung beinhaltet, getrennt durch <code class="language-plaintext highlighter-rouge">;</code>.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Forschleifen eigenen sich besonders für Schleifen in denen es eine (im Voraus gegebene) bestimmte Menge and Operationen zu erledigen gibt, z.B. alle Einträge eines Arrays durchzugehen.</p>
+
+<p><strong>Spezielle Sprunganweisungen</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">break</code>: Beendet die gesamte Schleife</li>
+  <li><code class="language-plaintext highlighter-rouge">continue</code>: Beendet nur den aktuellen Schleifendurchlauf und macht mit dem nächsten weiter (sofern die Laufbedingung noch erfüllt ist)</li>
+</ul>
+
+<p>Die While Schleife aus dem obigen Beispiel könnte umgeschrieben werden, um break zu demonstrieren.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="scopes--geltungsbereiche">Scopes / Geltungsbereiche</h3>
+
+<p>Jede Variable (und damit auch Funktion) hat einen Geltungsbereich, in dem auf sie zugegriffen werden kann. Variablen welche außerhalb von Funktionen oder Blöcken (so ziemlich alles, was von <code class="language-plaintext highlighter-rouge">{}</code> umgeben ist) definiert sind, sind sogenannte globale Variablen und können von überall im Programm aufgerufen und genutzt werden.</p>
+
+<p>Variablen welche jedoch innerhalb von Funktionen oder anderen Blöcken definiert werden (dazu zählen auch Parameter), sind nur innerhalb dieser Funktion nutzbar.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// -&gt; 30</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// -&gt; ReferenceError, da y nicht definiert ist</span>
+</code></pre></div></div>
+
+<p>Blöcke können zwar nicht nach innen aber dafür nach außen schauen, und alle Variablen, die weiter “außerhalb” definiert wurden nutzen.<br />
+Die Ausnahme zu dieser Regel ist, wenn in einem inneren Block eine Variable mit dem gleichen Namen definiert wurde. Innerhalb der <code class="language-plaintext highlighter-rouge">square</code> Funktion wird die Variable <code class="language-plaintext highlighter-rouge">n</code> als Übergabeparameter definiert und blendet damit das globale <code class="language-plaintext highlighter-rouge">n</code> aus.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">n</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">n</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">square</span><span class="p">(</span><span class="nx">n</span><span class="p">));</span> <span class="c1">//-&gt; 100</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span> <span class="c1">//-&gt; 10</span>
+</code></pre></div></div>
+
+<p>An diesem Beispiel kann man auch sehen, dass Parameter (vom Typ <code class="language-plaintext highlighter-rouge">number</code>, <code class="language-plaintext highlighter-rouge">string</code>, oder <code class="language-plaintext highlighter-rouge">boolean</code>, dazu mehr in der nächsten Woche) unabhängig von den übergebenen Variablen sind. Der Inhalt von dem globalen <code class="language-plaintext highlighter-rouge">n</code>, welches an die <code class="language-plaintext highlighter-rouge">square</code> Funktion übergeben wurde, wird in das lokale <code class="language-plaintext highlighter-rouge">n</code> kopiert, und die Änderungen daran werden nicht auf das globale zurückgeführt.</p>
+
+<blockquote>
+  <p><em><strong>Weiterführende Informationen</strong></em><br />
+Funktionen legen bei jedem Aufruf ihren eigenen kleinen lokalen Variablenbereich an, welcher <em>den Kontext speichert</em>.
+Dadurch, dass diese Verschachtelung beliebig oft wiederholt werden kann, ist es so möglich mehrere Funktionen so zu verschachteln, dass diese den Kontext speichern, was sehr praktisch sein und viel Arbeit ersparen kann, aber auch schwieriger zu verstehen und anzuwenden ist. ⚠️</p>
+
+  <p>In folgendem Beispiel wird deutlich, dass die <code class="language-plaintext highlighter-rouge">ingredient()</code> Funktion auf den Parameter <code class="language-plaintext highlighter-rouge">factor</code> der umliegenden Funktion zugreifen kann, ohne diesen übergeben bekommen zu müssen.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">chiliRecipe</span><span class="p">(</span><span class="nx">factor</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">ingredient</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">can</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">beans</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">ingredient</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">piece</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">garlic</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">ingredient</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">tea spoon</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">chili</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">ingredient</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">can</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">tomatoes</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">ingredient</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="dl">"</span><span class="s2">gram</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">minced meat / tofu</span><span class="dl">"</span><span class="p">);</span>
+  
+  <span class="kd">function</span> <span class="nx">ingredient</span><span class="p">(</span><span class="na">amount</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">unit</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="na">totalAmount</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">amount</span> <span class="o">*</span> <span class="nx">factor</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">totalAmount</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">){</span>
+      <span class="nx">unit</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">totalAmount</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">unit</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">chiliRecipe</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Dieses letzte Beispiel nutzt viele Ihnen noch unbekannte Konzepte, illustriert aber die Macht dieser Kontextspeicherung. Kommen Sie darum in den nächsten Wochen hierher zurück wenn Sie diese Konzepte in dem späteren Kapiteln gelernt haben. Bis dahin müssen Sie nur wissen, dass mit diesem Code dafür gesorgt wird, dass jeder Button auf der Webseite eine weiter aufsteigende Zahl auf der Konsole ausgibt.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// speichert alle Buttons im gesamten HTML Dokument in eine Array ähnliche Struktur</span>
+<span class="kd">let</span> <span class="nx">buttons</span><span class="p">:</span> <span class="nx">HTMLCollectionOf</span><span class="o">&lt;</span><span class="nx">HTMLButtonElement</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// die For schleife geht alle buttons einzeln durch</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// fügt jedem Button einen Eventlistener hinzu, welcher bei einem Klick auf den Button die "sayNumber" Funktion ausführt</span>
+  <span class="nx">buttons</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nx">sayNumber</span><span class="p">);</span>
+
+  <span class="c1">// Die sayNumber Funktion ist innerhalb der for Schleife definiert und speichert diesen Kontext.</span>
+  <span class="c1">// Dadurch kann sie auf den aktuellen Index i zugreifen, auch lange nachdem der Code durchgelaufen ist.</span>
+  <span class="c1">// So gibt jeder Button bei einem Klick seine Position im Array aus</span>
+  <span class="kd">function</span> <span class="nx">sayNumber</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="typescript-dokumentation">Typescript Dokumentation</h3>
+
+<p><a href="https://www.typescriptlang.org/">https://www.typescriptlang.org/</a></p>
+
+<hr />
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/">&lt;username&gt;</a></p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L2.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:28 GMT -->
+</html>

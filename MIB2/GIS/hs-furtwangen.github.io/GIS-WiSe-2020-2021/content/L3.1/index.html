@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L3.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-31-serveranbindung"><em>V</em> <strong>3.1</strong> Serveranbindung</h2>
+
+<p>In <a href="../P2.5/index.html">Aufgabe P 2.5 - Kommunikation</a> haben wir die grundsätzlichen Formen der Kommunikation zwischen Asynchron und Synchron angeschaut. Bitte lesen Sie sich den Abschnitt <code class="language-plaintext highlighter-rouge">Kommunikation</code> erneut durch, um folgenden Abschnitt besser verstehen zu können.</p>
+
+<h2 id="formulare">Formulare</h2>
+<p>HTML-Formulare (Forms) bieten bereits gänzlich ohne zusätzliche Programmierung die Möglichkeit, Daten synchron zu verschicken. Hierzu ist es lediglich erforderlich, dem Form-Tag ein <code class="language-plaintext highlighter-rouge">action</code>- und ein <code class="language-plaintext highlighter-rouge">method</code>-Attribut anzufügen, sowie im Formular einen Submit-Button zu integrieren. Der <code class="language-plaintext highlighter-rouge">action</code>-Wert gibt die URL an, an welche die Daten gehen sollen. Die Daten selbst, also die Werte der Formularelemente, werden bei Betätigung des Submit-Buttons automatisch aufbereitet und verschickt. Wie sie verschickt werden, hängt von der gewählten <code class="language-plaintext highlighter-rouge">method</code> ab.</p>
+
+<h3 id="get">Get</h3>
+<p>Bei <code class="language-plaintext highlighter-rouge">method="get"</code> werden die Daten als Zeichenketten einfach im Klartext an den URL angehängt, mit einem <code class="language-plaintext highlighter-rouge">?</code> abgetrennt. Die Schlüssel- und Wertepaare sind mit <code class="language-plaintext highlighter-rouge">&amp;</code> (Et, kaufmännisches Und, Ampersand) voneinander getrennt, die Schlüssel und Werte mit einem <code class="language-plaintext highlighter-rouge">=</code> verbunden. Der Browser ruft dann diese URL mitsamt Anhang auf, die komplette Zeichenkette erscheint in der Adresszeile.</p>
+<blockquote>
+  <ul>
+    <li>Surfen Sie im Netz und suchen Sie nach Beispielen für die Datenübertragung in dieser Form, indem Sie die Adressezeile beobachten.</li>
+    <li>Testen Sie das <a href="https://www.w3schools.com/html/html_forms.asp">HTML-Formularelement</a> <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> mit den Attributen <code class="language-plaintext highlighter-rouge">method="get"</code> und <code class="language-plaintext highlighter-rouge">action=""</code>. Der leere Wert bei <code class="language-plaintext highlighter-rouge">action</code> bedeutet, dass die aktuelle URL erneut genutzt werden soll. Fügen Sie zudem mit
+      <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Abschicken<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
+
+<p>einen Submit-Button im Formular ein. Untersuchen Sie was geschieht, wenn Sie nun die Seite aufrufen und den Button betätigen.</p>
+
+<blockquote>
+  <ul>
+    <li>Nutzen Sie nun als Wert für Action die Addresse <code class="language-plaintext highlighter-rouge">https://gis-example.herokuapp.com/</code>. Dies ist ein Beispiel für den einfachen Server den wir diese Woche entwickeln werden.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p><strong>Hinweis</strong> Verwenden Sie unbedingt das Attribut <code class="language-plaintext highlighter-rouge">name="fname"</code> in ihrem <code class="language-plaintext highlighter-rouge">&lt;input&gt;</code> Tag, da sonst <code class="language-plaintext highlighter-rouge">method="GET"</code> nicht funktioniert</p>
+</blockquote>
+
+<blockquote>
+  <p>Der typ <code class="language-plaintext highlighter-rouge">"submit"</code> ist die Voreinstellung für Buttons und muss nicht explizit angegeben werden. Jeder Button innerhalb eines Formulars, bei dem nicht explizit ein anderer Typ angegeben ist, führt also automatisch zum Datenversand. Und häufig zu Verwirrung bei den Entwicklern…</p>
+</blockquote>
+
+<h3 id="post">Post</h3>
+<p>Bei <code class="language-plaintext highlighter-rouge">method="post"</code> werden die Daten als eigenes Datenpaket versand und sind nicht für den Nutzer sichtbar. Post wird aber vor allem auch dann verwendet, wenn größere Datenmengen verschickt werden, da die zulässige Länge einer URL begrenzt ist. Auf der Serverseite müssen die Datenpakete zunächst erst wieder zu einer zusammenhängenden Request zusammengefügt werden.</p>
+<blockquote>
+  <ul>
+    <li>Verwenden Sie nun zum Test die Methode <code class="language-plaintext highlighter-rouge">"post"</code> im Formular und betätigen Sie den Submit-Button. Versuchen Sie nun mit Hilfe der Entwicklertools die Daten zu finden. Klicken Sie dazu auf den Reiter “Netzwerk” oder “Netzwerkanalyse” und dann auf den Post-Request bei den gelisteten Anfragen.</li>
+  </ul>
+</blockquote>
+
+<p><strong>Hinweis</strong>: Versenden Sie niemals sensible Daten (logins, passwörter, etc) über GET Anfragen, da der Inhalt der Anfrage in Klartext in der URL dargestellt wird. GET wird vorallem für harmlose Suchanfragen und andere Dinge verwendet, bei denen die resultierende Seite kopiert / als Lesezeichen gesetzt werden können soll oder bei denen absolut nicht-geheime Daten verschickt/angefragt werden.</p>
+
+<h2 id="formdata">FormData</h2>
+<p>Javascript stellt einen einfachen Mechanismus zur Verfügung um Formularelemente automatisch auszuwerten und auf die Ergebnisse zuzugreifen. Hierzu müssen die Formularelemente in der DOM-Laufzeithierarchie einem <code class="language-plaintext highlighter-rouge">form</code>-Element untergeordnet sein. Wird bei der Erzeugung eines Objekts des Typs <code class="language-plaintext highlighter-rouge">FormData</code> nun ein Verweis auf auf dieses <code class="language-plaintext highlighter-rouge">form</code>-Element übergeben, so werden deren Werte der <code class="language-plaintext highlighter-rouge">name</code>- und <code class="language-plaintext highlighter-rouge">value</code>-Attribute als Schlüssel-Werte-Paare zur Verfügung gestellt.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">formData</span><span class="p">:</span> <span class="nx">FormData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</code></pre></div></div>
+<p>Das <code class="language-plaintext highlighter-rouge">document</code>-Objekt stellt bereits bequem eine Liste aller untergeordneten <code class="language-plaintext highlighter-rouge">form</code>-Elemente zur Verfügung. In obigem Beispiel wird also das erste Formular des Dokuments ausgewertet.</p>
+
+<h3 id="name-attribut"><code class="language-plaintext highlighter-rouge">name</code>-Attribut</h3>
+<p>Das <code class="language-plaintext highlighter-rouge">name</code>-Attribut spielt nicht nur für die Gruppierung von Radiobuttons eine Rolle. Tatsächlich stellt es für die automatische Auswertung von Formularen das maßgebliche Zuordnungskriterium dar.</p>
+<blockquote>
+  <p><strong>Achtung:</strong> nicht das Attribut <code class="language-plaintext highlighter-rouge">id</code> ist für Formularelemente ausschlaggebend, sondern <code class="language-plaintext highlighter-rouge">name</code></p>
+</blockquote>
+
+<p>Zu beachten ist auch, dass das <code class="language-plaintext highlighter-rouge">name</code>-Attribut, anders als <code class="language-plaintext highlighter-rouge">id</code> nicht eindeutig sein muss. Bei der Auswertung kann derselbe Name also mehrfach als Schlüssel auftauchen und jeweils unterschiedliche Werte tragen. Dies bedeutet aber auch, dass die verschiedenen Werte unter Umständen bei der Auswertung sich gegenseitig überschreiben.</p>
+
+<h3 id="auslesen">Auslesen</h3>
+<h4 id="get-1"><code class="language-plaintext highlighter-rouge">get(...)</code></h4>
+<p>Bei eindeutigen und bekannten Namen lassen sich die Werte der <code class="language-plaintext highlighter-rouge">value</code>-Attribute mit Hilfe der Objektmethode <code class="language-plaintext highlighter-rouge">get(...)</code> wie bei einem assoziativen Array auslesen. Zum Beispiel so:</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">formData</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">Drink</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div></div>
+<h4 id="entries"><code class="language-plaintext highlighter-rouge">entries()</code></h4>
+<p>Da aber die Namen nicht zwingend eindeutig sind und sie auch nicht unbedingt im Code reproduziert werden sollen, ist es häufig sinnvoll, über alle Einträge im FormData-Objekt zu iterieren.
+Die Objektmethode <code class="language-plaintext highlighter-rouge">entries()</code> eines FormData-Objektes liefert alle gefundenen Schlüssel-Werte-Paare. Mit einer <code class="language-plaintext highlighter-rouge">for..of</code>-Schleife können diese bequem nacheinander behandelt werden:</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">formData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">name: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">value: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Jedes <code class="language-plaintext highlighter-rouge">entry</code>-Objekt ist also ein kleines Array mit zwei Einträgen, an Stelle 0 ein String mit dem der Wert des <code class="language-plaintext highlighter-rouge">name</code>-Attributs des ursprünglichen Form-Elements, und an Stelle 1 den entsprechenden Wert des <code class="language-plaintext highlighter-rouge">value</code>-Attributs. Letzterer ist hier vom Typ <code class="language-plaintext highlighter-rouge">FormDataEntryValue</code>, eine etwas besondere Zeichenkette, und muss gegebenenfall konvertiert werden.</p>
+
+<hr />
+
+<h2 id="uniform-resource-locator-url">Uniform Resource Locator (URL)</h2>
+<p>Jetzt haben Sie einige Werkzeuge an der Hand um synchrone oder asynchrone Kommunikation von der Clientseite aus zu starten, also eine Request zu verschicken und eine Response vom Server zu erhalten. Derzeit wird nur die Get-Methode betrachtet, bei der die Nutzdaten in den URL-String eingebettet werden. Bei der asynchronen Kommunikation muss dies nun noch getan werden. Dazu sollte zunächst der Aufbau des URL näher untersucht werden.</p>
+<blockquote>
+  <ul>
+    <li>Studieren Sie den Aufbau des URL anhand der folgenden Grafik.</li>
+  </ul>
+</blockquote>
+
+<p><img src="URL.png" alt="URL" /></p>
+
+<h3 id="teil-1-der-url">Teil 1 der URL</h3>
+<p>Protocol, Authentifizierung und Host werden benötigt, um eine Verbindung zu einem Server aufzubauen. Häufig genügt allerdings bereits die Angabe des Hostnamen, z.B. www.hs-furtwangen.de, um Browser und Server zur Kommunikation zu bewegen.</p>
+<blockquote>
+  <p>So ausgeschrieben ist die Darstellung der Hostnamen eine Hilfestellung für Menschen. Tatsächlich baut der Browser zunächst eine Verbindung zu einem Name-Server auf und fragt dort nach der unter diesem Namen hinterlegten Adresse.</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Geben Sie in der Adresszeile des Browsers eine “echte” Adresse ein: <code class="language-plaintext highlighter-rouge">141.28.2.12</code></li>
+  </ul>
+</blockquote>
+
+<h3 id="teil-2-der-url">Teil 2 der URL</h3>
+<p>Der zweite Teil der URL wird dann von dem erreichten Server beliebig interpretiert. Ein reiner File-Server versucht im Pfadnamen eine Ordnerstruktur zu erkennen um in seinem Speichersystem eine Datei zu finden, deren Inhalt er als Antwort zurückliefert. github.io z. Bsp. ist ein reiner Fileserver.</p>
+
+<h4 id="query-string">Query-String</h4>
+<p>Der Query-String stellt nun die eigentlichen Nutzdaten dar, die bei der synchronen Übertragung mit der Get-Methode des Formulars bereits automatisch aufbereitet und mitgeschickt wurden. Ein Application-Server, der bezüglich Funktionalität über die Möglichkeiten eines reinen Fileservers hinausgeht, kann diesen String interpretieren und mit den gewonnenen Daten Berechnungen anstellen oder weitere Prozesse steuern.</p>
+
+<hr />
+
+<h2 id="daten-asynchron-senden">Daten asynchron senden</h2>
+<p>Um also Daten per Get mit Fetch zu senden, muss lediglich der URL um den Query-String erweitert werden. Wie dieser String zustande kommt ist irrelevant, hier kann man beliebig kreativ werden. Sofern die Daten aus einem Formular aber bereits vorliegen, ist es einfach möglich, ihn aus einem FormData-Objekt zu generieren. Hierbei hilft ein weiteres Standard-Javascript-Objekt: URLSearchParams</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">url</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://whatever.server/path/file</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">query</span><span class="p">:</span> <span class="nx">URLSearchParams</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">(</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="nx">formData</span><span class="p">);</span>
+<span class="nx">url</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">?</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">query</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+<span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</code></pre></div></div>
+<blockquote>
+  <p>Zurzeit (2020) wird leider noch ein kleiner Hack verwendet, da TypeScript noch nicht ein Objekt vom Typ FormData als Parameter akzeptiert und daher mit <code class="language-plaintext highlighter-rouge">&lt;any&gt;</code> ausgetrickst werden muss.</p>
+</blockquote>
+
+<h3 id="custom-data">Custom Data</h3>
+<p>Ein Objekt vom Typ <code class="language-plaintext highlighter-rouge">URLSearchParams</code> lässt sich fast genauso verwenden wie eines vom Typ <code class="language-plaintext highlighter-rouge">FormData</code>. Insbesondere können an beide Objekte per <code class="language-plaintext highlighter-rouge">append</code> noch weitere Schlüssel-Werte-Paare angefügt werden. So ist es sehr leicht auch Informationen, die nicht aus einem Formular kommen, mit auf den Weg zu schicken.</p>
+
+<blockquote>
+  <p><strong>Zusatzinfo</strong>: <code class="language-plaintext highlighter-rouge">fetch</code> akzeptiert neben der URL noch einen zweiten Parameter, ein <code class="language-plaintext highlighter-rouge">RequestInit</code>-Objekt. Damit lassen sich noch viele weitere zusätzliche Steuerinformationen für die Kommunikation angeben und auch sehr einfach die Post-Methode für die Datenübertragung verwenden. Auch kann dabei das FormData-Objekt direkt genutzt werden.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="nodejs">Node.js</h2>
+<p>Server allgemein und insbesondere Node.js Server laufen normalerweise nicht in einem Browser. Üblicherweise sind Server auf Maschinen installiert, die in einem Rechenzentrum in lebensfeindlicher (Keller/Halle) Umgebung stehen und die nicht direkt mit der Interaktion mit Usern beschäftigt sind. Einen Browser, der doch vordringlich für die Mensch-Maschine-Kommunikation verantwortlich ist, als Server zu nutzen wäre deshalb nur hinderlich. Daher sind Server meist in niederen Sprachen wie C++, Java usw. programmiert und werden ggf. in ihrer Funktionalität mit Hilfe von Skriptsprachen wie Pearl, CGI oder PHP erweitert. Sie haben oft keine direkte grafische Benutzeroberfläche (GUI) sondern benutzen sog. command line interfaces (CLI)</p>
+
+<p>2009 kam der zu diesem Zeitpunkt 28jährige Student Ryan Dahl auf die Idee, Googles V8-Javascript-Interpreter außerhalb des Browsers zu nutzen, um verschiedene Module zu erweitern und damit einen Server zu programmieren. Der Einsatz von Javascript war vor allem motiviert durch Unterstützung der Ereignissteuerung, womit Server nicht durch wartende Prozesse blockiert werden. Ryan schuf damit Node.js, eine Programmierumgebung, mit der es möglich ist, Javascript, und somit auch kompiliertes TypeScript, außerhalb von Browsern zu nutzen und damit Anwendungen zu entwickeln. VSCode selbst ist eine solche Anwendung! Ryan erklärt Node.js selbst in diesem <a href="https://www.youtube.com/watch?v=F6k8lTrAE2g">Google Talk</a> (achtung, sehr technisch!)</p>
+
+<blockquote>
+  <p><strong>FunFact:</strong> 2018 kündigte Ryan Dahl die Entwicklung von Deno an, mit welchem er Node.js Konkurrenz macht. Unter anderem soll Deno direkt TypeScript-Programme interpretieren, ohne dass daraus zuvor Javascript-Dateien erzeugt werden müssen. Hier ist Ryans <a href="https://github.com/ry">Github-Profil</a>. Vor knapp einem Monat wurde <a href="https://deno.land/">Deno</a> Version 1.0 veröffentlicht.</p>
+</blockquote>
+
+<p>Für Sie ist der riesige Vorteil von Node.js, dass Sie keine weitere Programmiersprache lernen müssen, um einen Server zu entwickeln. Ebenso können Sie damit Desktop-Programme für Windows, Mac oder Linux bauen (siehe VSCode). Mit TypeScript und Node.js sind Sie deshalb gut aufgestellt.</p>
+
+<blockquote>
+  <ul>
+    <li>Wie können Sie ermitteln, welche Node-Version auf Ihrem Rechner installiert ist?</li>
+    <li>Stellen Sie sicher, dass Sie eine aktuelle Version haben und führen Sie gegebenenfalls ein Update durch.</li>
+  </ul>
+</blockquote>
+
+<h2 id="entwickeln-mit-nodejs">Entwickeln mit Node.js</h2>
+<h3 id="types">Types</h3>
+<p>Damit TypeScript bei der Entwicklung einer Node.js-Applikation richtig helfen kann, muss es die neuen Datentypen kennen, die Node mitbringt. Diese installieren Sie wieder einfach per npm auf Ihrer Entwicklungsmaschine (stellen Sie sicher, dass sie sich dabei im Rootverzeichnis ihres Respositories befinden):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install @types/node
+</code></pre></div></div>
+<p>Dabei entsteht ein Ordner <code class="language-plaintext highlighter-rouge">node_modules</code> und eine Datei <code class="language-plaintext highlighter-rouge">package-lock.json</code>. Letztere können Sie in Ihr Repository übernehmen oder löschen. Im Ordner <code class="language-plaintext highlighter-rouge">node_modules</code> befinden sich allerdings die Definitionsdateien für TypeScript und später kommen noch weitere Module dazu, die richtig Platz brauchen. Daher sollten Sie diese auf keinen Fall auf Github pushen. Wählen Sie stattdessen im SourceControl-View von VSCode für diesen Ordner die Option “Add File to .gitignore” (z.B. per Rechtsklick). Dann wird sich Git nicht mehr um diesen Ordner kümmern. Alternativ können Sie auch selbst eine Datei mit dem Namen <code class="language-plaintext highlighter-rouge">.gitignore</code> anlegen und in diese einfach <code class="language-plaintext highlighter-rouge">node_modules</code> schreiben, damit der gesamte node modules ordner ignoriert wird.</p>
+
+<h3 id="run">Run</h3>
+<p>Ein Skript mit Node laufen zu lassen ist denkbar einfach. Da auf Ihrer Maschine bereits Node installiert ist (sonst würden VSCode und der TypeScript-Compiler nicht funktionieren) müssen Sie lediglich in einem Terminal</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node NameDesSkripts.js
+</code></pre></div></div>
+<p>eingeben, wobei NameDesSkripts natürlich mit dem Namen der Skript-Datei zu ersetzen ist, die Sie tatsächlich laufen lassen möchten.</p>
+
+<p>In unserem Fall ist der Server dann unter <code class="language-plaintext highlighter-rouge">localhost:8100</code> im Browser zu erreichen.</p>
+
+<h3 id="debug">Debug</h3>
+<p>In VSCode kann das Skript, in welchem sich gerade der Cursor befindet, auch ganz einfach mit Ctrl+F5 gestartet werden. Dann nämlich läuft der VSCode-Debugger an und verarbeitet das Skript, greift aber nicht ein. Die Skriptausgaben sind in der DEBUG CONSOLE zu finden.</p>
+
+<p>Mit Tastendruck auf F5 alleine starten Sie den Debugger mit der vollen Funktionalität und können nun wie mit dem Browserdebugger durch das laufende Programm navigieren, Breakpoints setzen und Variablen beobachten.</p>
+
+<blockquote>
+  <p><strong>Hinweis</strong>: ggf müssen Sie den ersten Teil zuerst einmal ausführen, bevor der zweite klappt.</p>
+</blockquote>
+
+<h3 id="api">API</h3>
+<p>Node kommt mit einigen neuen Standardobjekten und Modulen, für GiS brauchen Sie aber nur sehr wenige davon. Die Dokumentation finden Sie im Netz auf https://nodejs.org/de/docs/.<br />
+Das Objekt <code class="language-plaintext highlighter-rouge">process</code> beispielsweise liefert Informationen zur Umgebung, in der ein Node-Programm gerade ausgeführt wird. Dafür sind die aus dem Browser bekannten Objekte wie <code class="language-plaintext highlighter-rouge">document</code> oder <code class="language-plaintext highlighter-rouge">window</code> natürlich nicht mehr ansprechbar.</p>
+
+<h2 id="erweiterungen">Erweiterungen</h2>
+<p>Zusätzlich zu den schon fest eingebauten Modulen, werden auch Standard-Erweiterungen mitgeliefert. Um einen Server zu bauen, brauchen wir dabei das Module <code class="language-plaintext highlighter-rouge">http</code>. Das Module <code class="language-plaintext highlighter-rouge">url</code> ist hilfreich um den query-String zu extrahieren und zu interpretieren. Beide Module können mit dem Schlüsselwort <code class="language-plaintext highlighter-rouge">import</code> geladen und einer Variablen zugewiesen werden, über welche in der Folge auf die Funktionen und Objekte der Module zugegriffen werden kann. Der Asterisk <code class="language-plaintext highlighter-rouge">*</code> gibt an, dass sämtliche Funktionalität importiert werden soll, hier könnte auch eine Auswahl getroffen werden.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">Http</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">http</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">Url</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">namespace</span> <span class="p">...</span> <span class="p">{</span>
+    <span class="nx">Http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(...);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>Achtung:</strong> Wird <code class="language-plaintext highlighter-rouge">import</code> verwendet, geht TypeScript davon aus, dass ein eigenes, neues Modul erzeugt werden soll und fordert das Schlüsselwort <code class="language-plaintext highlighter-rouge">export</code> vor <code class="language-plaintext highlighter-rouge">namespace</code>, auch wenn es hier bedeutungslos ist.</p>
+
+<p>Auch die Standardmodule, die wahlweise importiert werden wie <code class="language-plaintext highlighter-rouge">http</code> und <code class="language-plaintext highlighter-rouge">url</code>, sind in der <a href="https://nodejs.org/de/docs/">Node-Dokumentation</a> beschrieben.</p>
+
+<h2 id="server-einrichten">Server Einrichten:</h2>
+
+<p>Für diese Aufgabe benötigen Sie einen Server. Da Sie zwar zum Entwickeln lokal arbeiten können, Abgaben (und später Systeme) aber online funktionieren müssen, sollten Sie sich einen online Server besorgen. Hier zwei Vorschläge wie Sie sich kostenlos einen kleinen Server einrichten können:</p>
+
+<blockquote>
+  <p><strong>Nutzen Sie <a href="https://www.heroku.com/">Heroku</a> (von uns Empfohlen)</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Oder nutzen Sie andere Tools wie z. B. die <a href="https://bwservices.uni-freiburg.de/">Studi Cloud</a></strong> (komplizierter, unkomfortabler und keine Installationsanleitung, dafür aber völlige Narrenfreiheit auf Ihrem eigenen virtuellen Server und keine Anmeldung auf Drittanbieter Seiten)</p>
+</blockquote>
+
+<h2 id="heroku">Heroku</h2>
+<p>Damit der von Ihnen in dieser Aufgabe entwickelte Client von beliebigen Rechnern aus kommunizieren kann, gilt es, ihn in einem Rechenzentrum unterzubringen. Eine Möglichkeit ist es, einen realen oder virtuellen Rechner anzumieten, ihn selbst zu konfigurieren und die erforderliche Software darauf zu installieren etc. Das erfordert einiges an Spezialwissen und teilweise obliegt auch die Wartung, Erweiterung und Aktualisierung in der Verantwortung des Mieters.
+Mittlerweile gibt es aber auch einen großen Markt für “Platform As A Service” (PaaS), bei dem sich der Nutzer nicht um die Infrastruktur kümmern muss, sondern diese einfach nutzen kann. Der Anbieter kümmert sich um die Bereitstellung, Wartung, Skalierung der Plattform. Heroku ist eine solche PaaS, sie findet in diesem Modul Anwendung und ist für einfache Server kostenlos.</p>
+
+<blockquote>
+  <ul>
+    <li>Schauen Sie sich das <a href="https://newswatchtv.com/2018/06/15/heroku-newswatch-review/">NewsWatch-Video</a> zu Heroku an.</li>
+  </ul>
+</blockquote>
+
+<h3 id="installation">Installation</h3>
+<ul>
+  <li>Öffnen Sie die Seite www.heroku.com</li>
+  <li>Legen Sie sich ein kostenloses Nutzerkonto an
+    <ul>
+      <li>Primary language: Node.js</li>
+    </ul>
+  </li>
+  <li>Klicken Sie auf Ihrer <a href="https://dashboard.heroku.com/apps">apps - Seite</a> auf “create new app”
+    <ul>
+      <li>Der Name Ihrer App muss einzigartig sein und darf nur kleine Buchstaben nutzen</li>
+      <li>Wählen Sie die Region Europe</li>
+      <li>Dann “create app”
+ <img src="new-app.jpg" alt="New App" /></li>
+    </ul>
+  </li>
+  <li>In Ihrem persönliches Dashboard (Steuerpult) interessiert Sie zunächst nur die Seite “Deploy”</li>
+  <li>Um nun Ihren Code auf Heroku zu laden, wählen Sie dort “Connect to Github”</li>
+  <li>Klicken Sie darunter erneut auf “Connect to Github”</li>
+  <li>Im Popup mit Github verbinden</li>
+  <li>Wählen Sie Ihr Repository aus</li>
+  <li><strong>ggf. muss in Github noch der Zugriff gewährt werden.</strong></li>
+</ul>
+
+<p>Heroku sollte nun vorbereitet sein um Ihren Code von Ihrem Repository zu pullen und als Web-App laufen zu lassen. Falls Schwierigkeiten beim Einrichten von Heroku auftreten ist hier der offizielle <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up">setup-guide</a>, ansonsten gilt wie immer: Issues, Discord, Praktikum, etc…</p>
+
+<h3 id="deployment">Deployment</h3>
+<ul>
+  <li>Klicken Sie nun im Dashboard oben rechts auf “More” und öffnen Sie “View logs” in einem neuen Browserfenster.</li>
+  <li>Ordnen Sie das Deploy- und das Logs-Browserfenster nebeneinander auf Ihrem Bildschirm an um die Ausgaben beobachten zu können.</li>
+  <li>Klicken Sie auf “Deploy Master Branch”</li>
+  <li>Beobachten Sie die Ausgaben in beiden Fenstern</li>
+  <li>Wenn Sie alles richtig gemacht haben, erhalten Sie im Deploy-Fenster Fehlermeldungen und Ihre Web-App crasht!</li>
+</ul>
+
+<h3 id="packagejson">package.json</h3>
+
+<p>Das Problem ist nämlich, dass Heroku keine Ahnung davon hat, was es eigentlich tun soll. Auf Ihrer Entwicklungsmaschine hatten Sie von Hand die Kommandos gegeben. So wurde Node installiert, der Code kompiliert und der Server unter Node.js gestartet etc. Um das auf Heroku zu machen fehlt Ihnen der direkte Zugang. Es ist aber auch nicht sinnvoll, denn schließlich soll Ihre Server-App auch automatisch starten, und nicht immer von Ihrer Präsenz abhängig sein. Das Build-Log gibt schon darüber Auskunft wie vorzugehen ist.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> !     The 'heroku/nodejs' buildpack is set on this application, but was
+ !     unable to detect a Node.js codebase.
+ !         
+ !     A Node.js app on Heroku requires a 'package.json' at the root of
+ !     the directory structure.
+ !     
+ !     If you are trying to deploy a Node.js application, ensure that this
+ !     file is present at the top level directory. This directory has the
+ !     following files:
+</code></pre></div></div>
+<p>Wenn Sie darunter Ihre Dateien und Ordner sehen, ist alles sehr gut. Sie müssen also nur eine json-Datei mit dem Namen package auf der obersten Ebene Ihrer Dateistruktur unterbringen, mit der Sie Heroku die notwendigen Informationen mitgeben können. Zum Glück hilft Ihnen Node bei der Erstellung dieser Datei.</p>
+
+<ul>
+  <li>Öffnen Sie ein Terminal auf der obersten Ebene Ihres Projektes</li>
+  <li>Geben Sie <code class="language-plaintext highlighter-rouge">npm init</code> ein</li>
+  <li>Bei den meisten Einträgen können Sie einfach die Vorschläge akzeptieren. Sie sollten einen Namen, der wie der Name Ihrer Heroku-App nur aus Kleinbuchstaben bestehen darf, und Ihren Namen als Autor eingeben.</li>
+  <li>Wenn Sie damit fertig sind, öffnen Sie die entstandene Datei <code class="language-plaintext highlighter-rouge">package.json</code>
+    <ul>
+      <li>ersetzen Sie darin den mit “test” bezeichneten Eintrag in “scripts” durch
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"start": "node Relativer/Pfad/Zu/Datei.js"
+</code></pre></div>        </div>
+        <p>wobei Sie den rechten Teil natürlich mit Sinnvollem ersetzen.</p>
+      </li>
+    </ul>
+  </li>
+  <li>Testen Sie <code class="language-plaintext highlighter-rouge">package.json</code> indem Sie nun im Terminal <code class="language-plaintext highlighter-rouge">npm start</code> eingeben. Der NodePackageManager (npm) sucht jetzt selbst in der Datei nach dem Eintrag “start” unter “scripts” und führt aus was darin steht.</li>
+  <li>Wenn’s klappt: Commit und Push!</li>
+  <li>Wenn nicht: Issue posten, in Discord Fragen, …</li>
+</ul>
+
+<h3 id="server-app-starten">Server-App starten</h3>
+<ul>
+  <li>Öffnen Sie wieder die beiden Heroku-Fenster</li>
+  <li>Starten Sie wieder einen Build im Deploy-Fenster</li>
+  <li>Beobachten Sie die Logs in beiden Fenstern in beiden sollte die Zeile “Build succeeded” zwischen den anderen auftauchen.</li>
+</ul>
+
+<p>Ihr Server wird auch gleich gestartet. Mit dem Browser können Sie über die URL mit Ihrer Server-App kommunizieren und die Antworten auf der Seite sehen</p>
+<ul>
+  <li>Klicken Sie dazu auf “View” bzw. “Open app”</li>
+  <li>Ein neuer Browsertab öffnet sich und zeigt Ihnen die Serverantwort. Die URL ist die Adresse Ihrer App.</li>
+  <li>Erweitern Sie die URL um einen Search- bzw. Query-Teil und beobachten Sie die Serverantworten.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Hinweis</strong>: Sie können über “Automatic Deploys” dafür sorgen, dass Heroku sich immer automatisch die neuste Version Ihres Codes herunterlädt, wenn Sie ihn in ihr Repository pushen, dann müssen Sie bei Updates nicht immer manuell neu deployen. Dies kann aber auch von Nachteil sein, wenn man unfertigen Code pusht und so den eigenen Server zerschießt.</p>
+</blockquote>
+
+<h2 id="client">Client</h2>
+<p>Jetzt müssen Sie lediglich noch die url-Variable in Ihrer Clientsoftware anpassen, damit diese sich mit dem Heroku-Server unterhält.</p>
+<ul>
+  <li>Testen Sie Ihren Heroku-Server vom Client aus, sowohl vom lokalen Fileserver aus, wie auch über GitHub Pages.</li>
+  <li>Achten Sie dabei auf das Log-Fenster von Heroku</li>
+</ul>
+
+<h3 id="typescript-dokumentation">Typescript Dokumentation</h3>
+
+<p>https://www.typescriptlang.org/</p>
+
+<hr />
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/link-zu-github-profil">&lt;GitHub Nutzername&gt;</a></p>
+
+<h3 id="erste-frage">Erste Frage?</h3>
+<p>LoremLabore labore cillum mollit pariatur reprehenderit dolor laboris reprehenderit dolor sit officia ea non. Lorem reprehenderit exercitation labore eiusmod aute do nostrud officia aute proident sunt. Labore non tempor aliqua voluptate. Exercitation culpa officia ut aliqua nostrud laborum irure est. Minim eu sunt culpa adipisicing laborum consectetur aliqua quis.</p>
+
+<h3 id="zweite-frage">Zweite Frage?</h3>
+<p>Mollit aliquip veniam sit eiusmod tempor anim ipsum tempor. Aliqua sunt voluptate ea dolor. Nulla est mollit consectetur cupidatat ut cillum ipsum minim. Est ex et nulla laborum fugiat dolore. Aliquip laboris sint exercitation commodo dolor sint mollit qui sunt ipsum fugiat occaecat id enim.</p>
+
+<h2>…</h2>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L3.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:33 GMT -->
+</html>

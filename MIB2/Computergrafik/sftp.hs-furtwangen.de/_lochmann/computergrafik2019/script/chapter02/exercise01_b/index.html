@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Übung 2.1 - Polygonal Modeling - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Übung 2.1 - Polygonal Modeling
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a class="current" title="2.1 - Übung - Polygonal Modeling" href="index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../../chapter04/lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../../chapter04/exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../../chapter04/exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Übung 2.1 - Polygonal Modeling </h1>
+
+			
+
+<table>
+<thead>
+<tr>
+<th><strong><em>Wichtiger Hinweis</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Die Abgabe für diese Übung besteht aus zwei Teilen: der Schilder <em>und</em> einem Schwert! Lesen Sie dazu unten den Absatz &ldquo;Aufgabe&rdquo;.</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="der-edit-mode">Der Edit-Mode</h2>
+
+<p><strong>Im folgenden Kapitel werden die Grundlagen des Modellierens erläutert. Dazu erstellen wir einen mittelalterlichen Schild. Die Arbeitsweise des steigenden Detailgrades und der Aufbau eines 3D-Meshs sind besonders zu beachten.</strong></p>
+
+<h2 id="1-vorbereitung">1. Vorbereitung</h2>
+
+<ul>
+<li>Erstellt ein neues Blender-File.</li>
+</ul>
+
+<p><img src="img/ClearScene.png" alt="img" /></p>
+
+<ul>
+<li>Löscht alle Objekte bis auf den Würfel, indem ihr mit <code>A</code> alles auswählt, mit gedrückter <code>Shift</code>-Taste auf den Würfel klickt und anschließend mit <code>X</code> alle ausgewählten Objekte löscht.</li>
+<li>Fügt über das Menü <code>Add</code>→<code>Image</code>→<code>Reference</code> oder mit dem Shortcut <code>Shift + A</code> ein Bild als Referenz ein. Nutzt dafür das <a href="img/shield.png">bereitgestellte Bild</a> oder ein selbst ausgewähltes Design.</li>
+</ul>
+
+<p><img src="img/ReferenceImage.png" alt="img" /></p>
+
+<ul>
+<li>Öffnet mit <code>N</code> das <em>Number Panel</em> und setzt die Position und Rotation auf 0, sodass das Bild flach im Ursprung liegt.</li>
+</ul>
+
+<p><img src="img/ReferenceImageNoSelect.png" alt="img" /></p>
+
+<ul>
+<li>Wechselt jetzt ins <em>Modeling Workspace</em> <strong>(1)</strong>.</li>
+</ul>
+
+<blockquote>
+<p>Beim Wechsel zum <em>Modeling Workspace</em> wird bereits automatisch der <em>Edit Mode</em> aktiviert. Um zwischen <em>Edit Mode</em> und <em>Object Mode</em> zu wechseln könnt ihr das <em>Interaction Mode Menu</em> <strong>(2)</strong> oder den Shortcut <code>Tab</code> nutzen.</p>
+</blockquote>
+
+<h2 id="2-grundform">2. Grundform</h2>
+
+<p><img src="img/CubeMoveUp.png" alt="img" /></p>
+
+<ul>
+<li>Verschiebt den Würfel im Object- Mode an der Y- Achse nach oben, sodass er über dem Bild schwebt.</li>
+</ul>
+
+<p><img src="img/TopView.png" alt="img" /></p>
+
+<ul>
+<li>Wechselt durch das Menü <code>View</code> → <code>Viewpoint</code> → <code>Top</code>, dem Shortcut <code>Num 7</code> oder mit <code>Alt + mittlere Maustaste</code> in die Top-Ansicht.</li>
+<li>Stellt mit <code>Z</code> auf Wireframe. Dadurch werden <em>Objects</em> durchsichtig und ihr könnt auch <em>Vertices</em> auswählen, die hinter anderen <em>Vertices</em> liegen.</li>
+</ul>
+
+<p><img src="img/HalfedCube.png" alt="img" /></p>
+
+<ul>
+<li>Erstellt mit &ldquo;Loop Cut and Slide&rdquo; oder <code>Ctrl + R</code> einen <a href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/subdividing/loop.html"><em>Loop Cut</em></a> in der Mitte des Würfels und löscht eine Hälfte indem ihr sie auswählt und anschließend <code>X</code> drückt.</li>
+</ul>
+
+<blockquote>
+<p><em>Loop Cuts</em> teilen das geasamte <em>Mesh</em> und funktionieren wie die meisten Bearbeitungsfuntionen nur gut mit <em>Quadrangles</em> bzw. <em>Quads</em> (Vierecken). <em>Meshes</em> aus <em>Triangles</em> bzw. <em>Tris</em> (Dreiecken) und/oder <em>N-Gons</em> (Vielecken) haben bei der Bearbeitung meist unerwartete und ungewollte Effekte. <em>Loop Cuts</em> werden beispielsweise durch <em>Tris</em> unterbrochen und erstellen Kanten, die sich theoretisch als Viereck gegenüberstehen, tatsächlich aber immernoch ein Dreieck mit einer unterbrochenen Kante bilden.</p>
+</blockquote>
+
+<p><img src="img/Grundform_1.png" alt="img" /></p>
+
+<ul>
+<li>Verschiebt jetzt die noch vorhandenen Eckpunkte passend zum Referenzbild.</li>
+</ul>
+
+<p><img src="img/MirrorModifier.png" alt="img" /></p>
+
+<ul>
+<li>Wählt im <em>Properties Panel</em> den Schraubenschlüssel <strong>(1)</strong> aus und fügt den <em>Mirror- Modifier</em> zu eurem Würfel hinzu <strong>(2)</strong>. Stellt den <em>Modifier</em> auf die richtige Achse <strong>(3)</strong> ein, um euren Würfel wieder zu vervollständigen.</li>
+</ul>
+
+<blockquote>
+<p>Mit einem <a href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/mirror.html"><em>Mirror Modifier</em></a> zu arbeiten bietet sich bei allen symmetrischen Objekten an, da es die Häfte der Arbeit erspart. Selbst wenn nur die Grundform symmetrisch ist kann man Details später immer noch für die Seiten individuell anpassen.</p>
+</blockquote>
+
+<p><img src="img/LoopCut_2.png" alt="img" /></p>
+
+<ul>
+<li>Fügt nun weitere <em>Loop Cuts</em> ein. Einen horizontal und einen vertikal, wobei beim vertikalen im Menü <em>Loop Cut and Slide</em> die <em>Number of Cuts</em> auf &ldquo;2&rdquo; gestellt werden sollte.</li>
+</ul>
+
+<p><img src="img/Grundform_2.png" alt="img" /></p>
+
+<ul>
+<li>Passt nun auch für die neu erstellten Punkte die Position passend zum Referenzbild an.</li>
+</ul>
+
+<p>Da wir nur ein sehr minimalistisches Referenzbild für die Grundform des Schildes nutzen, können wir es jetzt da die Form erreicht ist löschen.</p>
+
+<p><img src="img/Grundform_3.png" alt="img" /></p>
+
+<ul>
+<li>Wechselt durch das Drücken von <code>Z</code> die <em>Shading Method</em> wieder zurück ins <em>Solid Shading</em>.</li>
+<li>Dreht die Kamera so, dass ihr auch wieder die Höhe eures Objektes sehen könnt, wählt alle Flächen auf der Oberseite des Schildes aus und verschiebt sie entlang der Z-Achse so, dass euer Schild eine passende Stärke hat.</li>
+</ul>
+
+<h2 id="3-details">3. Details</h2>
+
+<p><img src="img/Grundform_4.png" alt="img" /></p>
+
+<ul>
+<li>Um durch einen sogenannten <em>Inset</em> einen schönen Rand für das Schild zu erstellen, müsst ihr zuerst den <em>Mirror Modifier</em> anwenden. Dafür drückt ihr im Modifier einfach auf den &ldquo;Apply&rdquo;.</li>
+</ul>
+
+<p><img src="img/Inset.png" alt="img" /></p>
+
+<ul>
+<li>Wählt jetzt wieder die oberen Flächen des Schildes aus falls sie nicht noch ausgewählt sind und benutzt im Menü links das <em>Inset Tool</em> oder drückt <code>I</code>. Erstellt damit einen Rand.</li>
+</ul>
+
+<p><img src="img/Extrude.png" alt="img" /></p>
+
+<ul>
+<li>Wählt die neuen Flächen aus und nutzt das <em>Extrude Tool</em> oder <code>E</code> um den Rand auszumodellieren.</li>
+</ul>
+
+<p><img src="img/Bevel_1.png" alt="img" /></p>
+
+<ul>
+<li>Um eine runde Kante zu erhalten, wählt die äußeren Kanten des extrudierten Randes aus und nutzt das <em>Bevel Tool</em> oder <code>Strg + B</code>.</li>
+</ul>
+
+<blockquote>
+<p>Die Werkzeuge <a href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/duplicating/extrude.html"><em>Extrude</em></a>, <a href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/subdividing/loop.html"><em>Loop Cut</em></a>, <a href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/subdividing/bevel.html"><em>Bevel</em></a> und <a href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/duplicating/inset.html"><em>Inset</em></a> sind die am häufigsten genutzten Funktionen beim Modellieren. Sie sind optimal um neue <em>Edge Loops</em> und Geometrieformen zu erzeugen. Bei der Nutzung des <em>Bevel Tools</em> muss allerdings aufgepasst werden, da sehr schnell <em>N-Gons</em> erzeugt werden, wenn man keinen ganzen <em>Edge Loop</em> ausgewählt hat.</p>
+</blockquote>
+
+<ul>
+<li>Verziert das Schild nun mit den kennen gelernten Methoden. Erstellt Details wie z.B. Nieten, Dellen oder Armlaschen.</li>
+</ul>
+
+<h2 id="4-vervielfältigen">4. Vervielfältigen</h2>
+
+<blockquote>
+<p>Neben dem oben kennengelernten <em>Mirror Modifier</em> gibt es noch zahlreiche andere <em>Modifier</em>, die man zum Verändern des <em>Meshes</em> einsetzen kann.</p>
+</blockquote>
+
+<p><img src="img/ArrayModifier.png" alt="img" /></p>
+
+<ul>
+<li><p>Nutzt den <a href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/array.html"><em>Array Modifier</em></a> um euer Schild zu klonen bis ihr 4 Schilde habt. Setzt dafür in den Modifier-Einstellungen einfach den &ldquo;Count&rdquo; <strong>(1)</strong> auf &ldquo;4&rdquo; und stellt einen Offset <strong>(2)</strong> an der X- oder Y-Achse ein.</p></li>
+
+<li><p>Sorgt dafür, dass ihr eure Schilde individuell bearbeiten könnt indem ihr mit &ldquo;Apply&rdquo; <strong>(3)</strong> die geometrischen Änderungen des <em>Modifiers</em> übernehmt.</p></li>
+</ul>
+
+<p><img src="img/Detatch.png" alt="img" /></p>
+
+<ul>
+<li>Macht nun aus jedem Schild ein eigenes Objekt. Dazu wählt ihr im Edit- Mode jeweils ein ganzes Schild aus und drückt <code>P</code> um die Auswahl als neues Objekt abzutrennen.</li>
+</ul>
+
+<h2 id="einschneiden">Einschneiden</h2>
+
+<blockquote>
+<p>Mit dem <a href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/booleans.html"><em>Boolean- Modifier</em></a> könnt ihr Objekte aus anderen Objekten ausschneiden.</p>
+</blockquote>
+
+<p><img src="img/BoolObjekte.png" alt="img" /></p>
+
+<ul>
+<li><p>Erstellt neue Objekte in eurer Szene, deren Form ihr aus euren Schilden ausschneiden wollt. Zum Beispiel zwei Zylinder.</p></li>
+
+<li><p>Platziert die auszuschneidenden Objekte an einer passenden Stelle.</p></li>
+</ul>
+
+<p><img src="img/Boolean.png" alt="img" /></p>
+
+<ul>
+<li><p>Fügt einem eurer Schilde für jedes auszuschneidende Objekt einen <em>Boolean- Modifier</em> hinzu(1).</p></li>
+
+<li><p>Wählt als Operation &ldquo;Difference&rdquo;(2) aus und als Objekt(3) eines der auszuschneidenden Objekte.</p></li>
+</ul>
+
+<p><img src="img/BooleanApplied.png" alt="img" /></p>
+
+<ul>
+<li>Wendet den Modifier nun mit &ldquo;apply&rdquo; an und löscht oder verschiebt anschließend die Objekte.</li>
+</ul>
+
+<blockquote>
+<p>Den <em>Boolean Modifier</em> während des Modellierens anzuwenden ist nicht zu empfehlen, da er die Struktur des Meshes (Topologie) zerstört und viele <em>N-Gons</em> erzeugt.</p>
+</blockquote>
+
+<h2 id="aufgabe">Aufgabe</h2>
+
+<ul>
+<li>Verändert das Aussehen aller vier Schilde indem ihr unterschiedliche Objekte an unterschiedlichen Stellen ausschneidet.</li>
+<li>Erstellt, wie schon das Schild, ein Schwert mit dem <a href="img/SwordHalf.png">beigefügten Refferenzbild</a>. Das Schwert muss nicht vervielfältigt werden, sollte dafür aber eine schöne Mesh- Struktur und aufwändige Parierstange und Griff haben. Hier lässt sich sehr schön mit <em>Extrude</em> und <em>Bevel</em> arbeiten. Die abzugebenden Objekte müssen aus einem zusammenhängenden, ausmodellierten Mesh bestehen.</li>
+</ul>
+
+<h2 id="ressourcen-tutorials-zum-thema">Ressourcen &amp; Tutorials zum Thema</h2>
+
+<table>
+<thead>
+<tr>
+<th>Art/Länge</th>
+<th>Titel</th>
+<th>Thema</th>
+<th>Quelle</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 1:15</td>
+<td><a href="https://youtu.be/7bHleRTEmZ0?list=PLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6"><strong>Modeling Introduction - Blender 2.80 Fundamentals</strong></a></td>
+<td>Modeling</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 3:07</td>
+<td><a href="https://youtu.be/34FBeC9mktE?list=PLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6"><strong>Object and Edit Mode - Blender 2.80 Fundamentals</strong></a></td>
+<td>Interface &amp; Basics</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 13:18</td>
+<td><a href="https://youtu.be/RaT-uG5wgUw"><strong>Beginner Blender Tutorial Level 1 - Part 2: Modelling</strong></a></td>
+<td>Modeling</td>
+<td><a href="https://www.youtube.com/channel/UCOKHwx1VCdgnxwbjyb9Iu1g">YouTube - Blenderguru</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 21:55</td>
+<td><a href="https://youtu.be/Qx4MRAdYfgY"><strong>Blender 2.8 Beginner Tutorial - Part 4: Hard-Surface Modeling</strong></a></td>
+<td>Modeling</td>
+<td><a href="https://www.youtube.com/channel/UCWWybvw9jnpOdJq_6wTHryA">YouTube - CG Boost</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/article.png" class="resicon"></td>
+<td><a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/index.html"><strong>Editing - Blender Manual</strong></a></td>
+<td>Mesh Tools</td>
+<td><a href="https://docs.blender.org/manual/en/latest/index.html">Blender Reference Manual</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="gelerntes">Gelerntes</h2>
+
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Kontext</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Modus wechseln</td>
+<td>Edit Mode / Object Mode</td>
+<td>Tab</td>
+</tr>
+
+<tr>
+<td>Wireframe Mode</td>
+<td>Edit Mode / Object Mode</td>
+<td>Z</td>
+</tr>
+
+<tr>
+<td>Loop Cut and Slide</td>
+<td>Edit Mode</td>
+<td>Ctrl + R</td>
+</tr>
+
+<tr>
+<td>Inset</td>
+<td>Edit Mode</td>
+<td>I</td>
+</tr>
+
+<tr>
+<td>Extrude</td>
+<td>Edit Mode</td>
+<td>E</td>
+</tr>
+
+<tr>
+<td>Bevel</td>
+<td>Edit Mode</td>
+<td>Strg + B</td>
+</tr>
+
+<tr>
+<td>Detatch</td>
+<td>Edit Mode</td>
+<td>P</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../exercise01_a/index.html" title="Übung 2.1 - Polygonal Modeling">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Übung 2.1 - Polygonal Modeling
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../../chapter03/exercise01_a/index.html" title="Übung 3.1 - Subdivision Surface Modeling">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Übung 3.1 - Subdivision Surface Modeling
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

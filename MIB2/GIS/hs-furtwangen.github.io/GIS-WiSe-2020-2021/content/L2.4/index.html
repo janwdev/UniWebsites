@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L2.4/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-24-json-und-local-storage"><em>V</em> <strong>2.4</strong> JSON und Local Storage</h2>
+
+<h3 id="inhaltsverzeichnis">Inhaltsverzeichnis</h3>
+<ul>
+  <li><a href="#json">JSON</a></li>
+  <li><a href="#lokaler-speicher">Lokaler Speicher</a>
+    <ul>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#local-storage">Local Storage</a></li>
+      <li><a href="#session-storage">Session Storage</a></li>
+    </ul>
+  </li>
+  <li><a href="#-fragen-und-antworten">Q&amp;A</a></li>
+</ul>
+
+<h3 id="json">JSON</h3>
+
+<p>JSON (Java Script Object Notation) ist eine Syntax um Daten speichern und austauschen zu können und wurde ursprünglich für JavaScript entwickelt, aber wird von vielen anderen Sprachen ebenfalls benutzt. JSON ist ein mit JavaScript-Objektnotation geschrieber Text. JSON ist ein Datenformat in dem Daten für Menschen les- und veränderbar abgespeichert weden.</p>
+
+<ul>
+  <li>JSON steht für JavaScript-Objektnotation</li>
+  <li>JSON ist leicht zu lesen/verstehen</li>
+  <li>JSON ist sprachübergreifend</li>
+</ul>
+
+<h4 id="daten-austauschen">Daten austauschen</h4>
+<p>Die Daten in JSON liegen in Textform vor, und es kann jedes TS/JavaScript-Objekt in JSON konvertiert und aus JSON geladen werden. JSON kann auch an und von einem Server gesendet werden. Es kann jedes beliebige vom Server empfangene JSON in TS/JavaScript-Objekte umgewandelt werden.</p>
+
+<p>Auf diese Weise kann komfotabel mit den Daten als TS/JavaScript-Objekte gearbeitet werden.</p>
+
+<h4 id="daten-speichern">Daten speichern</h4>
+<p>Wenn Sie Daten in einem TS/JS-Objekt gespeichert haben, können Sie das Objekt in einen JSON string konvertieren:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myObj</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="na">city</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New York</span><span class="dl">"</span><span class="p">};</span>
+<span class="kd">let</span> <span class="nx">myJSON</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myJSON</span><span class="p">);</span> <span class="c1">// '{"name":"John", "age": 31, "city": "New York"}'</span>
+</code></pre></div></div>
+
+<h4 id="einlesen-von-daten">Einlesen von Daten</h4>
+<p>Wenn Sie Daten im JSON-Format erhalten, können Sie diese in ein TS/JS-Objekt konvertieren:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myJSON</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{"name": "John", "age": 31, "city": "New York"}</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">myObj</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">myJSON</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">demo</span><span class="dl">"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">myObj</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>JSON ist ein reines Datenformat, das heißt, dass Methoden / Funktionen darin nicht gespeichert werden können!<br />
+Sollen also Klassen in JSON gespeichert / geladen werden, so müssen einige Extraschritte unternommen werden, indem man die konvertieren Daten z.B. an einen Konstruktor übergibt.</p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">PersonInterface</span> <span class="p">{...}</span>
+<span class="kd">class</span> <span class="nx">Person</span> <span class="p">{...}</span>
+
+<span class="kd">let</span> <span class="nx">myJSON</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{"name": "John", "age": 31, "city": "New York"}</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">myObj</span><span class="p">:</span> <span class="nx">PersonInterface</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">myJSON</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">myPerson</span><span class="p">:</span> <span class="nx">Person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">myObj</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">myObj</span><span class="p">.</span><span class="nx">age</span><span class="p">,</span> <span class="nx">myObj</span><span class="p">.</span><span class="nx">city</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="lokaler-speicher">Lokaler Speicher</h3>
+
+<p>Oftmals ist es sinnvoll, kleine Datenschnipsel lokal auf dem Gerät des Anwenders zu speichern. Dazu stehen uns drei verschiedene Optionen zur Verfügung.</p>
+
+<h4 id="cookies">Cookies</h4>
+<p>Cookies sind spätestens seit der DSGVO in aller Munde. Sie werden in Key-Value (Schlüssel-Werte) Paaren im Browser gespeichert Und “gehören” zu einer bestimmten Adresse. Wenn ein Browser dann eine Seite anfragt, werden die Cookies automatisch mitgeschickt, so kann der server die nötigen Daten entgegen nehmen um sich an den Nutzer zu “erinnern”.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">username=Max Mustermann</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Standardmäßig werden Cookies wieder gelöscht, sobald der Browser geschlossen wird. Um dies zu ändern, kann dem Cookie ein “Ablaufdatum” gegeben werden, nach welchem es automatisch gelöscht wird (in UTC Zeit).</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">username=Max Mustermann; expires=Fri, 18 Dec 2020 12:00:00 UTC</span><span class="dl">"</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<p>Außerdem ist ein Cookie stets der aktuellen (Unter-) Seite zugeordnet. Auch das kann durch ein Attribut angepasst werden. Ein Cookie funktioniert ähnlich wie eine lokale Variable: Von weiter außen kann darauf nicht zugegriffen werden, aber tiefer innerhalb der Seitenstruktur schon.</p>
+
+<p>Ein cookie, welcher in <code class="language-plaintext highlighter-rouge">example.com/subpage</code> gespeichert wurde, kann von <code class="language-plaintext highlighter-rouge">example.com/subpage/subsubpage</code> ausgelesen werden, aber nicht von <code class="language-plaintext highlighter-rouge">example.com/</code> und nicht von <code class="language-plaintext highlighter-rouge">example.com/differntpage</code>.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">username=Max Mustermann; expires=Fri, 18 Dec 2020 12:00:00 UTC; path=/</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Über <code class="language-plaintext highlighter-rouge">document.cookie</code> können alle von der aktuellen Seite erreichbaren Cookies wieder ausgelesen werden. Dabei werden alle gesetzen Cookies in einem langen String, getrennt durch <code class="language-plaintext highlighter-rouge">;</code> zurück gegeben.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">c</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Da Cookies immer mit der Anfrage an einen Server mitgeschickt werden, haben alle Cookies einer Seite eine gemeinsame Maximalgröße von <strong>4000 bytes</strong>. Außerdem können nicht mehr als 20 Cookies pro Seite gespeichert werden.</p>
+
+<p>Diese ganzen Konzepte machen Cookies zwar praktisch wegen der automatischen Löschung, aber sehr umständlich zu setzen und auszulesen. Auch darum wurden in den letzten Jahren weitere Lösungen entwickelt.</p>
+
+<p><a href="https://www.w3schools.com/js/js_cookies.asp">Weitere Informationen und Beispielimplementationen von benötigten Funktionen nur Nutzung von Cookies</a>.</p>
+
+<h4 id="local-storage">Local Storage</h4>
+
+<p>Local Storage ermöglicht es, Key-Value Paare lokal im Cache (Zwischenspeicher) des Browsers zu speichern (ist also effektiv ein Art assoziatives Array). So können Daten über meherere Seiten einer Website hinweg einfach zwischengespeichert und wieder eingeladen werden. Die Verwendung von Local Storage ist einfacher als die Verwendung von Cookies, hat aber keine automatische Löschung.</p>
+
+<p>Auch hier können nur strings gespeichert werden. Sollen komplexere Daten gespeichert werden, so müssen diese zunächst in einen String konvertiert werden. Glücklicherweise steht uns dazu JSON zur Verfügung.</p>
+
+<blockquote>
+  <p><strong>Hinweis</strong>: Wenn Sie localStorage nutzen wollen, muss beim Testen die HTML Datei über einen Liveserver (<a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">VSCode Liveserver Plugin</a>) ausgeführt werden, da der LocalStorage sonst beim Seitenwechsel von einer lokalen Datei zu einer anderen sich selbst wieder löscht.</p>
+</blockquote>
+
+<h5 id="beispiel">Beispiel</h5>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Wert Speichern</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">lastname</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// Wert Laden</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">lastname</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h5 id="daten-wieder-aus-den-localstorage-löschen">Daten wieder aus den LocalStorage löschen</h5>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">lastname</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h5 id="noch-ein-beispiel">Noch ein Beispiel</h5>
+
+<p>HTML Teil:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;&lt;button</span> <span class="na">onclick=</span><span class="s">"clickCounter()"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Klick mich!<span class="nt">&lt;/button&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"result"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;</span>Klick auf den Button und der Zähler wird erhöht.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Wenn du die Seite schließt und wieder öffnest ist der Counter nicht zurückgesetzt<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>TypeScript Teil:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">clickCounter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clickcount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">clickcount</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clickcount</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">clickcount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">(</span><span class="o">&lt;</span><span class="nx">HTMLElement</span><span class="o">&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">)).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Du hast den Button </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">clickcount</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> mal geklickt.</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>(localStorage ist eigentlich überall verwendbar, s. <a href="https://caniuse.com/#feat=mdn-api_window_localstorage">CanIUse</a>, aber auch hier sollte man eine Fallbacklösung haben wenn man eine “richtige” Webseite entwickelt, und wenn es nur ein “Sorry, Ihr Browser ist zu alt” Nachricht ist.)</em></p>
+
+<h4 id="session-storage">Session Storage</h4>
+
+<p>Funktioniert bis auf einen Unterschied genau wie der LocalStorage:<br />
+In <code class="language-plaintext highlighter-rouge">localStorage</code> gespeicherte Daten besitzen kein Verfallsdatum, während sie im <code class="language-plaintext highlighter-rouge">sessionStorage</code> mit Ablauf der Sitzung gelöscht werden. Eine Sitzung endet erst mit dem Schließen des Browsers, sie übersteht das Neuladen und Wiederherstellen einer Webseite. Das Öffnen einer Webseite in einem neuen Tab oder Browserfenster erzeugt jedoch eine neue Sitzung.</p>
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/">&lt;username&gt;</a></p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L2.4/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L3.3/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-33-datenbanken-grundlagen"><em>V</em> <strong>3.3</strong> Datenbanken Grundlagen</h2>
+
+<p><img src="https://assets.amuniversal.com/b1e4d2d09fcd012f2fe600163e41dd5b" />
+<small>Quelle: <a href="https://dilbert.com/strip/1995-11-17">https://dilbert.com/strip/1995-11-17</a></small></p>
+
+<h1 id="datenbanken">Datenbanken</h1>
+
+<p>Ein Server hält seine Daten grundsätzlich nur so lange vor, wie er läuft. Sobald er heruntergefahren wird (oder abstürzt), gehen die im Arbeitsspeicher und Variablen gespeicherten Daten verloren. Nun könnte man natürlich für jeden zu speichernden Datensatz (wie z.B eine Bestellung in unserem onlineshop) eine Datei anlegen (z. B. JSON), oder alle Daten irgendwie in einer großen Datei sammeln, allerdings sollten diese Daten ja auch schnell manipulierbar, durchsuchbar, analysierbar und vieles mehr sein. Schließlich sollten auch alte Bestellungen irgendwann gelöscht, alle Bestellungen eines bestimmten Kunden herausgesucht oder oder zur Optimierung des Angebots die Häufigkeit der Bestellung einer bestimmten Artikel-Kombination ermittelt werden können. Für all dies müssten wieder entsprechende Algorithmen und Datenstrukturen konzipiert implementiert werden. Da solche Anforderungen bei der Entwicklung interaktiver Anwendungen aber sehr häufig auftreten und oft ähnlich sind, gibt es bereits Standardsoftware, welche Daten speichert, verwaltet und auswertet: Datenbanksysteme!</p>
+
+<h2 id="relationale-datenbanken">Relationale Datenbanken</h2>
+<p>Seit den 1970er Jahren dominieren relationale Datenbanken, bei denen die Daten in Tabellenstrukturen untergebracht werden und durch Querverweise ein Netz von Tabellen aufgespannt wird, den IT Bereich. Mit der Structured-Query-Language (SQL) wurde eine Abfragesprache entwickelt, mit der komplexe Anweisungen formuliert werden können, welche eine jeweilige Datenbanksoftware dann selbständig ausführt um Daten aus dem Bestand zu liefern oder zu manipulieren. Heute ist insbesondere die Open-Source-Datenbanksoftware MySQL sehr weit im Internet verbreitet.</p>
+<blockquote>
+  <p><strong>FunFact:</strong> Dem Namen MySQL wird meist intuitiv die Bedeutung “MeinSQL” zugesprochen. Tatsächlich aber hat der finnische Entwickler Michael Widenius sein 1994 gestartetes Open-Source-Projekt nach seiner Tochter My benannt.</p>
+</blockquote>
+
+<h2 id="nosql-datenbanken">NoSQL-Datenbanken</h2>
+<p>Mit dem durch das Internet stetig wachsenden Datenaufkommen wurde der Bedarf an Skalierungsmöglichkeiten immer größer. Die Leistung und Kapazität einer Datenbank sollte also während des Betriebs durch Einsatz von mehr Hardware einfach vergrößert werden können. Relationale Datenbanksysteme sind aber ursprünglich nicht dafür ausgelegt, die Daten zu verteilen. 
+NoSQL bzw. dokumentenorientierte Datenbanken adressieren dieses Problem. Die zu verwaltenden Daten müssen dabei nicht in starr definierte Tabellenform gebracht werden, sondern jeder Datensatz kann als beliebig strukturiertes Dokument abgelegt werden.<br />
+Das No in NoSQL bedeutet “Not only”, es gibt also auch Systeme, die mit SQL arbeiten können. Dokumentenorientierte Datenbanken sind eine Variante der NoSQL-Datenbanken, es gibt noch andere.</p>
+
+<h2 id="mongodb">MongoDB</h2>
+<p>2009 wurde mit MongoDB eine NoSQL-Datenbanksoftware veröffentlicht, die Javascript als interne Sprache nutzt. Abfragen und Aggregationsfunktionen können direkt als Javascript-Anweisungen formuliert werden, außerdem können ganze Anweisungsfolgen zum Datenbanksystem geschickt und dort ausgeführt werden.</p>
+
+<blockquote>
+  <p><strong>FunFact:</strong> Der Name MongoDB leitet sich von <em>humongous</em> ab, womit die groteske Größe der Datenmengen gemeint ist, die mit dieser Software verwaltet werden können.</p>
+</blockquote>
+
+<p>Für Sie ist der riesige Vorteil der Nutzung dieser Datenbanksoftware, dass Sie keine weitere Abfrage- oder Programmiersprache lernen müssen. Die Anweisungen, die MongoDB für Node.js bereit stellt, sind auch in TypeScript definiert, so dass Sie sie mit der gewohnten Unterstützung einsetzen können, genauso wie die modernen Konzepte der ansynchronen Kommunikation mit dem Datenbanksystem wie <code class="language-plaintext highlighter-rouge">Promise</code> und <code class="language-plaintext highlighter-rouge">async/await</code>.<br />
+Wenn auch viele aktuelle Anwendungen im Internet noch von JavaScript, PHP und MySQL dominiert sind, sind Sie mit Node.js, TypeScript und MongoDB sehr zukunftsträchtig aufgestellt.</p>
+
+<p>Durch den Einsatz einer Datenbanksoftware ist es nicht mehr erforderlich, eine Datenverwaltung selbst zu entwickeln. Komplexität entsteht nun aber durch die Kommunikation zwischen den Systemen Client, Server und Datenbanksystem.</p>
+
+<h1 id="allgemeine-datenbankstruktur">Allgemeine Datenbankstruktur</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MongoDB-Instanz (auch ggf. Cluster genannt)
+├   admin
+├   config
+├   local
+├ Database_1
+├ Database_2
+│ ├ Collection_1
+│ ├ Collection_2
+│ │ ├ {key: value, key: value, ...}
+│ │ ├ {key: value, key: value, ...}
+│ │ ├ {key: value, key: value, ...}
+│ │ └ ...
+│ ├ Collection_3
+│ └ ...
+├ Database_3
+└ ...
+</code></pre></div></div>
+<ul>
+  <li>Eine MongoDB-Instanz kann mehrere Datenbanken verwalten.</li>
+  <li>Die Datenbanken admin, config und local werden dabei standardmäßig angelegt und sind für die interne Funktionalität erforderlich</li>
+  <li>Es können beliebig viele eigene Datenbanken angelegt werden</li>
+  <li>In jeder Datenbank können beliebig viele Collections untergebracht sein</li>
+  <li>Jede Collection enthält eine beliebige Anzahl an Dokumenten</li>
+  <li>Ein Dokument ist im Wesentlichen lediglich ein JSON-String, bzw ein JSON Objekt</li>
+</ul>
+
+<h3 id="beispielstruktur-für-einen-onlineshop">Beispielstruktur für einen Onlineshop</h3>
+
+<p>Da jede Bestellung vom Server leicht in einen JSON-String umgewandelt wird, bietet es sich an, diese beispielsweise in einer Collection namens <code class="language-plaintext highlighter-rouge">orders</code> abzulegen. Das Angebot des Shops könnte in einer Collection <code class="language-plaintext highlighter-rouge">offers</code> liegen. Dabei wäre es möglich, das komplette Angebot als ein einziges Dokument abzulegen, so wie es derzeit auch vorliegt (als ein Array). Allerdings wäre die Funktionalität einer Datenbank besser genutzt, wenn man das Angebot auf mehrere Dokumente aufteilt. Diese könnten so aussehen:</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Blue Shirt</span><span class="dl">"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="mf">25.00</span><span class="p">,</span> <span class="nx">category</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Shirts</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Red Shirt</span><span class="dl">"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mf">24.99</span><span class="p">,</span> <span class="na">category</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Shirts</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Fancy Tophat</span><span class="dl">"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mf">100.00</span><span class="p">,</span> <span class="na">category</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hats</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">...</span>
+</code></pre></div></div>
+<p>Auch ist es möglich und vielleicht sinnvoll, eigene Collections für Shirts, Hats,  etc. anzulegen und darin für jeden Artikel ein eigenes Dokument.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span> <span class="nx">Shirts</span>
+<span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Blue Shirt</span><span class="dl">"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="mf">25.00</span> <span class="p">}</span>
+<span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Red Shirt</span><span class="dl">"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mf">24.99</span> <span class="p">}</span>
+<span class="p">...</span>
+<span class="nx">Collection</span> <span class="nx">Hats</span>
+<span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Fancy Tophat</span><span class="dl">"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="mf">100.00</span> <span class="p">}</span>
+<span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cheap MAGA Hat (made in China)</span><span class="dl">"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mf">1.20</span><span class="p">}</span>
+<span class="p">...</span>
+</code></pre></div></div>
+<p>Diese Collections könnte man auch in einer eigenen Datenbank für das Shop-Angebot anlegen und damit strenger von den Bestellungen trennen.</p>
+
+<blockquote>
+  <p><strong>Achtung:</strong> Wie also die Informationen in Datenbanken strukturiert sein sollen, ist eine Designentscheidung, die Sie treffen müssen!</p>
+</blockquote>
+
+<h2 id="installation">Installation</h2>
+<p>Wie der Server kann auch die Datenbanksoftware als Service im Netz genutzt werden. Ebenso ist es aber sinnvoll, während der Entwicklung lokal testen zu können.</p>
+<blockquote>
+  <ul>
+    <li>Installieren Sie MongoDB auf ihrer Maschine. Besuchen Sie hierzu das <a href="https://docs.mongodb.com/manual/administration/install-community/">MongoDB Manual</a> (MongoDB <strong>nicht</strong> als Service und auch <strong>nicht</strong> MongoCompass installieren)</li>
+    <li>Finden Sie den Ordner, in den Sie MongoDB installiert haben. Darin sollten Sie die ausführbaren Programme <code class="language-plaintext highlighter-rouge">mongod</code> und <code class="language-plaintext highlighter-rouge">mongo</code> sehen.</li>
+  </ul>
+</blockquote>
+
+<p>Im unteren Beispiel wurde MongoDB in einem Ordner <code class="language-plaintext highlighter-rouge">Test</code> installiert, die Datenbanken sollen im Ordner <code class="language-plaintext highlighter-rouge">Database</code> angelegt werden.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test
+├ MongoDB
+│ └ bin
+│   ├ mongod (ggf .exe)
+├   └ ...
+└ Database
+</code></pre></div></div>
+
+<blockquote>
+  <ul>
+    <li>Um eine Datenbank anzulegen, rufen Sie in einem Terminal die Datenbanksoftware <code class="language-plaintext highlighter-rouge">mongod</code> auf und geben als Parameter “–dbpath” den Pfad zu dem Ordner an, in dem Sie die Datenbanken haben möchten. Den Ordner müssen Sie zuvor kreiert haben.</li>
+  </ul>
+</blockquote>
+
+<p>Arbeitet das Terminal gerade im Ordner Test, dann lautet der Aufruf</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MongoDB/bin/mongod --dbpath Database
+</code></pre></div></div>
+
+<p><strong>Hinweis:</strong> Nutzen Sie hier besser das Terminal  (aka Kommandozeileninterpreter, Shell, Command, Konsole) ihres Betriebssystems. So können Sie besser mehrere Fenster kontrollieren als innerhalb von VSCode.</p>
+
+<p>Wenn alles funktioniert, gibt MongoDB einige Meldungen im Terminal aus und unter den letzten befinden sich “Listening on …” und “waiting for connections on port …”. Das Programm läuft jetzt offensichtich als Server auf ihrem Localhost und wartet am angegebenen Port auf Kommunikationspartner.</p>
+
+<blockquote>
+  <ul>
+    <li>Schauen Sie nun den Inhalt des Datenbankordners an. MongoDB hat hier einige Informationen zur Verwaltung ihrer Daten abgelegt.</li>
+  </ul>
+</blockquote>
+
+<h2 id="mongo-shell">Mongo Shell</h2>
+<p>Die eigentlichen Daten kann man so nicht einsehen, sie werden in einem effizienten Format gespeichert, das von Menschen nicht gut interpretiert werden kann. Um schnell und einfach von Hand die Datenbank einzusehen und zu manipulieren, bietet MongoDB einen eigenen Kommandozeileninterpreter an: die MongoShell. Dieser Client kann Javascript interpretieren, sich mit dem laufenden Datenbankserver verbinden, Anweisungen an diesen schicken und dessen Antworten ausgeben.</p>
+
+<blockquote>
+  <p><strong>Hinweis:</strong> Wenn bei den nächsten Übungen etwas nicht funktionieren sollte, bitte direkt melden. Bis eine Antwort kommt, können Sie mit dem folgenden Video weiter machen…</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Öffnen Sie in einem zweiten Terminalfenster mit <code class="language-plaintext highlighter-rouge">mongo</code> die MongoShell (die ausführbare <code class="language-plaintext highlighter-rouge">mongo</code> Datei befindet sich im gleichen Ordner wie die <code class="language-plaintext highlighter-rouge">mongod</code> Datei). Beobachten Sie im ersten Fenster, dass MongoDB einen Verbindungsversuch registriert und diesen akzeptiert.</li>
+    <li>Geben Sie <code class="language-plaintext highlighter-rouge">show dbs</code> in der Shell ein, es sollten Infos zu den drei internen Datenbanken angezeigt werden.</li>
+    <li>Legen Sie mit <code class="language-plaintext highlighter-rouge">use Test</code> eine neue Datenbank mit Namen “Test” an. Die Shell bestätigt “switched to db Test”. Test ist nun für die folgenden Befehle die Datenbank, mit der gearbeitet wird.</li>
+    <li>Geben Sie <code class="language-plaintext highlighter-rouge">show collections</code> ein. Da noch keine Collections in Test angelegt sind, sollte nichts ausgegeben werden. Tatsächlich wird auch <code class="language-plaintext highlighter-rouge">show dbs</code> noch nicht die Datenbank Test ausgeben, da diese noch leer ist.</li>
+    <li>Geben Sie ein <code class="language-plaintext highlighter-rouge">doc = {name: "...", firstname: "...", registration: "..."}</code> wobei Sie <code class="language-plaintext highlighter-rouge">...</code> jeweils mit ihrem Nachnamen, Vornamen und ihrer Matrikelnummer ersetzen. Damit erzeugen Sie eine Javascript-Variable namens <code class="language-plaintext highlighter-rouge">doc</code> und ein Objekt mit Informationen zu Ihnen, auf welches die Variable verweist.</li>
+    <li>Mit <code class="language-plaintext highlighter-rouge">db.Students.insert(doc)</code> fügen Sie nun den mit <code class="language-plaintext highlighter-rouge">doc</code> referenzierten Datensatz in eine Collection namens “Students” in die aktuelle genutzte Datenbank, also in Test, ein.</li>
+    <li>Lassen Sie wieder den Überblick über die Datenbanken und über die Collections in der Datenbank Test ausgeben. Test und darin Students sollten nun angezeigt werden.</li>
+    <li>Den Inhalt der Collection lassen Sie sich jetzt mit <code class="language-plaintext highlighter-rouge">db.Students.find()</code> anzeigen. Ihr Datensatz sollte auftauchen, wobei dieser um einen Schlüssel “_id” mit einem zugehörigen Wert erweitert wurde. Jedes Dokument erhält nämlich automatisch eine eindeutige Identifikation.</li>
+    <li>Tragen Sie mit <code class="language-plaintext highlighter-rouge">insert</code> erneut die Information von <code class="language-plaintext highlighter-rouge">doc</code> ein und vergleichen Sie, dass nun zwei identische Datensätze vorhanden sind, die sich nur aufgrund ihrer _id unterscheiden.</li>
+    <li>Tragen Sie noch weitere Datensätze mit Informationen zu Ihren Kommilitonen oder zu Fantasiestudis ein. Dabei sollte es Datensätze mit teilweise identischen Informationen geben, so wie man sie bei Geschwistern oder Studis mit gleichen Vornamen vorfindet. Sie können dabei weiter die Variable <code class="language-plaintext highlighter-rouge">doc</code> verwenden und vor jedem Eintrag die Information darin verändern, oder auch Datensätze direkt als Parameter der <code class="language-plaintext highlighter-rouge">insert</code>-Anweisung angeben, also <code class="language-plaintext highlighter-rouge">db.Students.insert({...})</code></li>
+    <li>Suchen Sie nun mit <code class="language-plaintext highlighter-rouge">db.Students.find({key:value})</code> nach allen Datensätzen bei denen ein bestimmter Schlüssel <code class="language-plaintext highlighter-rouge">key</code> einen bestimmten Wert <code class="language-plaintext highlighter-rouge">value</code> hat.</li>
+  </ul>
+</blockquote>
+
+<p>Nachdem Sie diese Übungen erfolgreich abgeschlossen haben, können Sie nicht nur mit der MongoShell umgehen, sondern haben auch schon die grundlegendsten Anweisungen gelernt, die genauso auch im Code Verwendung finden. Sehr viel weitergehend ist die <a href="https://docs.mongodb.com/manual/reference/method/">Dokumentation</a>. Wenn es nicht richtig geklappt hat, können Sie untenstehendes Video anschauen, indem diese Übungen demonstriert werden. <em>(Auch hier gilt wieder: Das Video kommt aus dem EIA2 Kurs, darum sind manche Ordnerstrukturen oder Verweise für Sie nicht relevant.)</em></p>
+
+<div align="center"><video controls="" width="30%"> 
+  <source src="http://games.hs-furtwangen.de/EIA2_Video/L07_V1_MongoShell.mp4" type="video/mp4" /> 
+<a href="http://games.hs-furtwangen.de/EIA2_Video/L07_V1_MongoShell.mp4"><img src="../X01_Appendix/Img/video.html" width="25%" /></a>
+</video>  
+</div>
+
+<h2 id="online-service---eigenes-mongo-db-cluster-anlegen">Online Service - Eigenes Mongo DB Cluster anlegen</h2>
+<p>Die Datenbank auf dem Entwicklungsrechner ist natürlich nur zum Testen da, von Außen hat niemand darauf Zugriff. Die Bestellungen sollen aber in einer Datenbank gespeichert werden, die ständig und von überall aus erreichbar ist. MongoDB bietet mit Atlas ein eigenes Serviceangebot hierfür.</p>
+
+<ul>
+  <li>Neuen Account und Cluster anlegen
+    <ul>
+      <li>Rufen Sie https://www.mongodb.com/ auf</li>
+      <li>Klicken Sie auf <code class="language-plaintext highlighter-rouge">Start Free</code> (mitte des Screens)</li>
+      <li>Melden Sie sich mit Namen und Mailadresse an</li>
+      <li>Wählen Sie <code class="language-plaintext highlighter-rouge">Create a cluster</code> unter den free Starter Clusters</li>
+      <li>Wählen Sie <code class="language-plaintext highlighter-rouge">AWS</code> und eine Free Cluster in <code class="language-plaintext highlighter-rouge">Europa</code> (Frankfurt sollte am schnellsten sein)</li>
+      <li>Wählen Sie einen <code class="language-plaintext highlighter-rouge">Clusternamen</code>, vielleicht deinen eigenen Namen oder “GIS-IST-GEIL”?</li>
+      <li>Klicken Sie auf <code class="language-plaintext highlighter-rouge">Create Cluster</code></li>
+      <li>Warten Sie, bis das Cluster erstellt wurde (ca. 1-3 Minuten)</li>
+    </ul>
+  </li>
+  <li>Folgen Sie jetzt dem <code class="language-plaintext highlighter-rouge">Get Started</code>-Guide zum Anlegen ihrer Datenbank (Part 1-4). Sie müssen sich noch NICHT über einen eigenen Server darauf verbinden und auch nicht über PyMongo irgendwas anlegen oder so! Über Server darauf programmatisch Zugreifen machen wir nächste Woche. <a href="https://docs.atlas.mongodb.com/getting-started/">https://docs.atlas.mongodb.com/getting-started/</a>
+    <ul>
+      <li>Erlauben Sie ihrem Testuser den Read/Write-Zugriff</li>
+      <li>Erlauben Sie in der Whitelist Zugriff von überall mit der IP-Adresse <code class="language-plaintext highlighter-rouge">0.0.0.0/0</code></li>
+      <li>Legen Sie <strong><code class="language-plaintext highlighter-rouge">KEINE</code></strong> Beispieldaten an</li>
+      <li>Wählen Sie <code class="language-plaintext highlighter-rouge">Connect Your Application</code> und kopieren Sie den Connection-String -&gt; legen sie diesen irgendwo ab damit Sie ihn später zur Verfügung haben.</li>
+    </ul>
+  </li>
+  <li>Wählen Sie dann Collections-&gt; Add my own data
+    <ul>
+      <li>Legen Sie eine Datenbank <code class="language-plaintext highlighter-rouge">Test</code> und die Collection <code class="language-plaintext highlighter-rouge">Students</code> an</li>
+      <li>Klicken Sie auf <code class="language-plaintext highlighter-rouge">Insert Document</code> und fügen Sie in <code class="language-plaintext highlighter-rouge">Students</code> ein Dokument ein</li>
+      <li>Experimentieren Sie mit den Icons an dem Dokument</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="typescript-dokumentation">Typescript Dokumentation</h3>
+
+<p>https://www.typescriptlang.org/</p>
+
+<hr />
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/TawsTm">&lt;TawsTm&gt;</a></p>
+
+<h3 id="es-wurden-oft-header-vergessen-was-machen-die">Es wurden oft Header vergessen, was machen die?</h3>
+<p>Wir setzen zwei Header: Content-Type bestimmt dabei die Art der Antwort, welche z.B. „text/html“ oder auch „application/json“ sein kann. Access-Control-Allow-Origin legt fest, von welchen Punkten die Antwort gelesen werden darf. Dabei steht das * für alle.</p>
+
+<h3 id="was-ist-heroku">Was ist Heroku?</h3>
+<p>Heroku stellt euch einen Server zur Verfügung. Da dies Freeware ist, gibt es Beschränkungen. Er muss z.B. min 18 Stunden am Tag offline sein. Der auf dem Server laufenden Code kommt von ihrem Github Repository. Um bei Heroku die neue Server Datei auf GitHub zu nutzen, muss man auf Heroku neu Deployen.</p>
+
+<h3 id="ersetzen-wir-jetzt-heroku-durch-mongodb">Ersetzen wir jetzt Heroku durch MongoDB?</h3>
+<p>Nein. Der Server hört auf den User und schickt dann Anfragen an MongoDB. Auf MongoDB sind dann die Daten gespeichert.</p>
+
+<h3 id="lokal-testen">Lokal testen?</h3>
+<p>Ihr sollt auch den Server lokal testen. Genau dafür ist der Live-Server da. Ihr müsst npm start oder node „Pfad“ in die Console schreiben und ggf. noch den Pfad anpassen.</p>
+
+<h3 id="double-dash-in-der-abfrage-auf-dem-server">Double-Dash in der Abfrage auf dem Server?</h3>
+<p>Der Double-Dash ist nicht erforderlich und kann geändert werden. Wahrscheinlich habt ihr einfach bei eurem Link einen Dash am Ende und dazu einen Dash beim Anhang von „html“ bzw „json“ an den Pfad angefügt.</p>
+
+<h3 id="code-guidelines-sind-wichtig">Code Guidelines sind wichtig!</h3>
+<p>Haltet die Guidelines ein. In der Endabgabe sind das ganze zwei Punkte für die simple Einhaltung der Guidelines. Auch für später hilft das saubere strukturierte Arbeiten weiter. (Auch nicht nur in der Programmierung!)</p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L3.3/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:33 GMT -->
+</html>

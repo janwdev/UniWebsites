@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L1.4/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-14-css-vertiefung"><em>V</em> <strong>1.4</strong> CSS Vertiefung</h2>
+
+<h3 id="komplexe-selektoren">Komplexe Selektoren</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/01_CSS_Komplexe_Selektoren.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/01_CSS_Komplexe_Selektoren.mp4">Zum Video</a>
+</video>
+
+<p>Man kann die grundlegenden CSS-Selektoren, die in der letzten Lektion vorgestellt wurden, auch verketten, um komplexere Selektionen zu machen. So kann entweder auf einzelne, spezielle Elemente konkret zugegriffen oder nur ganz bestimmte Gruppen oder Folgen von Elementen selektiert werden. Mit Pseudoklassen können auch Elemente in ganz bestimmten Zuständen manipuliert werden, wie zum Beispiel bei einem Link der Zustand des Herüberfahrens mit der Maus (“hovern”).</p>
+
+<p><strong>Links im Video</strong></p>
+
+<p><a href="https://flukeout.github.io/">https://flukeout.github.io</a></p>
+
+<h3 id="positionierung-flussverhalten-und-layout">Positionierung, Flussverhalten und Layout</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/02_CSS_Flussverhalten_Positionierung.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/02_CSS_Flussverhalten_Positionierung.mp4">Zum Video</a>
+</video>
+
+<p>Aufgrund der vielen verschiedenen Ausgabegeräte kann das Thema der Positionierung sehr komplex werden, in diesem Video wurden aber die grundlegenden Herangehensweisen erklärt.
+Die Positionierung der Elemente auf einer gerenderten Seite hat oft wenig mit der Position im DOM-Tree zu tun.</p>
+
+<p>Das Flussverhalten beschreibt das Verhalten der Elemente im Textfluss, sodass ein Element beispielsweise von den nachfolgenden Elementen in einer Zeile umflossen werden kann oder einen Zeilenumbruch bewirkt. Dieser Textfluss kann über Float und die Positionierung auch individuell manipuliert werden.</p>
+
+<p>Für differenziertere Seiten-Arrangements kann man Eigenschaften, wie Grid oder Flexbox, nutzen.</p>
+
+<p><strong>Links im Video</strong></p>
+
+<p>Float:
+<a href="https://codepen.io/philtim/pen/KrZmdN">https://codepen.io/philtim/pen/KrZmdN</a></p>
+
+<p>Positionierung:
+<a href="https://codepen.io/philtim/pen/GwyWBP">https://codepen.io/philtim/pen/GwyWBP</a></p>
+
+<h3 id="responsive-design">Responsive Design</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/03_Responsive_Design.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/03_Responsive_Design.mp4">Zum Video</a>
+</video>
+
+<p>Responsive Design heißt, alle (relevanten) Endgerätegrößen zu bedienen, wie Smartphones, Laptops, Tablets, Bildschirme…</p>
+
+<p>Technisch gesehen bedeutet Responsive Design im Web-Kontext, dass die Darstellung der Benutzeroberfläche zwar an unterschiedliche Ausgabegeräte angepasst wird, die Datenbasis bleibt jedoch gleich. Konzeptionell bedeutet Responsive Design, dass eine interaktive Anwendung in möglichst vielen (relevanten) Anwendungsszenarien (am Schreibtisch, unterwegs im Bus usw…) genutzt werden kann.</p>
+
+<p>In CSS lässt sich eine <strong>adaptive</strong> (stufenweise) oder <strong>responsive</strong> (stufenlose) Darstellung beispielweise durch Breakpoints und Mediaqueries oder flexible Größen- und Positionierungsanweisungen realisieren.</p>
+
+<p><strong>Links im Video</strong></p>
+
+<p>Responsive Cat:
+<a href="http://roxik.com/cat/">http://roxik.com/cat/</a></p>
+
+<p>Responsive Design Check:
+<a href="http://ami.responsivedesign.is/">http://ami.responsivedesign.is/</a></p>
+
+<h3 id="css-transition-und-animation">CSS Transition und Animation</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/04_CSS_Transition_und_Animation.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/04_CSS_Transition_und_Animation.mp4">Zum Video</a>
+</video>
+
+<p>Mit <strong>Übergängen</strong> (Transitions) und <strong>Animationen</strong> können in Webanwendungen zeitbasierte Effekte genutzt werden, die ein Design lebendig und flüssig wirken lassen oder dem Nutzer auf narrativer Ebene den Interaktionsfluss beschreibt.
+Die Animation von CSS Eigenschaften lässt sich durch viele Parameter steuern, bspw. auch durch die Definition der Beschleunigung der Animation.</p>
+
+<p><strong>Links im Video</strong></p>
+
+<p>CSS Transition Beispiel:
+<a href="https://codepen.io/grausch/pen/XWWeZXW">https://codepen.io/grausch/pen/XWWeZXW</a></p>
+
+<p>CSS Animationen:
+<a href="https://codepen.io/ajerez/pen/EaEEOW">https://codepen.io/ajerez/pen/EaEEOW</a></p>
+
+<p>Eigene Bezierkurve zeichnen:
+<a href="http://cubic-bezier.com/">http://cubic-bezier.com/</a></p>
+
+<h3 id="take-aways">Take Aways</h3>
+<video controls="" width="100%"> 
+    <source src="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/05_Take_Aways.mp4" type="video/mp4" /> 
+    <a href="https://lehre.gabriel-rausch.de/HFU/EIA1_static/L04/05_Take_Aways.mp4">Zum Video</a>
+</video>
+
+<ul>
+  <li>Komplex verkettete Selektoren ermöglichen es, spezifischere Auswahlpfade zu erstellen.</li>
+  <li>Elemente haben individuelle Positionen und Flussverhalten, die manipuliert werden können.</li>
+  <li>Über Responsive Design lassen sich viele relevante Endgeräte bedienen.</li>
+  <li>Über Transition und Animation lassen sich Elemente, oder deren Eigenschaften, animieren.</li>
+</ul>
+
+<hr />
+
+<h4 id="css-inspiration">CSS Inspiration</h4>
+
+<p><a href="http://csszengarden.com/">CSS Zen Garden</a>, eine Seite welche über 200 verschiedene CSS Styles für den gleichen HTML Inhalt gesammelt hat, zeigt sehr gut die Möglichkeiteb von CSS. Lassen Sie sich inspirieren.</p>
+
+<hr />
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/TawsTm">&lt;TawsTm&gt;</a></p>
+
+<h3 id="ist-die-abgabe-immernoch-über-felix">Ist die Abgabe immernoch über FELIX?</h3>
+<p>Antwort: Abgaben können aus Datenschutz-rechtlichen Gründen nicht über Github, sondern müssen über FELIX getätigt werden. Der Link dazu: <a href="https://felix.hs-furtwangen.de/auth/RepositoryEntry/3994517970">Felix</a></p>
+
+<h3 id="sollen-wir-alle-unsere-aufgaben-hochladen">Sollen wir alle unsere Aufgaben hochladen?</h3>
+<p>Nein! Ihr sollt nur die letzte Aufgabe, dieses mal also Aufgabe 1.4 abgeben. Diese muss aber alle Anforderungen der vorherigen Aufgaben enthalten. Mit hochladen ist hiermit das bereitstellen der Links in Felix gemeint.</p>
+
+<h3 id="soll-ich-die-dateien-abgeben-oder-einen-link-bereitstellen">Soll ich die Dateien abgeben oder einen Link bereitstellen?</h3>
+<p>Sie können im Felix Text-Editor die zwei Links einfügen und abspeichern. Der erste Link sollte zur HTML-Seite führen und der zweite zu dem Ordner in ihrem Repository, in dem ihr Code liegt.</p>
+
+<h3 id="meine-h1-inhalte-sind-zu-klein-was-kann-ich-tun">Meine h1-Inhalte sind zu klein, was kann ich tun?</h3>
+<p>Um Größen in Schriften zu verändern, werden hauptsächlich rem, em und pt verwendet.</p>
+
+<h3 id="sind-anforderungen-mit-sternchen-anforderungen-die-in-der-aufgabe-vorhanden-sein-müssen">Sind Anforderungen mit Sternchen Anforderungen die in der Aufgabe vorhanden sein müssen?</h3>
+<p>Alle Lösungen aus den Aufgaben 1.1. - 1.4. sollen in Aufgabe 1.4. zusammen kommen. Das heißt nicht, dass Sie alle Aufgaben einzeln hochladen sollen. Alle Punkte sollten sich in Aufgabe 1.4. wiederfinden.</p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L1.4/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:27 GMT -->
+</html>

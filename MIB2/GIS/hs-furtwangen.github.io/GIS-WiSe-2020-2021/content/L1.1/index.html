@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L1.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="v-11-arbeitsumgebung-und-grundlagen-html"><em>V</em> <strong>1.1</strong> Arbeitsumgebung und Grundlagen HTML</h2>
+
+<h3 id="einführung-in-die-thematik">Einführung in die Thematik</h3>
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/00_Einfuehrung.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/00_Einfuehrung.mp4">Zum Video</a>
+</video>
+
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/00_GIS-EIA1-Einführung.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<hr />
+
+<h3 id="vorbereitung--tools">Vorbereitung / Tools</h3>
+
+<p><strong>Bitte ignorieren Sie den Teil des Videos in dem es um die Registrierung auf der Kursseite sowie das Anlegen des Steckbriefes geht, dadurch dass wir in diesem Semester auf ein neues System der Abgaben umgestellt haben, brauchen wir das nicht!</strong></p>
+
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/00_Arbeitsumgebung.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/00_Arbeitsumgebung.mp4">Zum Video</a>
+</video>
+
+<h4 id="tools--software">Tools / Software</h4>
+<ul>
+  <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+  <li><a href="https://git-scm.com/">Git</a></li>
+  <li><a href="https://github.com/">GitHub</a></li>
+  <li><a href="https://desktop.github.com/">Github Desktop</a></li>
+  <li><a href="https://www.gitkraken.com/">Gitkraken</a></li>
+  <li><a href="https://www.sourcetreeapp.com/">Sourcetree</a></li>
+</ul>
+
+<h5 id="weitere-hinweise">Weitere Hinweise:</h5>
+<ul>
+  <li>GIT selbst muss nur installiert werden, wenn sie es direkt aus VSCode heraus nutzen wollen, da sowohl Github Desktop als auch Gitkraken git integriert haben.</li>
+  <li>VSCode ist erstmal auf Englisch installiert. Es gibt das Deutsche Sprachpaket -&gt; Das Paket kann man Links in VSCode in der Plugins Sektion hinzufügen (einfach nach German Language suchen).</li>
+  <li>Es ist empfohlen, eine grafische Oberfläche für die Verwendung von git zu nutzen, da diese viele der etwas komplizierteren Vorgänge übernimmt. Später im Arbeitsleben wird wahrscheinlich auch niemand vorschreiben, wie man git zu nutzen hat. Die grafischen Oberflächen kommen nur bei fortgeschrittenen git Operationen an ihre Grenzen.</li>
+  <li>Github Pages zeigt Änderungen nach dem pushen nicht sofort an, da diese zunächst von ihrem Repository verarbeitet werden müssen. Dies kann mehrere Minuten dauern.</li>
+  <li>Gitkraken/Github Desktop zeigt u.U. Dateien an, welche Sie selbst nicht sehen (z.B. <code class="language-plaintext highlighter-rouge">.DS_Store</code>). Dabei handelt es sich um versteckte Dateien welche das Betriebssystem selbst anlegt. Diese Dateien werden nicht auf dem git gebraucht und können durch das Anlegen einer <a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">.gitignore</a> Datei ignoriert werden.</li>
+  <li>GitHub hat seit der Aufnahme des Videos den “Master” Branch in den “Main” Branch umbenannt. Darauf müssen Sie beim Aktivieren von Github Pages achten. Außerdem muss man inzwischen auch den Ordner auswählen, da nutzen Sie einfach “root”, also den Hauptordner.</li>
+</ul>
+
+<hr />
+
+<h3 id="html-basics">HTML Basics</h3>
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/01_GIS-EIA1-HTML-Basics.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/01_GIS-EIA1-HTML-Basics.mp4">Zum Video</a>
+</video>
+
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/01_GIS-EIA1-1-HTML-Basics.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<h5 id="weitere-hinweise-1">Weitere Hinweise:</h5>
+
+<ul>
+  <li>HTML Dateien können einfach lokal angezeigt werden, indem man die .html Datei im Browser der Wahl öffnet (Firefox oder Chrome sind zu empfehlen). Mit F5 bzw CTRL+F5 laden Sie die Seite neu wenn Sie Änderungen daran vorgenommen haben.</li>
+  <li>Mit der Tastenkombination ALT + SHIFT + F kann geschriebener Code automatisch formatiert werden.</li>
+</ul>
+
+<hr />
+
+<h3 id="html-syntax-und-erste-elemente">HTML Syntax und erste Elemente</h3>
+<video controls="" width="100%"> 
+    <source src="https://scheuerle.net/lehre/gis/videos/01_GIS-EIA1-HTML-Syntax.mp4" type="video/mp4" /> 
+    <a href="https://scheuerle.net/lehre/gis/videos/01_GIS-EIA1-HTML-Syntax.mp4">Zum Video</a>
+</video>
+
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/01_GIS-EIA1-2-HTML-Syntax.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<hr />
+
+<h3 id="html-bilder-und-verweise">HTML Bilder und Verweise</h3>
+
+<p><em>Hier gibt es kein Video, stattdessen den ausführlichen Foliensatz zum selbst erarbeiten.</em></p>
+<embed src="https://scheuerle.net/lehre/gis/scripts/01_GIS-EIA1-3-HTML-Bilder-Verweise.pdf" type="application/pdf" width="100%" height="400px" />
+
+<p><em><a href="https://scheuerle.net/lehre/gis/scripts/01_GIS-EIA1-3-HTML-Bilder-Verweise.pdf" target="_blank">Folien zum Herunterladen</a></em></p>
+
+<hr />
+
+<h2 id="-fragen-und-antworten"><strong>?!</strong> Fragen und Antworten</h2>
+
+<p>(die Publikation der Zusammenfassung erfolgt nach dem Q&amp;A-Termin)</p>
+
+<p>Zusammenfassung von: <a href="https://github.com/TawsTm">&lt;TawsTm&gt;</a></p>
+
+<h3 id="warum-kann-ich-mich-nicht-auf-felix-anmelden">Warum kann ich mich nicht auf Felix anmelden?</h3>
+<p>Der Großteil der Veranstaltung wird über GitHub laufen. Zum Ende der Veranstaltung wird es jedoch einen Felix-Kurs geben, um die mündlichen Prüfungstermine zu organisieren.</p>
+
+<h3 id="wo-müssen-die-abgabenaufgaben-hochgeladen-werden">Wo müssen die Abgaben/Aufgaben hochgeladen werden?</h3>
+<p>Hierfür gibt es pro Abgabe eine GitHub Issue-Seite: <a href="https://github.com/hs-furtwangen/GIS-WiSe-2020-2021/issues">Issues</a>.
+Es gibt jeweils pro größerem Kapitel einen Issue-Thread (1, 2, 3).</p>
+
+<h3 id="muss-ich-zu-den-terminen-kommen-wenn-ich-keine-hilfe-bei-den-aufgaben-brauche-bzw-schon-vorher-fertig-bin">Muss ich zu den Terminen kommen, wenn ich keine Hilfe bei den Aufgaben brauche bzw. schon vorher fertig bin?</h3>
+<p>Nein, es besteht keine Anwesenheitspflicht.</p>
+
+<h3 id="wie-kann-ich-testen-ob-git-auf-meinem-pc-vorhanden-ist">Wie kann ich testen ob GIT auf meinem PC vorhanden ist?</h3>
+<p>Der.git-Ordner ist meist versteckt und wird nicht angezeigt. Wenn ihr GitHub Desktop benutzt sollte GIT aber funktionieren.</p>
+
+<h3 id="gibt-es-die-möglichkeit-eine-abgabe-nachzubessern">Gibt es die Möglichkeit, eine Abgabe nachzubessern?</h3>
+<p>Bei den Abgaben gibt es nur die Zustände “bestanden” oder “nicht bestanden”. Da die Aufgaben aber über mehrere Wochen aufgebaut werden, muss die Endabgabe deutlich zu schlecht sein, um durchzufallen. Wer über alle Termine hinweg konsequent mitmacht und seinen eigenen Code versteht, hat wenig zu befürchten.</p>
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/L1.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:24 GMT -->
+</html>

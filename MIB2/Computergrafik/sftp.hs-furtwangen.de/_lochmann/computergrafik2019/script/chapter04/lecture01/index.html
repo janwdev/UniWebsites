@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Lektion 4 - Shading &amp; Rendering - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Lektion 4 - Shading &amp; Rendering
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a class="current" title="4 - Lektion - Shading &amp; Rendering" href="index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Lektion 4 - Shading &amp; Rendering </h1>
+
+			
+
+<h2 id="inhalt">Inhalt</h2>
+
+<ol>
+<li>Rendering</li>
+<li>Cycles-Nodes Grundlagen</li>
+<li>Grundprinzip</li>
+<li>Shader</li>
+</ol>
+
+<h3 id="fortsetzung-in-kapitel-5-texturen-mix-nodes-bump-und-displacement-node-gruppen-uv-editing">Fortsetzung in Kapitel 5 (Texturen, Mix Nodes, Bump und Displacement,  Node Gruppen, UV Editing)</h3>
+
+<h2 id="1-rendering">1. Rendering</h2>
+
+<p>Rendering beschreibt den Prozess, aus den bestehenden Szenen-Daten (Modelle, Materialien, Licht, Kamera)
+ein Bild Blender zu berechnen. Rendering findet genau genommen schon im 3D-Editor statt, hier sogar in
+Echtzeit, um überhaupt interaktiv Änderungen an der Szene vornehmen zu können. Meist beschreibt aber
+der Begriff <em>Rendering</em> den Vorgang, explizit ein Bild in hoher Qualität mit allen Material-
+und Licht-Einstellungen zu berechnen. Dies geschieht dann nicht mehr in Echtzeit, d.h. die
+Berechnungszeit für ein Bild ist deutlich länger (mehrere Sekunden, Minuten oder sogar Stunden),
+als die Dauer, die das Bild während einer Animationssequenz sichtbar ist (<sup>1</sup>&frasl;<sub>25</sub>, <sup>1</sup>&frasl;<sub>50</sub> oder <sup>1</sup>&frasl;<sub>60</sub> Sekunde).</p>
+
+<h3 id="unterschiedliche-renderer">Unterschiedliche Renderer</h3>
+
+<p>Blender bietet von Haus aus zwei unterschiedliche <em>Renderer</em>, die derartige Berechnungen vornehmen.</p>
+
+<ul>
+<li>Blender Renderer</li>
+<li>Cycles Renderer</li>
+</ul>
+
+<p>Darüber hinaus kann Blender auch weitere, z.T. kommerzielle externe Renderer anbinden, wie z.B.
+<a href="https://www.chaosgroup.com/vray/blender">V-Ray</a>,
+<a href="https://github.com/prman-pixar/RenderManForBlender">RenderMan</a> und
+<a href="http://www.luxrender.net/">LuxRender</a>.</p>
+
+<p>Ursprünglich wurde Blender nur mit dem eingebauten &ldquo;Blender-Renderer&rdquo; ausgeliefert. Der
+Cycles-Renderer wurde erst ab 2011 als Alternative und komplette Neu-Entwicklung hinzugefügt.
+In den letzten Versions-Updates von Blender wurde Cycles Schritt um Schritt erweitert.</p>
+
+<h3 id="blender-renderer">Blender Renderer</h3>
+
+<p>Der eingebaute Blender Renderer wird häufig noch für nicht-realistische Darstellungen wie
+z.B Toon-Shading oder in Illustrationen eingesetzt. Hier sollen bewusst nicht-realistische
+und abstrakte oder reduzierte Bildmittel verwendet werden.</p>
+
+<h3 id="cycles-renderer">Cycles Renderer</h3>
+
+<p>Die größten Neuerungen von Cycles gegenüber dem älteren Blender-Renderer sind</p>
+
+<ul>
+<li>Physikalisch basiertes Berechnungen -&gt; mehr Realismus der Ergebnisse</li>
+<li>Node-basiertes Material-System -&gt; Mehr Flexibilität (aber auch mehr Komplexität) bei den Materialien</li>
+<li>GPU-Unterstützung -&gt; Schnellere Berechnungen</li>
+</ul>
+
+<h3 id="was-macht-der-renderer">Was macht der Renderer?</h3>
+
+<p>Die Hauptarbeit des Renderers ist es, für jedes Pixel des Ausgabebildes eine Farbe zu berechnen.
+Für jedes Pixel des Ausgabebildes wird dazu</p>
+
+<ul>
+<li>ermittelt, welche Fläche welches Objektes &ldquo;unter&rdquo; dem Pixel liegt.</li>
+<li>die Ausrichtung der Fläche für diese Stelle ermittelt (in Form der <a href="index.html#die-flächennormale">Normalen</a>)</li>
+<li>die Material-Eigenschaften für diese Stelle ermittelt.</li>
+<li>die Licht-Situation für diese Stelle ermittelt.</li>
+<li>die Farbe aus o.A. Parametern berechnet.</li>
+</ul>
+
+<p>Die Möglickeiten, für Benutzer Einfluss auf das Rendering-Ergebnis zu nehmen, sind somit die
+Parameter obiger Farbberechnung zu beeinflussen. Neben einem sinnvollen Licht-Setup ist die
+größte Komplexität hier die Definition der Material-Eigenschaften. Mit dem Cycles-Renderer
+wurde hierfür ein Node-basierter Editor entwickelt, der die komplexen Zusammenhänge bei der
+Definition von Material-Eigenschaften in einer grafischen Benutzeroberfläche handhabbar macht.</p>
+
+<h2 id="2-materialnodes-grundlagen">2. Materialnodes Grundlagen</h2>
+
+<p>Im Gegensatz zu klassischen Materialsystemen wie z.b. in Cinema4D werden Nodebasierte Materialien nicht in einem Menü mit einer langen Liste von Materialeigenschaften erstellt sondern in mit vielen einzelnen Bausteinen (Nodes) die sich zu einem Material zusammenfügen. Das hat den Nachteil, dass die Einstiegshürde etwas höher ist und es anfangs etwas länger dauert einfache Materialien zu erstellen, dies wird aber von der enormen Flexibilität und (nach Einarbeitung) Intuitivität solcher Systeme mehr als aufgewogen.</p>
+
+<blockquote>
+<ul>
+<li>Das vorinstallierte Addon <strong>&ldquo;Node Wrangler&rdquo;</strong> ist sehr hilfreich im Nodeeditor. Es ermöglicht u.a.  jederzeit mit <code>Ctrl</code> + <code>Shift</code> + <code>LMB</code> auf einen Node (auch Texturen etc.) zu klicken um eine Vorschau zu bekommen. Es kann in <em>Edit &gt; Preferences</em> &gt; <em>Addons</em> aktiviert werden.</li>
+<li>Hier wurde die Cycles Renderengine verwendet, die Nodes sind jedoch in Eevee (in den Übungen verwendeter Echtzeit Renderer) gleich.</li>
+</ul>
+</blockquote>
+
+<h2 id="3-grundprinzip">3. Grundprinzip</h2>
+
+<h3 id="in-und-output">In- und Output</h3>
+
+<p>In Blender haben Materialnodes entweder <strong>Inputs</strong>, <strong>Outputs</strong> oder beides. Die die Richtung geht immer <strong>von links nach rechts</strong>. Das Bedeutet Inputs befinden sich immer links, Outputs immer rechts.</p>
+
+<p>Inputs haben immer einen Regler, an dem dessen Wert eingestellt werden kann, falls dieser nicht mit dem Output eines anderen Nodes verbunden ist. So hat der <strong>Diffuse BSDF</strong> Node z.b. den Input <strong>Color</strong>, (die anderen werden später behandelt) über den die Farbe dieses einfachen Shaders bestimmt werden kann.</p>
+
+<p>Der Output des des <em>Diffuse BSDF</em> Nodes kann mit dem <em>Surface</em> Input des <em>Material Output</em>  Nodes verbunden werden. Dieser ist <strong>immer</strong> der letzte Node in jedem Material.
+<img src="img/simple_diffuse.jpg" alt="simpleDiffuse" /><br />
+<em>Das einfachste mögliche Material in Cycles/Eevee</em></p>
+
+<p>Will man nun anhand dieses Beispiels anstelle einer einheitlichen Farbe z.b. eine Textur verwenden, muss deren <strong>Output</strong> mit der Farbe des Shaders verbunden werden.<br />
+<img src="img/magicalApe.jpg" alt="magicalApe" /><br />
+<em>This Ape is Magic!</em></p>
+
+<h3 id="sockel-typen">Sockel Typen</h3>
+
+<p><strong><em>Sockel = In- und Outputs</em></strong></p>
+
+<p><img src="img/node_diffuse.jpg" alt="simpleDiffuse" /></p>
+
+<p>Im Node Editor haben die Sockel verschiedene Farben, welche deren Typ markieren.</p>
+
+<table>
+<thead>
+<tr>
+<th>Farbe</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><span style="background-color:#97ef98"><strong>Grün</strong></span></td>
+<td><strong>Shader</strong> bestimmen die physikalische Funktion mit der das Material auf Licht reagiert.</td>
+</tr>
+
+<tr>
+<td><span style="background-color:yellow"><strong>Gelb</strong></span></td>
+<td><strong>Farben</strong> enthalten RGB Farbinformationen</td>
+</tr>
+
+<tr>
+<td><span style="background-color:grey"><strong>Grau</strong></span></td>
+<td><strong>Werte</strong> enthalten z.b. Schwarz-Weiß Texturen, die nicht alle drei RGB Channel benötigen (&ldquo;Floats&rdquo;).</td>
+</tr>
+
+<tr>
+<td><span style="background-color:#7b85e0"><strong>Blau</strong></span></td>
+<td>mit <strong>Vektoren</strong> werden 2D Texturen auf 3D Objekte gelegt. Sie enthalten <strong>x,y, und z Werte</strong> für alle Punkte auf der Oberfläche des entsprechenden Objekts.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Grundsätzlich sind fast alle Sockel miteinander kombinierbar. Zum Beispiel werden Farben in Graustufen umgewandelt, falls sie in einen grauen Sockel gezogen werden und umgekehrt.</p>
+
+<blockquote>
+<p>Sogar Vektoren lassen sich als Farben verwenden und umgekehrt, da diese von Cycles auch als RGB Werte für x, y und z interpretiert werden.</p>
+</blockquote>
+
+<h3 id="node-kategorien">Node Kategorien</h3>
+
+<p>Im &ldquo;Add&rdquo; Menü des Node Editors sind die Nodes in Kategorien unterteilt. Die Sockeltypen der Nodes hängen nur teilweise mit den Kategorien zusammen:</p>
+
+<table>
+<thead>
+<tr>
+<th>Kategorie</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="http://www.blenderguru.com/articles/cycles-input-encyclopedia/">Input</a></td>
+<td>Viele nützliche Werte zur weiterverarbeitung im Nodesystem.</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/de/render/cycles/nodes/types/output/index.html">Output</a></td>
+<td>Der letzte Node in jedem Material- / Licht- / Hintergrund- Nodesystem.</td>
+</tr>
+
+<tr>
+<td><a href="http://www.blenderguru.com/articles/cycles-shader-encyclopedia/">Shader</a></td>
+<td>Die eigentlichen &ldquo;Materialien&rdquo;, die die Farbe der Oberfläche abhängig von der Lichtsituation berechnen.</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/render/cycles/nodes/types/textures/index.html">Texture</a></td>
+<td>Verschiedene prozedurale- (automatisch generierte) und Bild- Texturen</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/de/render/cycles/nodes/types/color/index.html">Color</a></td>
+<td>Viele Tools für Farbkorrektur, Farbmixer etc.</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/de/render/cycles/nodes/types/vector/index.html">Vector</a></td>
+<td>Tools zum manipulieren der <a href="https://www.blender.org/manual/de/render/cycles/nodes/types/input/texture_coordinate.html">Textur Koordinaten</a> und Bumpmaps.</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/de/render/cycles/nodes/types/converter/index.html">Converter</a></td>
+<td>Rechnen Werte um oder konvertieren diese zu anderen Typen.</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/de/render/cycles/nodes/types/script.html">Script</a></td>
+<td>Hmiermit lassen sich OSL (Open Shading Language) Shader einbinden. Vorerst vernachlässigbar.</td>
+</tr>
+
+<tr>
+<td><a href="https://www.blender.org/manual/de/editors/node_editor/nodes/groups.html">Group</a></td>
+<td>siehe 7.</td>
+</tr>
+
+<tr>
+<td>Layout</td>
+<td>tragen zur besseren Lesbarkeit komplexer Nodesysteme bei.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><img src="img/types.jpg" alt="categories" />
+<strong><em>Beispiel Node für jede Kategorie v. l. n. r.:</em></strong> <em>Input, Output, Shader, Texture, Color, Vector, Converter, Script, Group, Layout</em></p>
+
+<h2 id="4-shader">4. Shader</h2>
+
+<p>Mit Shadern berechnet Cycles, wie Materialien von Licht beeinflusst werden. Sind sie Lichtdurchlässig, Reflektierend, brechen sie das Licht? So kann dieselbe Farbe auf unterschiedlichen Shadern komplett anders aussehen.
+<img src="img/shader.jpg" alt="shader" /><br />
+<em>Beispiel Shader v.l.n.r. Diffuse, Glossy, Glass, Translucent, Emission</em></p>
+
+<p>hier die wichtigsten Shader:</p>
+
+<table>
+<thead>
+<tr>
+<th>Shader</th>
+<th>Erklärung</th>
+<th>Anwendungsbeispiele</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Diffuse</strong></td>
+<td>Matte Oberfläche - Siehe auch <a href="../../chapter01/lecture01/index.html#beleuchtungsberechnung">Diffuse Light</a></td>
+<td>Stein, Plastik, Holz</td>
+</tr>
+
+<tr>
+<td><strong>Emission</strong></td>
+<td>Lichtquelle</td>
+<td>Glühlampe, Feuer, Display</td>
+</tr>
+
+<tr>
+<td><strong>Glossy</strong></td>
+<td>Glanzpunkte reflektierter Lichtquellen - Siehe auch <a href="../../chapter01/lecture01/index.html#beleuchtungsberechnung">Specular Light</a></td>
+<td>Metalle, Nichtleiter (so gut wie alle Materialien haben einen reflektierenden Anteil)</td>
+</tr>
+
+<tr>
+<td><strong>Glass</strong></td>
+<td>bricht und spiegelt Licht je nach <a href="https://en.wikipedia.org/wiki/Refractive_index">IOR</a></td>
+<td>Glas, Wasser</td>
+</tr>
+
+<tr>
+<td><strong>Mix</strong></td>
+<td>vermischt zwei Shader</td>
+<td>fortgeschrittene Materialien (siehe 5.2)</td>
+</tr>
+
+<tr>
+<td><strong>Principled</strong></td>
+<td>Universal-Shader</td>
+<td>Vereint einige Shadermodell, um fast alle Materialien darstellen zu können</td>
+</tr>
+
+<tr>
+<td><strong>Subsurface Scattering</strong></td>
+<td>Streut Licht unter der Oberfläche</td>
+<td>menschliche Haut, Kerzenwachs, Milch</td>
+</tr>
+
+<tr>
+<td><strong>Toon</strong></td>
+<td>Comic Shader</td>
+<td>stilisierte Renderings</td>
+</tr>
+
+<tr>
+<td><strong>Translucent</strong></td>
+<td>Licht scheint von der Rückseite des Objekts durch</td>
+<td>Papier, Lampenschirm, Pflanzen</td>
+</tr>
+
+<tr>
+<td><strong>Transparent</strong></td>
+<td>durchsichtiger Shader</td>
+<td>Seifenblasen, maskierte Texturen</td>
+</tr>
+
+<tr>
+<td><strong>Volume Scatter</strong></td>
+<td>volumetrisches Material, in dem Licht mehrmals hin und her geworfen wird</td>
+<td>Rauch, Wolken, Nebel</td>
+</tr>
+
+<tr>
+<td><strong>Volume Absorption</strong></td>
+<td>Absorbiert Licht je nach Tiefe des Objekts, Wesentlich performanter als Scatter</td>
+<td>farbiges Glas und Flüssigkeiten (zsm. mit Glass Shader), Athmosphäre</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p><span style="color:red"><strong>!!</strong></span> Alle Shader, die die Obefläche beeinflussen werden in den <strong><em>Surface</em></strong> Input des <em>Material Output</em> Nodes gezogen, <em>Volume</em> und <em>Volume Scatter</em> in den <strong><em>Volume</em></strong> Input. Ansonsten entstehen Fehler.</p>
+
+<p>Detailliertere Informationen zu allen Shadern (außer Principled) finden sich u.a. in der <a href="http://www.blenderguru.com/articles/cycles-shader-encyclopedia/">&ldquo;Cycles Shader Encyclopedia&rdquo; auf blenderguru.com</a></p>
+</blockquote>
+
+<h3 id="principled-bsdf">Principled BSDF</h3>
+
+<p>Der wichtigste am einfachsten zu verwendende Shader ist der &ldquo;Principled BSDF&rdquo; Shader, der mit wenigen Parametern komplexe physikalisch korrekte Materialien ermöglicht.
+Die wichtigsten Parameter sind:</p>
+
+<p><strong>Base Color:</strong> Bestimmt die allgemeine Farbe des Shaders</p>
+
+<p><strong>Subsurface Scattering:</strong> Streut Licht unter der Oberfläche. Z.b. für Kerzenenwachs, Haut etc.</p>
+
+<p><strong>Metallic:</strong> Schaltet zwischen dem Shading-Modell für Nichtleitern (Plastik, Stein&hellip;) und Metall um. Physikalisch gesehen sind sind im Normalfall nur Werte von 0.0 und 1.0 möglich (es gibt keine &ldquo;Halbmetalle&rdquo;)</p>
+
+<p><strong>Specular:</strong>  Reflektion abhängig vom Fresnel-Wert. Kann eigentlich immer auf 0.5 gelassen werden, da physikalisch die meisten Materialien etwa in diesem bereich liegen.</p>
+
+<p><strong>Roughness:</strong> Bestimmt die &ldquo;Rauheit&rdquo; des Materials. Für physikalisch korrekte Materialien sollte dieser Wert nie ganz auf 0 gesetzt werden (z.b. 0.03).</p>
+
+<p><strong>Anisotropic:</strong> Ermöglicht Anisotropische Reflektionen (Topfboden, CD&rsquo;s)</p>
+
+<p><strong>Clearcoat:</strong> Zweite Schicht &ldquo;Specular&rdquo; z.b. nötig für Autolack und lackierte Holzböden.</p>
+
+<p><strong>Transmission:</strong> Transparenz. Der Brechungsindex (z.b. 1.45-1.5 für Glas) kann mit dem <strong>IOR</strong> Wert eingestellt werden.</p>
+
+<blockquote>
+<p>Umfassende Dokumentation zu diesem Shader <a href="https://renderman.pixar.com/resources/RenderMan_20/PxrDisney.html">hier</a> (Das Shader-Modell wurde ursprünglich von Disney für die Renderengine &ldquo;Renderman&rdquo; entwickelt.)</p>
+</blockquote>
+
+<p><img src="img/principled.png" alt="textureSetup" />
+<em>einfaches Autolack Material mit nur einem Node</em></p>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../../chapter03/lecture01/index.html" title="Lektion 3 - Geometrie verstehen">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Lektion 3 - Geometrie verstehen
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../../chapter05/lecture01/index.html" title="Lektion 5 - Materialien &amp; Texturen">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Lektion 5 - Materialien &amp; Texturen
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

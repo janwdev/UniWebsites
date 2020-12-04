@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/P2.5/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="p-25-kommunikation"><em>P</em> <strong>2.5</strong> Kommunikation</h2>
+
+<p><strong>a)</strong> Ändern Sie ihre <code class="language-plaintext highlighter-rouge">data.ts</code> Datei so um, dass sie ausschließlich aus den JSON Daten besteht (und damit zur <code class="language-plaintext highlighter-rouge">data.json</code> wird).</p>
+
+<p><strong>b)</strong> Ändern Sie die Funktion, welche bisher die JSON Daten eingelesen hat, so um, dass diese zunächst über <code class="language-plaintext highlighter-rouge">fetch</code> aus dem Internet geladen werden. An diesem Punkt sollte die Seite wieder genauso wie letzte Woche funktionieren.</p>
+
+<p><strong>c)</strong> Fügen Sie der “Display Seite” (die in der alle ausgewählten Dinge gemeinsam am Ende angezeigt werden) eine Funktion hinzu, welche die Daten, die im Browsercache gespeichert sind, an die URL <code class="language-plaintext highlighter-rouge">https://gis-communication.herokuapp.com</code> verschickt und dessen JSON Antwort wohlformatiert auf Ihrer Webseite anzeigt. <em>Die Antwort auf die erste Anfrage kann unter Umständen bis zu 15 Sekunden dauern, da der Server erst hochfahren muss.</em></p>
+
+<p>Die möglichen Antworten der Seite sind entweder:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Fehlermeldung hier&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>oder</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Nachricht des Servers hier&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Formatieren Sie die Ausgaben unterschiedlich, je nach dem ob <code class="language-plaintext highlighter-rouge">error</code> oder <code class="language-plaintext highlighter-rouge">message</code> zurückgegeben wird.</p>
+
+<p>Nutzen Sie diesen Codeschnipsel, um die Daten zu versenden (Erklärung dazu gibt es in der <a href="../L3.1/index.html">Lektion nächste Woche</a>). Um die Antwort auszulesen, muss die letzte Zeile dieses Schnipsels verändert werden, wie es in der Lektion diese Woche dargestellt wurde. Außerdem müssen Sie <code class="language-plaintext highlighter-rouge">browserCacheData</code> mit dem Speichermedium Ihrer Wahl ersetzen. <code class="language-plaintext highlighter-rouge">broswerCacheData</code> sollte ein (komplexes) JS Objekt sein, also nicht nur eine Zahl oder String.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">query</span><span class="p">:</span> <span class="nx">URLSearchParams</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">(</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="nx">browserCacheData</span><span class="p">);</span>
+<span class="nx">url</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">?</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">query</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+<span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</code></pre></div></div>
+
+<!-- 
+>**Bei Problemen/Unklarheiten:** können Sie ins Praktikum kommen oder per Discord/Mail fragen stellen.
+
+Erstellen Sie ein neues Verzeichnis und kopieren Sie die Dateien der letzten Aufgabe hinein. 
+
+Die Aufgabe baut auf der Shop Aufgabe der letzten 3 Wochen auf. 
+
+Ziel der Praktikumsaufgabe ist es Daten über mehrere HTML Seiten hinweg speichern zu können. In dieser Aufgabe geht es darum zu speichern, welche Artikel von einem Kunden in den Warenkorb gelegt wurden. Außerdem sollen die auf der Website angezeigten Artikel per JSON geladen werden. 
+
+>### **Achtung!:** Beachten Sie die [<ins>Coding Style Guidelines</ins>](https://hs-furtwangen.github.io/GIS-WiSe-2020-2021/codingstyle/). Code der diesen Guidelines nicht entpricht wird nicht akzeptiert! Code der W3 Errors oder JS-Errors aufweist wird ebenfalls nicht akzeptiert! Verstöße führen zu einer Ampelstufe 🚦
+
+### Teilaufgabe 1
+
+Bisher werden Ihre Artikel über ein Array, welches direkt im Code liegt, eingelesen. Änderungen sind nur dann möglich wenn Sie das Array direkt bearbeiten. Ein besserer Weg ist es deshalb, die Daten und den Code voneinander zu trennen. Auf diese Art und Weise können jederzeit Artikel hinzugefügt oder aus dem Shop genommen werden, ohne dass der Code verändert werden muss.
+
+Erstellen Sie eine JSON Datei mit allen Ihren Artikeln. Sie können dies von Hand oder mithilfe von online JSON Generatoren durchführen oder indem Sie folgenden Hinweis beachten.
+
+>**Hinweis:** Damit Sie die JSON nicht von Hand befüllen müssen, können Sie mithilfe von `JSON.stringify(data_array)` aus Ihrem Daten-Array ein JSON Dokument erzeugen.
+
+Lesen Sie nun die einzelnen Artikel, welche vorher in einem Array gespeichert waren aus der neuen JSON Datei aus. 
+
+>**Hinweis:** Die `fetch()` Methode funktioniert nur auf Servern. Wenn Sie also wie gewohnt die HTML Datei nur lokal auf Ihrer Maschine in den Browser ziehen, funktioniert `fetch()` nicht. Verwenden Sie eine Live-Server Erweiterung in VSCode (besser) oder laden Sie Ihre Aufgabe für diesen Teil hoch (schlechter) und testen Sie dann.
+
+Erzeugen Sie anhand der eingelesenen Daten die Artikel auf Ihrer Webseite.
+
+>**Hinweis:** Es gibt mehrere Wege wie Sie die Kategorie eines Artikels in einer JSON Datei speichern können. Sie können z.B. jeden Artikel mit einer "Kategorie-ID" versehen und die Artikel beim Einlesen der JSON sortieren, falls Sie das noch nicht getan haben.
+
+### Teilaufgabe 2
+
+Verwenden Sie hierfür den [localStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp) (oder die Cookies). Wenn ein User der Website einen Artikel über einen der "Kaufen" Buttons in den Warenkorb legt, soll der jeweilige Artikel im local Storage gespeichert werden. 
+
+Legen Sie eine Warenkorb Seite an (falls Sie noch keine haben). Auf der Warenkorb Seite werden alle Artikel die ein User per Button in den Warenkorb gelegt hat dynamisch per Code generiert und angezeigt. Auf der Warenkorb Seite wird außerdem der Gesamtpreis der Bestellung angezeigt. 
+
+User haben die Mögkichkeit einzelne Artikel zu entfernen. Jeder dynamisch generierte Artikel hat einen "Entfernen/Löschen" Button/Text.
+
+User können ihren gesamten Warenkorb löschen. Hierfür gibt es ebenfalls einen Button, der den localStorage leert und die Artikel aus dem Warenkorb entfernt. 
+
+### Bonusaufgabe (keine Pflicht)
+
+User können einen Artikel mehrmals in den Warenkorb legen (z. B. 5 Äpfel). Im Warenkorb kann die Anzahl der Artikel eines Typs geändert werden. -->
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/P2.5/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+</html>

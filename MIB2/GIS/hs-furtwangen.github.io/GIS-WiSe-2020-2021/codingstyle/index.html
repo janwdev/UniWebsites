@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/codingstyle/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../content/index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../content/index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../content/index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h1 id="coding-style">Coding Style</h1>
+
+<h3 id="begründung">Begründung</h3>
+<p>Programme können sehr schnell sehr komplex werden. Daher ist es wichtig, sich an Stil-Regeln zu halten, um sie möglichst verständlich zu schreiben. Darum gelten in diesem Kurs folgende Regeln:</p>
+
+<h2 id="1-selbsterklärend">1. Selbsterklärend</h2>
+<p>Code sollte sich so gut wie möglich selbst erklären. Dazu sind sprechende Variablen-, Funktions-, Klassennamen etc. erforderlich. Kurze Namen sind nur in kleinen Gültigkeitsbereichen oder bei klarer Bedeutung (z.B. <code class="language-plaintext highlighter-rouge">i</code> für for-Schleifen Iteratoren, <code class="language-plaintext highlighter-rouge">y</code> für vertikale Position) erlaubt.</p>
+
+<h3 id="11-kommentare">1.1 Kommentare</h3>
+
+<p>Kommentare sind in diesem Zusammenhang vorallem zur Strukturierung/Abgrenzung des Codes empfohlen, und um die Verständlichkeit zu erhöhen. Kommentare sollten nicht das Offensichtliche wiederholen (s. Bild).</p>
+
+<p><img src="https://i.redd.it/iuy9fxt300811.png" alt="Cat labeled Cat" /></p>
+
+<p>Selbstverständlich kann Code zum besseren eigenen Verständnis kommentiert werden, denken Sie aber daran, dass bei Code Änderungen auch die Kommentare mit gepflegt werden müssen.</p>
+
+<p>Zur Strukturierung können sie die <code class="language-plaintext highlighter-rouge">#region</code> Notation verwenden:</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// #region NameDerRegion (und wenn nötig zusätzliche Kommentare)</span>
+<span class="c1">// #endregion</span>
+</code></pre></div></div>
+
+<h2 id="2-explizite-typisierung">2. Explizite Typisierung</h2>
+
+<p>Variablen und Funktionen erhalten explizite Typ-Notationen. Der Typ <code class="language-plaintext highlighter-rouge">any</code> ist außer in ganz besonderen Ausnahmefällen <strong>NICHT erlaubt</strong>.</p>
+
+<h2 id="3-semikolons">3. Semikolons</h2>
+<p>Auch wenn in JS/TS Semikolons am Ende einer Anweisung nicht erzwungen werden, so erhöht es doch die Lesbarkeit des Codes und ist damit in diesem Kurs Pflicht.</p>
+
+<h2 id="4-benennung">4. Benennung</h2>
+<h3 id="41-camelcase-für-variablen-und-funktionen">4.1 camelCase für Variablen und Funktionen</h3>
+
+<p>Variablen- und Funktionsnamen beginnen mit Kleinbuchstaben und folgen der camelCase Notation, d.h. bei zusammengesetzten Namen beginnen die Wortteile im Inneren mit einem Großbuchstaben.<br />
+Funktionsnamen beschreiben dabei eine Aktivität (z.B. <code class="language-plaintext highlighter-rouge">calculateHorizontalPosition()</code>) oder eine Frage (z.B. <code class="language-plaintext highlighter-rouge">isHit()</code>).</p>
+
+<p>Gleiches gilt für Attribute und Methoden.</p>
+
+<h3 id="42-unterstrich-vor-formalen-parametern">4.2 Unterstrich vor formalen Parametern</h3>
+
+<p>Formale Parameter folgen dem Variablen-Benennungs-Schema, mit dem Zusatz eines Unterstriches am Anfang. (z.B. <code class="language-plaintext highlighter-rouge">moveTo(_x: number, _y: number)</code>).</p>
+
+<h3 id="43-pascalcase-für-interfaces-klassen-und-namensbereichemodule">4.3 PascalCase für Interfaces, Klassen und Namensbereiche/Module</h3>
+
+<p>Die Namen von Klassen, Interfaces und Namensbereichen/Modulen beginnen mit einem Großbuchstaben und folgen sonst der Kamelnotation (also PascalCase).<br />
+Klassen und Interfaces beschreiben im Normalfall ein bestimmtes Objekt, nicht eine Gruppe von Objekten. Dies sollte sich im Namen wiederspiegeln (<code class="language-plaintext highlighter-rouge">Produkt</code> statt <code class="language-plaintext highlighter-rouge">Produkte</code>).</p>
+
+<h3 id="44-großschreibung-für-enumeratoren">4.4 Großschreibung für Enumeratoren</h3>
+
+<p>Die Namen von Enumerationen und deren Elemente werden durchgehend mit Großbuchstaben geschreiben. Wortteile werden bei Bedarf mit Unterstrich getrennt.</p>
+
+<h2 id="5-doppelte-anführungszeichen-für-literale-zeichenketten">5. Doppelte Anführungszeichen für literale Zeichenketten</h2>
+
+<p>Literale Zeichenketten werden in doppelte Anführungszeichen geschrieben. Dies gilt selbstverständlich nicht für Template Zeichenketten.</p>
+
+<h2 id="6-formatierung">6. Formatierung</h2>
+
+<p>Code ist sinnvoll Formatiert mit Einschüben etc. Im Regelfall unterstützt VSCode dies Automatisch. Machen Sie Gebrauch von der automatischen Formatierungsfunktion (Shift+Alt+F).</p>
+
+<h2 id="7-let-statt-var">7. <code class="language-plaintext highlighter-rouge">let</code> statt <code class="language-plaintext highlighter-rouge">var</code></h2>
+
+<p>Die Verwendung von <code class="language-plaintext highlighter-rouge">var</code> ist nicht erlaubt. Nutzen Sie stattdessen <code class="language-plaintext highlighter-rouge">let</code> (oder <code class="language-plaintext highlighter-rouge">const</code>).<br />
+Wenn Sie die besonderen Eigenschaften von <code class="language-plaintext highlighter-rouge">var</code> nutzen wollen, müssen Sie dies gut begründen.</p>
+
+<h2 id="8-magische-zahlen">8. “Magische” Zahlen</h2>
+
+<p>Der Gebrauch von “magischen” Zahlen sollte vermieden werden. Solange es nicht extrem offensichtlich ist, wofür eine Zahl steht (z.B. <code class="language-plaintext highlighter-rouge">Math.pow(x, 5)</code>), sollte eine Variable (nach den oben genannten Guidelines) angelegt werden, welcher die Zahl als Wert zugewiesen wird. So entsteht der Zusammenhang zwischen der Variablen und ihrer Bedeutung, und der Wert kann an einer zentralen Stelle angepasst werden.</p>
+
+<h2 id="9-dateinamen-und--aufteilung">9. Dateinamen und -aufteilung</h2>
+
+<p>Dateinamen dürfen keine Leerzeichen oder Umlaute enthalten, sind sonst aber frei wählbar (s.u. für Einschränkungen). Es wird empfohlen, die Zeichenwahl auf a-z, A-Z, 0-9 und _ zu beschränken.<br />
+Code kann auf mehrere Dateien aufgeteilt werden, sofern dies sinnvoll erscheint (z.B. um eine Trennung von Funktion und Daten zu erreichen). Wenn Klassen verwendet werden, sollte jede ihre eigene Datei bekommen. Sofern eine Datei eine bestimmte Klasse enthält, soll die Datei mit dem Namen der Klasse benannt sein.</p>
+
+<h2 id="10-wiederholungen-sind-schlecht">10. Wiederholungen sind schlecht</h2>
+
+<p>Code der sich ohne oder nur mit minimalen Änderungen wiederholt, kann in den allermeisten Fällen besser geschrieben werden, z.B. über eine Funktion mit Übergabeparametern, oder indem man nur den geänderten Teil implementiert oder überschreibt, während der Rest für alles gleich generiert wird.<br />
+Dies hat viele Vorteile: Es macht den Code generell übersichtlicher (und damit besser verständlich), kürzer, und wartungsfreundlicher.</p>
+
+    <footer class="site-footer">
+      <em><a href="../index.html">Über diesen Kurs</a></em>
+      <em><a href="../content/index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/codingstyle/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:32 GMT -->
+</html>

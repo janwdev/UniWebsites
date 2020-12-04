@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/P2.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../../assets/css/styleb6a9.css?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <link rel="shortcut icon" type="image/x-icon" href="../../assets/faviconb6a9.ico?v=ea27abaf339b85bc83f8e9f02e46150f2ace2c25">
+  <title>Grundlage interaktiver Systeme - Wintersemester 2020/2021</title>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <div class="page-header-inner main-content">
+      <div class="logo-wrapper">
+        <div class="logo"></div>
+      </div>
+      <h1 class="project-name"><a href="../../index.html">Grundlagen interaktiver Systeme</a></h1>
+      <h2 class="project-tagline">für MIB und OMB – WiSe 2020/2021</h2>
+      <em><a href="../index.html#1-html-und-css"><strong>1</strong> HTML und CSS</a></em>
+      <em><a href="../index.html#2-typescript"><strong>2</strong> TypeScript</a></em>
+      <em><a href="../index.html#3-server-und-datenbanken"><strong>3</strong> Server und Datenbanken</a></em>
+    </div>
+  </header>
+  <main id="content" class="main-content content-wrapper" role="main">
+    <h2 id="p-21-typescript-und-javascript-einstieg"><em>P</em> <strong>2.1</strong> Typescript und Javascript Einstieg</h2>
+
+<p>Diese Woche dient als Einstieg in die Entwicklung mit einer für Sie neuen Sprache, darum werden wir lediglich die Grundlagen behandeln. In der übernächsten Woche geht es dann an konkretere Umsetzungen für die Kapitelaufgabe.</p>
+
+<h3 id="aufgabe-1---basics">Aufgabe 1 - Basics</h3>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">a1</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="na">x</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Alles</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">func1</span><span class="p">();</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Logo!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a1</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">func1</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Klar?</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><strong>a)</strong> Lesen Sie das obige Programm. Was wird wohl auf der Konsole ausgegeben? Lassen Sie das Programm laufen und experimentieren Sie mit den Namen der Variablen und Funktionen. Welche Variablennamen sind zulässig, welche nicht?</p>
+
+<p><strong>b)</strong> Öffnen Sie im Browser den Debugger (neben der Konsole) und setzen Sie einen Breakpoint in Zeile 3 (alternativ können Sie im Code vor Zeile 3 das Schlüsselwort <code class="language-plaintext highlighter-rouge">debugger;</code> einfügen). Laden Sie dann die Seite neu und gehen Schritt für Schritt durch den Code durch, die Schaltflächen dafür sind normalerweise rechts am Rand:<br />
+<img src="https://camo.githubusercontent.com/372a0f981e20eab3064ce57f78bf81a23c9808e2/68747470733a2f2f692e696d6775722e636f6d2f53566e4c5930702e706e67" alt="" /><br />
+Verfolgen Sie, welcher Codeabschnitt wann ausgeführt wird und in welcher Reihenfolge die Funktionen aufgerufen werden.</p>
+
+<blockquote>
+  <p>ℹ Ein Debugger dient wie der Name schon vermuten lässt dem Debuggen, dem Entfernen von Bugs, dem Finden und Erkennen von Fehlern. Er erlaubt es einem, ein Programm zu pausieren und dieses dann Zeile für Zeile durchzuführen um den Ablauf und die Änderungen die während des Durchlaufs passieren, nachzuvollziehen. Diese langsame und Schritt für Schritt Vorgehensweise erlaubt es relativ einfach die internen Vorgänge nachzuvollziehen und Fehler in der Logik des Programms zu finden. Er ist also neben Konsolenausgaben das wichtigste und wertvollste Tool zur Fehlererkennung.</p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>Der Name “Bug” stammt Gerüchten nach daher, dass in den ersten elektronischen Rechnern die mechanischen Kontake nicht mehr zusammengedrückt werden konnten, weil ein Käfer seinen Weg in den Zwischenraum gefunden hat, wodurch sich die Maschine verrechnet hat.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p>ℹ️ Bei vielen Programmiersprachen ist der Debugger direkt in der IDE (in unserem Fall VSCode) integriert, aber um Javascript Code ausführen zu können benötigt man entweder einen Browser oder einen Server, was das Debuggen deutlich schwieriger macht. Glücklicherweise steht uns in Browsern ein Debugger zur Verfügung.</p>
+</blockquote>
+
+<p><strong>c)</strong> Fügen Sie weitere Funktionen ein, die wie <code class="language-plaintext highlighter-rouge">func1()</code> jeweils ein Wort ausgeben. func1 kann dafür kopiert und angepasst werden. Rufen Sie die Funktionen in <code class="language-plaintext highlighter-rouge">a1()</code> so auf, dass der Text “Alles Gute! Alles klar? Alles Logo!” auf der Konsole ausgegeben wird.</p>
+
+<h3 id="aufgabe-2---kontinuierliche-variablenmanipulation">Aufgabe 2 - Kontinuierliche Variablenmanipulation</h3>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">a2</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="na">i</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+        <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span><span class="p">(</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">a2</span><span class="p">();</span>
+
+</code></pre></div></div>
+
+<p>Schauen Sie sich den obigen Code an und versuchen Sie nur durch lesen zu verstehen was passiert. Was wird auf der Konsole ausgegeben? Wann verändert sich was?<br />
+Lassen Sie den Code dann laufen und überprüfen Sie, ob sie richtig liegen. Schauen Sie sich den Programmablauf mit dem Debugger an. Fügen Sie außerdem im Debugger die Variable <code class="language-plaintext highlighter-rouge">i</code> zu den überwachten Variablen hinzu (“Watch” in Chrome, “Ausdruck beobachten” in Firefox), um deren Änderung einfacher zu verfolgen.</p>
+
+<h3 id="aufgabe-3---fehler-erkennen-und-vermeiden-lernen">Aufgabe 3 - Fehler erkennen und vermeiden lernen</h3>
+
+<p><strong>a)</strong> Bauen Sie in dem Code von A1 und A2 Fehler ein (s. auch die Arten von Fehlern im <a href="../../index.html#fragen-und-probleme">Fragen und Probleme</a> Abschnitt) und studieren Sie die Fehlermeldungen in VSCode. Lässt sich aus den Fehlermeldungen schließen, was falsch ist?</p>
+
+<p><strong>b)</strong> Tun sie sich mit Komilitonen zusammen und versuchen Sie die Fehler der anderen zu finden un zu lösen.</p>
+
+<p>1.) Durch Codeinspektion: Versuchen durch Lesen die Fehler zu finden.<br />
+2.) Durch Fehlermeldungen: Die Fehler in VSCode anschauen und versuchen, diese zu verstehen.<br />
+3.) Durch Auskommentieren und Debugger: Wenn das Programm sich übersetzen lässt, aber nicht das richtige Verhalten aufweist, nach und nach Codeschnipsel aus und wieder einkommentieren, bis der Auslöser gefunden ist.<br />
+4.) Wenn das alles nicht hilft, mit dem vorgegebenen Code vergleichen und die Fehler finden.</p>
+
+<h3 id="aufgabe-4---gobal-vs-lokal">Aufgabe 4 - Gobal vs Lokal</h3>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hallo</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">func1</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">func2</span><span class="p">();</span>
+<span class="nx">func3</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">func1</span><span class="p">(</span><span class="nx">y</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span><span class="p">{</span>
+    <span class="nx">y</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bla</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">func2</span><span class="p">():</span> <span class="k">void</span><span class="p">{</span>
+    <span class="kd">let</span> <span class="na">x</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Blubb</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">func3</span><span class="p">():</span> <span class="k">void</span><span class="p">{</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Test</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>a)</strong> Betrachten Sie den obigen Code. Was wird er auf der Konsole ausgeben und warum? Lassen Sie ihn anschließend laufen und überprüfen Sie Ihre Annahmen.</p>
+
+<p><strong>b)</strong> Erklären Sie einem Komilitonen den Unterschied zwischen globalen Variablen, lokalen Variablen und Übergabeparametern.<br />
+Inwiefern unterscheiden sich “normale” Variablen wie Zahlen und strings von Funktionen? Inwiefern sind sie gleich?</p>
+
+<h3 id="aufgabe-5---schleifen-funktionen-und-andere-kontrollstrukturen">Aufgabe 5 - Schleifen, Funktionen und andere Kontrollstrukturen</h3>
+
+<p><strong>a)</strong> Schreiben Sie eine Funktion <code class="language-plaintext highlighter-rouge">multiply</code> welche zwei Zahlen als Parameter entgegen nimmt und als Rückgabewert das Ergebnis der Multiplikation der beiden Parameter liefert. Testen Sie Ihre Funktion auf eine geeignete Weise.</p>
+
+<p><strong>b)</strong> Schreiben Sie eine Funktion <code class="language-plaintext highlighter-rouge">max</code> welche zwei Zahlen als Parameter entgegen nimmt und die größere der beiden zurück gibt. Nutzen Sie dafür nicht <code class="language-plaintext highlighter-rouge">Math.max</code> sondern schreiben Sie ihre eigene Implementation. Testen Sie Ihre Funktion auf eine geeignete Weise.</p>
+
+<p><strong>c)</strong> Zählen Sie mithilfe einer <code class="language-plaintext highlighter-rouge">while</code> Schleife alle Zahlen von 1 bis 100 zusammen und geben Sie das Ergebnis auf der Konsole aus.</p>
+
+<p><strong>d)</strong> Nutzen Sie eine <code class="language-plaintext highlighter-rouge">for</code> Schleife um 10 zufällige Zahlen zwischen 0 und 100 auf der Konsole auszugeben. Nutzen Sie dafür <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/math.random">Math.random</a></p>
+
+<p><strong>e)</strong> Schreiben Sie eine Funktion <code class="language-plaintext highlighter-rouge">factorial</code> welche eine Zahl <code class="language-plaintext highlighter-rouge">n</code> entgegen nimmt und als Rückgabewert die <a href="https://de.wikipedia.org/wiki/Fakultät_(Mathematik)">Fakultät</a> (<code class="language-plaintext highlighter-rouge">1*2*3*...*n</code>) dieser Zahl zurück gibt. Nutzen Sie dafür eine Schleife ihrer Wahl (<code class="language-plaintext highlighter-rouge">while, do while, for</code>). Geben Sie außerdem <code class="language-plaintext highlighter-rouge">1</code> zurück, wenn <code class="language-plaintext highlighter-rouge">n</code> kleiner ist als 1.</p>
+
+<p><strong>f)</strong> Schreiben Sie eine Funktion <code class="language-plaintext highlighter-rouge">leapyears</code> welche alle Schlatjahre von 1900 bis heute auf der Konsole ausgibt. Ein Jahr ist ein Schaltjahr, wenn die Jahreszahl durch 4, aber nicht durch 100 teilbar ist. Sollte die Jahreszahl durch 400 teilbar sein, handelt es sich dennoch um ein Schaltjahr.</p>
+
+<h3 id="aufgabe-6---mehr-schleifen-und-funktionen">Aufgabe 6 - Mehr Schleifen und Funktionen</h3>
+
+<p><strong>a)</strong> Schreiben Sie eine Schleife welche auf der Konsole folgende sieben Zeilen ausgibt:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+##
+###
+####
+#####
+######
+#######
+</code></pre></div></div>
+<p><em>Hinweis: die Länge eines strings kann über <code class="language-plaintext highlighter-rouge">stringname.length</code> abgefragt werden.</em></p>
+
+<p><strong>b)</strong> Schreiben Sie ein Programm welches auf der Konsole alle Zahlen von 1 bis 100 ausgibt. Dabei gibt es zwei Ausnahmen: Ist die Zahl durch 3 teilbar, geben Sie statt der Zahl <code class="language-plaintext highlighter-rouge">Fizz</code> aus. Ist sie durch 5 (und nicht durch 3) teilbar, geben sie <code class="language-plaintext highlighter-rouge">Buzz</code> aus.<br />
+<em>Hinweis: Nutzen sie den Modulo Operator <code class="language-plaintext highlighter-rouge">%</code> um zu prüfen, ob eine Variable durch eine andere teilbar ist (Rest 0).</em></p>
+
+<p><strong>c)</strong> Nehmen Sie das Programm aus b) und modifizieren Sie es so, dass das Programm <code class="language-plaintext highlighter-rouge">FizzBuzz</code> ausgibt, wenn die Zahl durch sowohl 3 als auch durch 5 teilbar ist.<br />
+<em>Hinweis: Dieser Teil der Aufgabe hat eine offensichtlichere und eine cleverere Lösung. Finden Sie beide?</em></p>
+
+<blockquote>
+  <p>Diese Frage ist eine beliebte Frage in Vorstellungsgesprächen. Wenn Sie diese also gelöst bekommen, ist Ihr Marktwert gerade gestiegen.</p>
+</blockquote>
+
+<p><strong>d)</strong> Schreiben Sie eine Funktion, welche einen String zurückgibt, der ein 8x8 Schachbrett repräsentiert, mit neuen Zeilen (<code class="language-plaintext highlighter-rouge">"\n"</code>) um die Zeilen zu trennen. An jeder Position im Brett ist entweder ein <code class="language-plaintext highlighter-rouge">#</code> oder ein Leerzeichen.</p>
+
+<p>Wenn der String über console.log ausgegeben wird, sollte er etwa so aussehen:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> # # # #
+# # # # 
+ # # # #
+# # # # 
+ # # # #
+# # # # 
+ # # # #
+# # # # 
+</code></pre></div></div>
+
+<p><em>Hinweis: Beginnen Sie mit einem leeren string (<code class="language-plaintext highlighter-rouge">""</code>) und fügen Sie dann immer mehr Zeichen hinzu. Für zwei Dimensionen brauchen Sie zwei Schleifen ineinander, eine für die Zeilen und eine für die Character innerhalb der Zeile.</em></p>
+
+<p><strong>e)</strong> Nehmen Sie die Funktion aus d) und fügen Sie ihr einen Übergabeparameter hinzu, welcher die Höhe und Breite des Brettes bestimmt. Schreiben Sie ihre Funktion so um, dass es mit jeder Größe Funktioniert.<br />
+<em>Hinweis: Machen Sie sich Gedanken wie sie sich merken/berechnen können, welcher Character als erstes/nächstes in einer Zeile ausgegeben werden muss.</em></p>
+
+<!-- Überarbeiten Sie Ihren Shop aus Aufgabe 4 dahingehend, dass Sie die Artikel auf der Seite über TypeScript generieren.
+Es sollten keine Artikel mehr im HTML direkt stehen, sondern durch TypeScript, nachdem die Seite geladen wurde, generiert werden.
+Entwickeln sie dafür eine passende Datenstruktur über `interface`s, so dass alle artikelrelevanten Informationen (s. A4) in einem Array abgelegt, abgefragt und verwendet werden können. Legen Sie dann alle benötigten Informationen in Ihrem Code ab und generieren Sie über geeignete Schleife(n) nachdem die Seite geladen ist die Artikel dynamisch hinzu.
+Wenn Sie können, trennen sie die Daten und die Funktionalität in unterschiedliche TS Dateien (ein gemeinsamer `namespace` ist  hier empfohlen). Beachten Sie die [Coding Style Guidelines](https://hs-furtwangen.github.io/GIS-SoSe-2020/codingstyle/).
+
+**Klarstellung**: Das interface sollte einen Artikel abbilden, und sämtliche relevanten Artikelinformationen zu einem Artikel sollte in diesem Interface sinnvoll abgelegt werden können. Die Sammlung aller Artikel soll dann in sinnvoller Weise abgebildet werden, z.B. in _einem_ Array in dem alle Artikel liegen. Bedenken Sie dabei die Skalierbarkeit und Anpassbarkeit (wie schwierig ist es, einen Artikel hinzuzufügen/entfernen/ändern?)! Bei einer kleinen Änderung sollten Sie nicht mehr Änderungen an ihrem Code vornehmen müssen als die reine Information zu verändern. 
+
+### Recherchehinweise:
+[Auf DOM Elemente über JS zugreifen](https://www.w3schools.com/js/js_htmldom_elements.asp)  
+[das HTML von DOM Elementen verändern](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)  
+[Template Strings](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-4.html#template-strings)  
+
+### Freiwillige Übungsaufgaben
+[Übungsaufgaben mit Fokus auf Konsolenausgaben zum Selbststudium](https://github.com/Plagiatus/EIA/blob/master/Aufgaben.md) mit Lösungen. (Diese Aufgaben wurden ursprünglich für das Ende von EIA1 konzipiert um sich auf EIA2 vorzubereiten, stellen aber allgemein eine gute Ressource zum Selbststudium dar, inklusive einfacher Aufgaben zur Wiederholung als auch sehr komplizierte Aufgaben. _Keine offizielle Aufgabe, lediglich als Bonusmaterial wenn Sie Zeit und Lust haben noch etwas mehr zu üben!_) -->
+
+    <footer class="site-footer">
+      <em><a href="../../index.html">Über diesen Kurs</a></em>
+      <em><a href="../index.html">Lehrinhalte</a></em>
+    </footer>
+  </main>
+</body>
+
+
+<!-- Mirrored from hs-furtwangen.github.io/GIS-WiSe-2020-2021/content/P2.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Dec 2020 16:50:29 GMT -->
+</html>
