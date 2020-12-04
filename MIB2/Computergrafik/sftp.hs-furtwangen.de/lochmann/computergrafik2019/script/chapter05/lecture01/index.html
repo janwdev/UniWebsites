@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Lektion 5 - Materialien &amp; Texturen - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Lektion 5 - Materialien &amp; Texturen
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../../chapter04/lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../../chapter04/exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../../chapter04/exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a class="current" title="5 - Lektion - Materialien &amp; Texturen" href="index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Lektion 5 - Materialien &amp; Texturen </h1>
+
+			
+
+<h2 id="inhalt">Inhalt</h2>
+
+<ol>
+<li>Texturen</li>
+<li>Mix Nodes</li>
+<li>Bump und Displacement</li>
+<li>Node Gruppen</li>
+<li>UV Editing</li>
+</ol>
+
+<h2 id="5-texturen">5. Texturen</h2>
+
+<h3 id="bilder-als-textur-verwenden">Bilder als Textur verwenden</h3>
+
+<p>Um Bilder auf <strong>3D Objekten</strong> darstellen zu können, benötigen diese <strong>2D Koordinaten auf</strong> die das Bild projiziert werden kann. Cycles kann diese mit den verschiedenen Optionen des <em>Texture Coordinate</em> Nodes automatisch generieren. Für gleichmäßige Texturen ist hierfür der <em>Object</em> Output am besten geeignet - kombiniert mit der <em>Box</em> Projektion im Image Texture Node. Falls speziell angepasste UV Texturkoordinaten benötigt werden (z.b. für Charaktere) wird der UV Output verwendet. Die anderen Optionen lassen sich am besten durch Ausprobieren herausfinden.</p>
+
+<p><img src="img/textureSetup.jpg" alt="textureSetup" /></p>
+
+<h3 id="mapping">Mapping</h3>
+
+<p>Um Verschiebung, Rotation, Größe etc. einer Textur zu verändern kann zwischen den <em>Texture Coordinate</em> Node und die Textur ein <em>Mapping</em> Node hinzugefügt werden. Dieser sieht komplizierter aus als er ist, vorerst sind nur jeweils die drei Werte unter Location, Rotation und Scale wichtig.</p>
+
+<p><img src="img/mapping.jpg" alt="mapping" /><br />
+* <strong><em>Locaction</em></strong> verschiebt die Textur um die in x,y,z angegebenen Einheiten
+* <strong><em>Rotation</em></strong> dreht die Textur um die jeweilige Achse
+* <strong><em>Scale</em></strong> skaliert die Textur auf der jeweiligen Achse. Hierbei ist zu beachten, dass die Textur bei höheren Werten <strong>kleiner</strong> wird. (<em>scale: 2</em> bedeutet die Textur wird 2 mal so häufig gekachelt)</p>
+
+<h3 id="prozedurale-texturen">Prozedurale Texturen</h3>
+
+<p>Diese Texturen werden automatisch vom Renderer generiert und haben einige Vorteile dass sie unbegrenzt sind und beim heranzoomen nicht verpixeln.
+Richtig kombiniert können viele Materialien von denen man es nicht denken würde komplett ohne Bildtexturen auskommen.</p>
+
+<table>
+<thead>
+<tr>
+<th>Textur</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Checker</strong></td>
+<td>einfaches Karomuster von zwei Farben.</td>
+</tr>
+
+<tr>
+<td><strong>Gradient</strong></td>
+<td>verschiedene schwarzweiß Farbverläufe</td>
+</tr>
+
+<tr>
+<td><strong>Noise</strong></td>
+<td>&ldquo;Wolken&rdquo; Textur, die sehr nützlich ist um Oberflächen Struktur zu geben.</td>
+</tr>
+
+<tr>
+<td><strong>Musgrave</strong></td>
+<td>komplizierte aber mächtige Textur, mit der interessante Muster erzeugt werden können. Mehr <a href="http://www.blenderdiplom.com/en/tutorials/all-tutorials/627-tutorial-musgrave-texture-in-cycles-by-example.html">hier</a></td>
+</tr>
+
+<tr>
+<td><strong>Voronoi</strong></td>
+<td>&ldquo;Schuppen&rdquo; Textur, die zum Beispiel einen Sternenhimmel (siehe 3.3) erzeugen kann.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Die Regler sind größtenteils selbsterklärend. <em>Detail</em> sollte zwecks Performance nicht übertrieben. Werte über 15 sind visuell meist kaum wahrnehmbar.</p>
+
+<blockquote>
+<p><span style="color:#f4ce42">💡</span> Interessante Muster ergeben sich z.b., wenn die Scale einer Textur von einer anderen kontrolliert wird, wie hier z.b. <em>Voronoi</em> und <em>Wave</em>.
+<img src="img/procedural.jpg" alt="procedural" /></p>
+</blockquote>
+
+<h3 id="prozedurale-texturen-einfärben">Prozedurale Texturen einfärben</h3>
+
+<p>Um Prozedurale Texturen einzufärben, können diese z.b. mit dem Faktor eines <strong><em>MixRGB</em></strong> Nodes verbunden oder der <strong><em>Color Ramp</em></strong> Node verwendet werden. Dieser nimmt je nach Helligkeit des inputs die entsprechende Farbe auf einem Farbverlauf an.
+<img src="img/ape_on_fire.jpg" alt="apeOnFire" /> this Ape is on Fire!</p>
+
+<h2 id="6-mix-nodes">6. Mix Nodes</h2>
+
+<h3 id="mixrgb">MixRGB</h3>
+
+<p>Mit diesem Node lassen sich <strong>zwei Farben</strong> (bzw. die Texturen, die mit dem jeweiligen Farbsockel verbunden sind) anhand von den z.b. aus Photoshop bekannten <strong>Blendmodes</strong> (Mix, Addition, Overlay etc.) und eines <strong>Faktors</strong>, der auch über eine Maske kontrolliert werden kann vermischen.</p>
+
+<p><img src="img/mixRGB.jpg" alt="mixRGB" /><br />
+*Grün und Blau werden abhängig vom <strong>Helligkeitswert</strong> einer Textur miteinander vermischt. <strong>Je heller</strong> die Textur, desto stärker wird die <strong>untere Farbe</strong> (hier Blau) an dieser Stelle des Objekts verwendet.*</p>
+
+<h3 id="mix-shader">Mix Shader</h3>
+
+<p>Mit diesem Node lassen sich <strong>zwei Shader</strong> abhängig von einem <strong>Faktor</strong> oder Maske miteinander vermischen.</p>
+
+<p><img src="img/mixShader.jpg" alt="mixShader" /><br />
+<em>Wie bei MixRGB Node wird der untere Shader je nach Helligkeit der Maske stärker verwendet.</em></p>
+
+<blockquote>
+<p><span style="color:#f4ce42">💡</span> Um mehr als zwei Farben / Shader zu miteinander kombinieren kann der Output des Mix Nodes erneut mit einem Mix Node verbunden werden.</p>
+
+<p><span style="color:red"><strong>!!</strong></span> Aus Performancegründen sollte - <strong>falls nur Farben gemixt werden</strong> und der Shader sowieso gleich ist - immer der <strong>MixRGB</strong> Node verwendet werden.<br />
+<img src="img/pitfall1.jpg" alt="pitfall1" /></p>
+</blockquote>
+
+<h3 id="math">Math</h3>
+
+<p>Der Math Node verrechnet zwei Werte je nach ausgewählter Rechenoperation. Werte von <strong>0.0 bis 1.0</strong> werden hierbei als <strong>Graustufen</strong> interpretiert wenn sie danach mit einen Shader / Farbsockel verbunden werden. Es sind jedoch auch höhere Aus- und Eingabewerte möglich.
+<img src="img/math.jpg" alt="math" /><br />
+*Anwendungsbeispiel für Math bei dem eine Prozedurale Voronoi Textur über den &ldquo;Less Than&rdquo; Operator zu einem Riesensternenfeld umgewandelt wird. Alle Helligkeitswerte <strong>unter 0.1</strong> der Textur werden zu <strong>weiß (1.0)</strong>, der Rest zu <strong>schwarz (0.0)</strong>*.</p>
+
+<blockquote>
+<p><span style="color:#f4ce42"><strong>💡</strong></span> Der &ldquo;<em>Viewer</em>&rdquo; Node in diesem Beispiel ist ein temporärer Emission Shader des Node Wrangler Addons, der entsteht um Farben / Werte ohne manuell hinzugefügten Shader mit <code>Ctrl</code> + <code>Shift</code> + <code>LMB</code> auf den jeweiligen Node schnell anzuzeigen.</p>
+</blockquote>
+
+<h2 id="7-bump-und-displacement">7. Bump und Displacement</h2>
+
+<h3 id="prinzip">Prinzip</h3>
+
+<p>Bumpmaps können die Oberfläche von Materialien wesentlich <strong>detaillierter erscheinen lassen als sie eigentlich sind</strong>. Sie erzeugen mit Texturen scheinbare Erhebungen/Einkerbungen auf einer Oberfläche. In Wahrheit werden jedoch nur die &ldquo;Normalen&rdquo; der Oberfläche verändert, die u.a. den Lichausfallwinkel bestimmen. Der Schwindel fliegt auf, wenn man sieht dass die Ränder des Objekts ihre Form gar nicht verändert haben.</p>
+
+<h3 id="bump-node">Bump Node</h3>
+
+<p>Normalerweise funktioniert Bumpmapping in Cycles über den <em>Bump Node</em>. Eine Textur wird in den <em>Height</em> Input des Nodes gezogen und der <em>Normal</em> Output des Bump Nodes mit dem <em>Normal</em> input des Shaders verbunden. Die Stärke des Effekts kann nun leicht über <em>Strength</em> kontrolliert werden.
+<img src="img/bumpB.jpg" alt="normalMap" /></p>
+
+<h3 id="normal-map-node">Normal Map Node</h3>
+
+<p>Bildtexturen kommen oft mit sogenannten Normalmaps, die etwas genauer sind als einfache graustufenbilder für Bumpmapping. (Genaue Unterschiede <a href="https://www.pluralsight.com/blog/film-games/bump-normal-and-displacement-maps">hier</a>). Diese funktionieren vom Aufbau her gleich wie Bumpmaps, nur dass hier der <em>Color</em> Output der Bildtextur in den <em>Color</em> Input der Normal Map gezogen wird. Zudem ist es wichtig in der Bildtextur von <em>Color</em> auf <em>NonColor Data</em> umzustellen (nutzt ansonsten den falschen Farbraum).
+<img src="img/normal.png" alt="normalMap" /></p>
+
+<h3 id="displacement-output">Displacement Output</h3>
+
+<p>Mit diesen Slot im <em>Material Output</em> Node kann auch eine Graustufenetxtur verbunden werden. Diese wird dann auf alle Shader im Material angewendet - kann also nicht einzeln pro Shader gesetzt werden wie bei <em>Bump</em> und <em>Normal</em>. Um die Stärke zu kontrollieren muss hier noch ein <em>Math - Multiply</em> Node dazwischen geschaltet werden und desen zweiter Wert als &ldquo;Strength&rdquo; verwendet werden.
+<img src="img/displacementMap.png" alt="displacement" />
+<em>wie man sieht sollten Bump- und Normalmapping nicht übertrieben werden</em></p>
+
+<blockquote>
+<p><span style="color:#f4ce42"><strong>💡</strong></span> Der eigentliche Grund, dass diese Möglichkeit existiert ist das seit neustem hinzugefügte Feature für &ldquo;Micropolygon Displacement&rdquo; - also echtes, nicht &ldquo;gefaktes&rdquo; Displacement abhängig von der Bildschirmauflösung. Ausführliches Tutorial vom YouTube Kanal &ldquo;Blenderguru&rdquo; dazu <a href="https://www.youtube.com/watch?v=dRzzaRvVDng">hier.</a></p>
+</blockquote>
+
+<h2 id="8-node-gruppen">8. Node Gruppen</h2>
+
+<h3 id="prinzip-1">Prinzip</h3>
+
+<p>Oft gibt es Gruppen von Nodes, die in der selben Anordnung immer wieder vorkommen. Um sich die Arbeit der Wiederhohlung zu sparen und den Nodeeditor bei komplexen Materialien aufgeräumt zu halten gibt es sogenannte Node Groups. Diese ermöglichen es <strong>Gruppen von Nodes</strong> zu &ldquo;eigenen Nodes&rdquo; <strong>zusammenzufassen</strong> und immer wieder mit unterschiedlichen Parametern zu verwenden. Node Groups lassen sich gut mit <strong>Funktionen</strong> im Programmieren vergleichen.</p>
+
+<h3 id="beispiel">Beispiel</h3>
+
+<p>Als Beispiel wird hier die häufig benötigte &ldquo;Glossy Material&rdquo; Kombination verwendet.<br />
+<img src="img/group2.jpg" alt="glossy_group" /></p>
+
+<ol>
+<li><p>Zuerst werden die zu gruppierenden Nodes alle <strong>selektiert</strong> (selektion funktioniert wie im 3D View).</p></li>
+
+<li><p><code>Ctrl</code> + <code>G</code> drücken um die Nodes zu <strong>gruppieren</strong></p></li>
+
+<li><p>Die neu erstellte Node Group öffnet sich. Wir befinden uns jetzt sozusagen in einem selbst erstellten Node. Es gibt <strong>Inputs</strong> und <strong>Outputs</strong>, die wir selbst festlegen können.</p></li>
+
+<li><p>Wir müssen uns nun überlegen, welche <strong>Parameter</strong> wir für jeden Node zugänglich machen wollen. Wichtig hier sind die Stärke der Reflektion, Farbe und Rauheit der Oberfläche. Wir ziehen also den <em>Blend</em> Wert des <em>Layer Weight</em> Nodes in den <strong><em>Group Input</em></strong> Node. Dasselbe wiederhohlen wir mit dem  <em>Color</em> Wert des Diffuse Shaders. Wer will kann auch die Farbe des Glossy Shaders in einen eigenen Input ziehen. In der Realität sind die Reflektionen jedoch sogut wie aller nichtleitenden Stoffe jedoch weiß. Für den <em>Roughness</em> Wert ziehen wir die Werte beider Shader in den selben Sockel im Group Input (es gibt hier keinen Grund für unterschiedliche Inputs). Als letztes verbinden wir noch alle drei <em>Normal</em> Inputs der Nodes mit einem Sockel um später noch Bumpmaps (siehe 6.) verwenden zu können.</p></li>
+
+<li><p>In diesem Fall sind mit dem <em>Shader</em> bzw <em>BSDF</em> Output schon alle nötigen Outputs gesetzt, es ist jedoch auch möglich noch zusätzliche Outputs hinzuzufügen indem sie in einen neuen Sockel des <em>Group Output</em> Nodes gezogen werden.</p></li>
+
+<li><p>Mit <code>Tab</code> können wir nun aus der Gruppe heraus navigieren (und auch wieder rein bei Bedarf). Wir haben nun einen eigenen Node erstellt, den wir immer wieder (auch bei anderen Materialien) verwenden können. Er ist ab nun im <em>&ldquo;Add&rdquo;</em> Menü unter <em>&ldquo;Group&rdquo;</em> verfügbar. verändern wir nun das Innenleben einer Gruppe, verändert sich das aller. Die zuvor in den Input gezogenen Parameter können jedoch im Node einzeln verändert werden.</p></li>
+</ol>
+
+<blockquote>
+<p><span style="color:#f4ce42"><strong>💡</strong></span>Mit Druck auf die Taste <code>N</code> innerhalb der Node Group öffnet sich eine Seitenleiste in der weitere Einstellungen z.b. die Benamung der In- und Outputs geändert werden können.</p>
+
+<p><span style="color:#f4ce42"><strong>💡</strong></span> Sehr gute Tutorials zu Nodegruppen für Nichtleiter und Metalle finden sich auf dem YouTube  Kanal &ldquo;Blenderguru&rdquo;<br />
+<a href="https://www.youtube.com/watch?v=V3wghbZ-Vh4&amp;t">How to Make Photorealistic PBR Materials - Part 1</a><br />
+<a href="https://www.youtube.com/watch?v=m1PkSViBi-M&amp;t">How to Make Photorealistic PBR Materials - Part 2: Metals</a></p>
+</blockquote>
+
+<h2 id="9-uv-editing">9. UV Editing</h2>
+
+<h3 id="texturkoordinaten">Texturkoordinaten</h3>
+
+<p>Mit den Texture Coordinate und <a href="#mapping">Mapping Nodes</a> kann die Zuordnung beeinflusst werden,
+welche Stellen eines Texturbildes an welchen Stelle auf der Geometrie dargestellt werden. Dies
+passiert grundsätzlihc in der Computergrafik über so genannte <em>Texturkoordinaten</em>.</p>
+
+<p>Jeder Eckpunkt (Vertex) der Geoemetrie kann neben seiner 3D- (x, y, z)-Koordinaten im Raum
+zusätztlich auch noch mit einer 2D-Texturkoordinate versehen werden. Um die Achsen nicht zu verwechseln,
+werden die Achsen dieses zweidimensionalen Textur-Koordinatenraums statt mit X und Y mit U und V
+gekennzeichnet. Daher werden Texturkoordinaten oft auch mit UVs bezeichnet.</p>
+
+<p>Der 2D-Texturkoordinatenraum wird nun mit einem Texturbild gefüllt, wobei das Bild entlang jeder Achse
+die Koordinatenwerte 0 für links/unten und 1 für rechts/oben erhält, egal, wie hoch und breit das Bild
+in Pixeln ist. Somit indiziert jede Texturkoordinate einen besitmmten Bereich des Bildes.</p>
+
+<p><img src="img/texcoords.png" alt="Texturkoordinaten" /></p>
+
+<p>Auf diese Weise kann jeder Eckpunkt einer 3D-Geometrie an einer Stelle in der  2D-Texturkoordinaten-
+Ebene abgebildet werden, bzw. umgekehrt, jedem Eckpunkt der 3D-Geometrie wird eine Stelle aus dem
+2D-Texturkoordinatenwert zugeordnet.</p>
+
+<p>Damit ist auch festgelegt, welche Flächen der 3D-Geometrie wie in 2D-Textur-Ebene liegen, bzw.
+umgekehrt, welcher Teil der Textur auf welcher Fläche der 3D-Geometrie angezeigt wird.</p>
+
+<p>Diese Zuordnung, das sogenannte UV-Mapping, kann in Blender ganz explizit angezeigt und bearbeitet werden.</p>
+
+<p><img src="img/Earth1024.jpg" alt="Erdoberfläche" /></p>
+
+<p>Im Folgenden sollen die UV-Koordinanten für die Eckpunkte einer Kugel so ausgerichtet werden, dass
+das oben gezeigte Bild der Erdoberfläche darauf gemappt wird.</p>
+
+<h3 id="kugel-erzeugen-und-in-die-uv-edit-ansicht-wechseln">Kugel erzeugen und in die UV-Edit Ansicht wechseln</h3>
+
+<p>In einer leeren Blender-Szene wird zunächst wird mit <code>Shift</code>+<code>A</code>-&gt;Mesh-&gt; UV-Sphere eine Kugel erzeugt.
+Um die Kugel rund darzustellen, wird <a href="../../chapter04/lecture01/index.html#2-smooth-shading">Smooth Shading</a> eingestellt.</p>
+
+<p>Um die UV-Koordinaten direkt zu sehen und bearbeiten zu können, wird in das UV-Editing-Screen-Layout
+umgeschaltet. Mit <code>T</code> und/oder <code>N</code> werden die Tool- und Properties-Panels ausgeblendet.</p>
+
+<p><img src="img/uvediting.png" alt="UV Editing Kugel" /></p>
+
+<h3 id="einfache-sphärische-abwicklung">Einfache sphärische Abwicklung</h3>
+
+<p>Um die Abwicklung vorzunehmen sollte dann mit <code>Num 5</code>, <code>Num 1</code> in die orthografische Ansicht
+von vorne geschaltet werden und mit (ggf. mehrfachem) <code>A</code> sämtliche Eckpunkte der Geoemetrie
+selektiert werden.</p>
+
+<p>Nun kann mit <code>U</code>, bzw. Mesh-&gt;UV Unwrap und dann -&gt;<strong>Sphere Projection</strong> eine automatische Abwicklung
+durchgeführt werden. Die Abwicklung hängt hier von der 3D-Ansicht ab. durch Drehen der Ansicht mit
+<code>Num 4</code> und <code>Num 6</code> und wiederholtes Unwrapping mittels Sphere Projection sollte eine grade linke
+und rechte Kante in der Abwicklung erkennbar werden.</p>
+
+<p><img src="img/sphereunwrap.png" alt="Abgwickelte Kugel" /></p>
+
+<h3 id="uv-koordinaten-anpassen">UV Koordinaten anpassen</h3>
+
+<p>Im Bild oben sind die geraden Kanten markiert. Gut zu sehen sind noch die beiden &ldquo;Ausreißer&rdquo;
+der Pol-Abwicklung. Diese beiden Eckpunkte können mit <code>G</code> und <code>X</code> entlang der X-Achse in
+den Bereich der anderen Textur-Koordinaten bewegt werden.</p>
+
+<p>Dann sollte noch durch Skalieren (<code>S</code>) und Positionieren (<code>G</code>) der von den Texturkoordinaten
+eingenommene Bereich über den gesamten Koordinaten-Wertebereich (0&hellip;1) ausgedehnt werden.</p>
+
+<p><img src="img/earthinuveditor.png" alt="Erde als Textur eingefügt" /></p>
+
+<p>Im Bild oben wurde zudem bereits das Oberflächenbild der Erde zur Kontrolle als Hintergrundbild
+des UV-Editors ausgewählt. Dies führte dazu, dass der Texturkoordinatenbereich von seiner
+ursprünglich quadratischen Form nun die Proportionen des Texturbildes angenommen hat.</p>
+
+<h3 id="material-mit-textur-einfügen">Material mit Textur einfügen</h3>
+
+<p>Schließlich kann im 3D-Editor ein Material angelegt werden, dass die Textur im Diffuse-Kanal enthält.
+Somit wird das Bild auf der Kugel dargestellt.</p>
+
+<p><img src="img/earthtexture.png" alt="Erde auf der Kugel sichtbar" /></p>
+
+<h2 id="anhang-cycles-einstellungen">Anhang: Cycles Einstellungen</h2>
+
+<p>Cycles produziert zwar mit den Standarteinstellungen schon ganz akzeptable Renderings, jedoch können Renderzeit und Rauschfreiheit mit den richtigen Einstellungen stark verbessert werden. Hier eine Anleitung zu den wichtigsten Optionen.</p>
+
+<h3 id="1-gpu-rendering">1. GPU Rendering</h3>
+
+<p>Falls ihr eine halbwegs gute Grafikkarte habt, kann diese zum deutlich schnelleren rendern verwendet werden. Zunächst muss unter <em>File -&gt; User Prefferences -&gt; System</em> in der unteren rechten Ecke als <em>Compute Device CUDA</em> ausgewählt werden (bzw. OpenCL für AMD Karten) Falls das nicht funktioniert unterstützt eure Grafikkarte leider kein GPU Rendering.
+<img src="img/cuda.png" alt="setDevice" />
+<img src="img/settings_opt.png" alt="vorbereitung" /></p>
+
+<h3 id="2-device">2. Device:</h3>
+
+<p>Erscheint sobald ihr Schritt gemacht habt. Hier kann nun von CPU auf GPU Rendering umgestellt werden.</p>
+
+<h3 id="3-samples">3. Samples</h3>
+
+<p>die wichtigste Einstellung. Desto mehr Samples, desto rauschfreier das Ergebniss. Die Renderzeit steigt
+jedoch linear mit der Anzahl an Samples.</p>
+
+<p><strong>3.1</strong> Zufälliger Seed für jeden Frame. Sollte bei Animationen IMMER aktiviert werden, damit das Rauschen nicht statisch ist.</p>
+
+<h3 id="4-clamp">4. Clamp</h3>
+
+<p>Um sogenannte &ldquo;Fireflies&rdquo; (einzelne helle Pixel an unpassenden Stellen) zu verhindern, können Pixel mit außergewöhnlich hohen Werten &ldquo;geclampt&rdquo; werden. Es wird also verhindert, dass diese einen zu hohen Wert erreichen. Auf 0.0 gesetzt ist der Effekt deaktiviert. Andernfalls wird der Effekt stärker, desto niedriger der Wert. Wird der Wert zu niedrig gesetzt gehen Highlights verloren also nicht zu niedrig setzen. Mit direkttem Licht entstehen kaum Fireflies, deshalb kann der Wert hier auf 0.0 gelassen werden. Für <em>Clamp Indirect</em> ist 3.0 ein ganz guter Startwert, der bei Bedarf angepasst werden kann.</p>
+
+<h3 id="5-light-paths">5. Light Paths:</h3>
+
+<ul>
+<li><p><strong>Transparency:</strong> Bestimmt z.b. durch wie viele Schichten Glas hintereinander man hindurchsehen kann bevor die Berechnung aufhört.</p></li>
+
+<li><p><strong>Bounces:</strong> Hier wird angegeben, wie oft das Licht zwischen den verschiedenen Oberflächen hin und her springt. Wollte man zum Beispiel ein Spiegelkabinett rendern, sollte man Glossy sehr hoch setzen, damit genug Reflektionen des Raumes entstehen. Desto weniger, desto &ldquo;unrealistischer&rdquo; das Ergebniss, allerdings sinkt auch die Renderzeit. Die Standarteinstellungen sind etwas übertrieben. Hier ein ganz guter Ausgangswert für alle Einstellungen.</p></li>
+
+<li><p><strong>Caustics:</strong> Z.b. die Reflektionen von Metall auf andere Oberflächen. Kann für Rauschreduktion ausgestellt werden, nimmt aber dann einiges an Realismus.</p></li>
+
+<li><p><strong>Filter Glossy:</strong> Filtert Reflektionen um Rauschen zu reduzieren. 0.5 ist hier eigentlich immer ok.</p></li>
+</ul>
+
+<h3 id="6-tiles">6. Tiles:</h3>
+
+<p>sollte für GPU Rendering deutlich erhöht werden, da die Grafikkarte immer nur einen Tile aufeinmal rendert, während der CPU (je nach Anzahl der Threads) mehrere rendert. Gute Voreinstellungen sind:<br />
+<strong><em>32 x 32</em></strong> <strong>für CPU</strong><br />
+<strong><em>256 x 256</em></strong> <strong>für GPU</strong></p>
+
+<h3 id="7-progressive-refine">7. Progressive Refine:</h3>
+
+<p>Sorgt dafür, dass sich beim Rendern das Bild sofort aufbaut und nach und nach feiner wird. So kann die Anzahl an Samples absurd hoch gesetzt werden und das Rendering manuell abgebrochen werden wenn das Rauschen gering genug ist. Das verlangsamt das Rendern allerdings etwas und macht bei Animationen natürlich keinen Sinn.</p>
+
+<h3 id="8-denoising-siehe-unten">8. Denoising (siehe unten)</h3>
+
+<p>Diese Funktion kann für jedem Renderlayer extra eingestellt werden, da wir hier jedoch nur mit dem Standardlayer arbeiten reicht es, Den Haken bei &ldquo;Denoising&rdquo; ganz unten im &ldquo;Renderlayer Tab&rdquo; zu setzen.</p>
+
+<p><strong>!</strong> Für Animationen sollte <strong>3.1</strong> Zufälliger Seed deaktiviert werden, wenn Denoising aktiv ist.</p>
+
+<p>Die Funktion wendet nach dem Rendern einen Denoising-Algorithmus an, der das Rauschen im Renderergebniss verringert. So kann mit deutlich weniger Samples ein klares Bild erzeugt werden, die Technik hat jedoch ihre Grenzen. Bei viel zu wenig Samples entstehen auch hier Fehler im Bild. Die Standarteinstellungen sind normalerweise gut genug, weitere Infos zu den Einstellungen <a href="https://docs.blender.org/manual/en/dev/render/cycles/settings/scene/render_layers/denoising.html">hier.</a></p>
+
+<p><img src="img/denoising.png" alt="Denoising" /></p>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../../chapter04/lecture01/index.html" title="Lektion 4 - Shading &amp; Rendering">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Lektion 4 - Shading &amp; Rendering
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../../chapter06/lecture01/index.html" title="Lektion 6 - Animation">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Lektion 6 - Animation
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Übung 7.1 - Rigging - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Übung 7.1 - Rigging
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../../chapter04/lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../../chapter04/exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../../chapter04/exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a class="current" title="7.1 - Übung - Rigging" href="index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Übung 7.1 - Rigging </h1>
+
+			
+
+<p><strong>In dieser Übung werden wir den Drachen mithilfe eines Skeletts verformbar machen und animieren.</strong></p>
+
+<p><img src="img/res.gif" alt="ik" /></p>
+
+<h2 id="vorbereitung">Vorbereitung</h2>
+
+<p><img src="img/01.png" alt="pre" /></p>
+
+<ul>
+<li>Öffnet euren Drachen</li>
+<li>Wenn ihr im Laufe der Übung feststellt, dass sich euer Drache nicht eignet, kann auch <a href="res/drache.html">dieses</a> Beispielmodell verwendet werden.</li>
+<li>Stellt den <em>Preview</em> Wert des <em>Multiresolution Modifiers</em> so niedrig ein [1], dass die Anzahl der Polygone [2] je nach Rechnerkapazität 100.000 - 200.000 nicht überschreitet. Bei verwendung des Beispielmodells, entfällt dieser Schritt.</li>
+<li>Wendet den Modifier mit <em>Apply</em> [3] an.</li>
+</ul>
+
+<blockquote>
+<p>Um feine Details vom Sculpting auch auf das Mesh mit weniger Polygonen anzuwenden, wird üblicherweise <a href="http://wiki.polycount.com/wiki/Normal_map">Normal Map Baking</a> verwendet, das würde jedoch den Rahmen der Veranstaltung sprengen.</p>
+</blockquote>
+
+<h2 id="1-drachen-riggen">1. Drachen Riggen</h2>
+
+<h3 id="1-1-knochen">1.1 Knochen</h3>
+
+<p>Um den Drachen zu animieren, müssen wir ihm zuerst ein &ldquo;Skelett&rdquo; geben, das bestimmt wie sich das Mesh verformen kann.</p>
+
+<ul>
+<li>Selektiert den Drachen und setzt den 3D-Cursor an dessen Position. (Shift + S → <em>Cursor to Selected</em>)</li>
+<li>Fügt mit <code>Shift + A</code> ein <em>Armature</em> Objekt hinzu</li>
+<li>Im <em>Armature</em> Tab des <em>Properties Editors</em>, stellt <em>Viewport Display</em> → <em>In Front</em> ein, damit das Skelett im Drachen angezeigt wird.</li>
+</ul>
+
+<p><img src="img/in_front.png" alt="front" /></p>
+
+<ul>
+<li>Wechselt zum Editmode</li>
+<li>Nutzt das <em>Extrude</em> Tool (oder Shortcut <code>E</code>), um ein Skelett in den Drachen zu ziehen</li>
+<li>Mit <code>Shift + D</code> können Knochen dupliziert werden - diese übernehmen dann den übergeordneten Knochen des kopierten Knochen.</li>
+</ul>
+
+<blockquote>
+<p>Die Rotation der Knochen hat später ihren Mittelpunkt am dicken Ende, deswegen sollte ca. an der Hüfte des Drachen die Richtung der Knochen umgekehrt werden.</p>
+
+<p><img src="img/rot.gif" alt="rot" /></p>
+</blockquote>
+
+<ul>
+<li>Um Knochen präziser in der Mitte der Gliedmaßen zu platzieren kann im 3D Viewport oben <em>Volume Snapping</em> aktiviert werden (Magneten anklicken und daneben zu <em>Volume</em> wechseln)</li>
+</ul>
+
+<p><img src="img/snapping.png" alt="snap" /></p>
+
+<p>Beim Verschieben, springen Knochen nun in die Mitte des Volumens (z.b. Arm) unter dem Mauszeiger.</p>
+
+<h3 id="1-2-drache-an-skelett-anbinden">1.2 Drache an Skelett anbinden</h3>
+
+<ul>
+<li>Wechselt nun zum Objectmode</li>
+<li>Deselektiert alles, selektiert dann zuerst den Drachen und dann das Skelett (Skelett sollte als helleres Orange angezeigt werden)</li>
+<li>Wählt dann <em>Rechtsklick</em> → <em>Parent</em> → <em>With Automatic Weights</em> aus.</li>
+</ul>
+
+<p><img src="img/parent.png" alt="parent" /></p>
+
+<h3 id="1-3-inverse-kinematics">1.3 Inverse Kinematics</h3>
+
+<ul>
+<li>Wechselt zum <em>Pose Mode</em></li>
+<li>selektiert den letzten Knochen in einem der Gliedmaßen</li>
+<li>Fügt im <em>Properties Editor</em> im Tab <em>Bone Constraints</em> einen <em>Inverse Kinematics</em> Constraint hinzu</li>
+<li>Stellt <em>Chain Length</em> auf die Anzahl der Knochen im Arm</li>
+</ul>
+
+<p><img src="img/ik.gif" alt="ik" /></p>
+
+<p>Nun kann folgt der gesamte Arm der Bewegung der Hand und das Rig wird somit einfacher zu kontrollieren.</p>
+
+<ul>
+<li>Fügt allen Gliedmaßen einen solchen Constraint hinzu</li>
+</ul>
+
+<h2 id="2-animation">2. Animation</h2>
+
+<h3 id="2-1-zeitleistenanimation">2.1 Zeitleistenanimation</h3>
+
+<ul>
+<li>Aktiviert in der Zeitleiste <em>Automatic Keyframes</em> (Punkt links neben den Player Controlls)</li>
+<li>Automatic Keyframing bewirkt, dass jedesmal wenn etwas bewegt wird, automatisch ein Keyframe gesetzt wird. So lässt sich schnell eine Animation erstellen</li>
+<li>Animiert den Drachen beim Feuerspeien (Feuer kommt später)</li>
+<li>Er sollte in der Luft stehend mit den Flügeln schlagen, aushohlen und dann feuern</li>
+<li>Wenn euer Drache keine Flügel hat, denkt euch eine alternative Aktion aus die er stattdessen machen könnte.</li>
+</ul>
+
+<video width=90% controls src="img/anim.mp4"></video>
+
+<ul>
+<li>Vergesst nicht, für alle Knochen die ihr animieren wollt auch bei Frame 1 für die Ausgangsposition einen Keyframe hinzuzufügen.</li>
+</ul>
+
+<video width=90% controls src="img/anim2.mp4"></video>
+
+<ul>
+<li><strong>WICHTIG!</strong> Deaktiviert <em>Automatic Keyframes</em> wieder, sobald es nicht mehr benötigt wird. Ansonsten kann es passieren, dass versehentlich Keyframes gesetzt werden.</li>
+</ul>
+
+<h3 id="2-2-freiwillig-mund-mit-shapekeys-animieren">2.2 FREIWILLIG Mund mit Shapekeys animieren</h3>
+
+<p>Wenn euer Drache einen zu öffnenden Mund hat, könnt ihr freiwillig <a href="https://www.youtube.com/watch?v=e675Ulc7QL4">Shape Keys</a> benutzen um ihn zu animieren (siehe Video unten).</p>
+
+<video width=90% controls src="img/shape_keys.mp4"></video>
+
+<p>Der <em>Value</em> Wert eines <em>Shape Keys</em> kann wie jeder andere Wert animiert werden (Rechtsklick - insert Keyframe)</p>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../../chapter06/exercise01_a/index.html" title="Übung 6.1 - Animation">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Übung 6.1 - Animation
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../exercise01_a/index.html" title="Übung 7.1 - Rigging und Skelettanimation">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Übung 7.1 - Rigging und Skelettanimation
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

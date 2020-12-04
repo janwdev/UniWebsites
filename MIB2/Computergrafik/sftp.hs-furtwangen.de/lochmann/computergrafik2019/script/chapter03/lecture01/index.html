@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Lektion 3 - Geometrie verstehen - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Lektion 3 - Geometrie verstehen
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../../chapter01/lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="1.1 - Übung - Intro" href="../../chapter01/exercise01_b/index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a class="current" title="3.0 - Lektion - Geometrie verstehen" href="index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../../chapter04/lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../../chapter04/exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../../chapter04/exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Lektion 3 - Geometrie verstehen </h1>
+
+			
+
+<h2 id="inhalt">Inhalt</h2>
+
+<ol>
+<li>Topologie</li>
+<li>Geometrie <em>from Scratch</em></li>
+<li>Edge Flow</li>
+<li>Editor-Anordnung</li>
+</ol>
+
+<h2 id="1-topologie">1. Topologie</h2>
+
+<p>Das Verhältnis zwischen Punkten, Kanten und Flächen, also die Zuordnung, welcher Eckpunkt
+mit welchem anderen eine Kante bildet und welche Kante mit welchen anderen Kanten eine
+Fläche Bildet, nennen wir im Folgenden <em>Topologie</em>.</p>
+
+<p>Die im letzten Kapitel gezeigten Modellierungstechniken verändern entweder die Topologie
+gar nicht (Position, Rotation, Skalierung auf Selektionen von Punkten, Kanten oder Flächen)
+oder aber sie erzeugen nach festen Regeln neue Topologie und haben ein &ldquo;konsistentes&rdquo; Mesh
+zur Folge (Bevel, Extrude, Loop-Cut, diverse Modifier).</p>
+
+<p>Neben diesen Werkzeugen gibt es auch Werkzeuge, mit denen direkt die Topologie eines Modells
+erzeugt oder geändert werden kann. Ein paar davon werden hier beschrieben.</p>
+
+<h3 id="polygone-tris-quads">Polygone, Tris &amp; Quads</h3>
+
+<p>Blender kann grundsätzlich mit Flächen (Polygonen) umgehen, die aus beliebig vielen Eckpunkten
+und Kanten bestehen. Beim Modellieren ist es aber von Vorteil, darauf zu achten,
+möglichst nur <strong>Vierecke</strong> zu verwenden. Oft werden diese auch <em>Quads</em> genannt, im Gegensatz
+zu Dreiecken, die oft mit <em>Tris</em> bezeichnet werden.</p>
+
+<p><img src="img/Polygons.png" alt="Tri, Quad und Fünfeck" /></p>
+
+<p>Bild oben: Drei Polygone - vlnr.: Ein Tri, ein Quad und ein Fünfeck.</p>
+
+<p>Objekte nur aus Quads aufzubauen ist insbesondere bei der Verwendung des
+<a href="../../chapter02/lecture01/index.html#5-subdivision-modifier">Subidvision Modifier</a>
+ratsam, da die Verwendung anderer Polygone (Tris, Fünfecke, &hellip;) dazu führen kann,
+dass die Oberflächen ungewünschte Strukturen aufweisen.</p>
+
+<h2 id="2-geometrie-from-scratch">2. Geometrie <em>from Scratch</em></h2>
+
+<p>Oft soll Geometrie frei &ldquo;aus dem Nichts&rdquo; eigefügt werden, beispielsweise mit Hilfe eines
+Hintergrundbildes, das als Modellierungsvorlage verwendet werden soll.</p>
+
+<p>Eine Konstruktionsweise ist es, Bänder von Quads in eine 2D-Ansicht (z.B. <code>Num 5</code>, <code>Num 1</code>)
+zu Zeichnen. Dies kann mit einer selektierten Kante durch fortgeführtes Extrudieren (<code>E</code>), Rotieren (<code>R</code>) und Skalieren (<code>S</code>) erfolgen.</p>
+
+<p>Eine Abkürzung zu dieser Vorgehensweise ist es, im Edit-Modus Kantenbearbeitung zu aktivieren und mit einer selektierten
+Kante jeweils mit <code>Ctrl+RMB</code> an die neue Position zu klicken.
+Es wird dann jeweils die aktuelle Kante extrudiert und die
+Kanten-Rotation sowohl der neu hinzugekommenen wie auch der alten Kante angepasst, dass ein &ldquo;wohlgeformtes&rdquo; Polygonband entsteht.</p>
+
+<p><img src="img/QuadBand.png" alt="" /></p>
+
+<p>Das oben gezeigte geschlossene Band aus Quads ist durch Folgende Befehlssequenz entstanden:</p>
+
+<p><strong>Vorbereitung</strong></p>
+
+<ul>
+<li>Neue Szene laden (File -&gt; New)</li>
+<li>In orthografische Seitennsicht wechseln (<code>Num 1</code> oder Y-Achse im View Gizmo)</li>
+<li>Cube auswählen (<code>LMB</code>)</li>
+<li>In den Edit Mode wechseln (<code>Tab</code>)</li>
+<li>Sämtliche Würfel-Geometrie auswählen und löschen
+(<code>Alt + A</code>, <code>X</code> → Vertices)</li>
+</ul>
+
+<p><strong>Erste Kante einfügen</strong></p>
+
+<ul>
+<li>In den &ldquo;Vertex Select&rdquo; Modus wechseln (<code>1</code>)</li>
+<li>Mit <code>Ctrl+RMB</code> zwei Vertices einfügen, diese werden automatisch
+mit einer Kante verbunden.</li>
+</ul>
+
+<p><strong>Quad-Band malen</strong></p>
+
+<ul>
+<li>In den &ldquo;Edge Select&rdquo; Modus wechseln (<code>2</code>)</li>
+<li>Mit <code>LMB</code> die erste und einzige Kante selektieren</li>
+<li>Mit <code>Ctrl+LMB</code> jeweils an die Position klicken, an die aktuelle
+Kante extrudiert werden soll.</li>
+<li>Polygonband durch wiederholtes <code>Ctrl+LMB</code> zu einem Ring formen</li>
+</ul>
+
+<p><strong>Quad-Band schließen</strong></p>
+
+<ul>
+<li>Letzte und erste Kante mit <code>Shift+LMB</code> selektieren</li>
+<li><code>F</code> (für Fill) verbindet diese mit einem Quad</li>
+</ul>
+
+<h2 id="3-edge-flow">3. Edge-Flow</h2>
+
+<p>Typischerweise wird das o.g. Verfahren auf einem eingefügten Hintergrundbild angewendet,
+um eine Zeichnung, Fotografie o.ä. nachzumodellieren. Dabei werden oft mehrere solcher
+Polygonbänder angelegt, die die Grundlegende Struktur des entstehenden Modells bilden.</p>
+
+<p>Die Entscheidung, an welcher Stelle und wie Bänder angelegt werden sollen ist von mehrere
+Faktoren abhängig. z.B.</p>
+
+<ul>
+<li>Optischer Fluss der Struktur</li>
+<li>Gewünschte Polygonzahl des enstehenden Modells (meist gilt: je weniger desto besser)</li>
+<li>Animationseigenschaften des entstehenden Modells. Bei Skelett-Animations können schlecht
+gesetzte Polygonbänder zu unerwünschten Effekten führen.</li>
+</ul>
+
+<p>Es gibt sicher kein generelles Richtig oder Falsch für das Anlegen eines Polygon-Flows - hier
+hilft es, viel Erfahrung zu sammeln. Für häufig vorkommende Modelle haben sich aber eine
+Reihe von Best Practices entwickelt, die in unzähligen Büchern, Web-Tutorials und Videos
+zu sehen sind - allen voran der
+<a href="https://www.google.de/search?q=edge+flow+face&amp;tbm=isch">Edge-Flow für Gesichter</a></p>
+
+<p><img src="../../../../../../gooseberry.blender.org/wp-content/uploads/2014/11/victor_d_facial_topo_after.png" alt="Victor" /></p>
+
+<p>Beim oben angegebenen Vorgehen, zunächst die wichtigsten Strukturen der zu modellierenden
+Geometrie als Bänder von Quads anzulegen, ist es wichtig, darauf zu achten, dass die
+Bänder später auch durch Quads miteinander verbunden werden können - d.h. es müssen sich
+immer möglichst gleich viele Quads gegenüberstehen. Ansonsten müssten Tris oder Polygone mit
+mehr als vier Eckpunkten eingefügt werden - dies ist unbedingt zu vermeiden!</p>
+
+<p><img src="img/FlowsGleichePolyzahl.png" alt="Simple Edgeflows" /></p>
+
+<p>Oben stehendes Bild zeigt die typischen drei Edge-Flows eines Gesichts um</p>
+
+<ol>
+<li>Auge</li>
+<li>Lippen und</li>
+<li>Nase-Kinn-Ring</li>
+</ol>
+
+<p>mit sehr wenigen Polygonen. Es wurde begonnen, die Ringe zu verbinden, was gut möglich ist,
+weil sich die Quads der drei Ringe passend in Anzahl und Position gegenüber stehen.</p>
+
+<p>Dies kann dadurch gewährleistet werden, dass beim Verbinden der Edge-Loops (mittels <code>F</code>ill)
+einzelne Ringe um Polygone erweitert (mit dem <code>K</code>nife) oder verringert werden (Durch Löschen
+von Edges).</p>
+
+<h2 id="4-editor-anordnung">4. Editor-Anordnung</h2>
+
+<p>Die Anwendung des o.g. Verfahrens eignet sich zur Arbeit in einer orthografischen 2D-Ansicht.
+Um mit diesem Verfahren dreidimensionale Modelle zu erzeugen, bietet es sich an, gleichzeitig
+in zwei 2D-Ansichten zu arbeiten - z.B. eine Front- und eine Seiten-Ansicht. Damit kann in jeweils
+einer Ansicht der die grundlegende Topologie, vor allem im Hinblick auf den Edge-Flow gezeichnet
+werden und in der zweiten Ansicht kann das Gebilde &ldquo;verräumlicht&rdquo; werden, indem die Vertices
+in der Tiefe des Raums verteilt werden.</p>
+
+<p><img src="img/FaceModel02.png" alt="Face Modeling Example" /></p>
+
+<p>In obigem Bild wurde begonnen, ein Gesicht nach einer Skizze nachzumodellieren. Dazu wurde ein zweiter
+3D-Editor erzeugt. Der linke 3D-Editor zeigt die 2D-Ansicht der Szene von Vorne, der rechte 3D-Editor
+zeigt die 2D-Ansicht der Szene von der Seite. So kann nach o.a. Verfahren die Topologie in der (linken)
+Front-Ansicht angelegt werden. Gleichzeitig kann die platte 2D-Geometrie in ein räumliches Gebilde
+verwandelt werden, in dem in der (rechten) Seitenansicht die Eckpunkte der Polygone mit Hilfe der
+Skizze an Ihre Position in der Tiefe verschoben werden.</p>
+
+<p>Das Ändern des Editor-Layouts von Blender ist u.A. in den Abschnitten <em>Teilen und Zusammenfügen von Fenstern</em> in
+<a href="https://docs.blender.org/manual/en/latest/interface/window_system/areas.html">Areas - Blender Manual</a>
+beschrieben.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../../chapter02/lecture01/index.html" title="Lektion 2 - Einfaches Modelling">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Lektion 2 - Einfaches Modelling
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../../chapter04/lecture01/index.html" title="Lektion 4 - Shading &amp; Rendering">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Lektion 4 - Shading &amp; Rendering
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computergrafik</title>
+    <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/</link>
+    <description>Recent content on Computergrafik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de</language>
+    <lastBuildDate>Tue, 08 Mar 2016 21:07:13 +0100</lastBuildDate>
+    
+	<atom:link href="https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Allgemeines</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/general/</link>
+      <pubDate>Tue, 08 Mar 2016 21:07:13 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/general/</guid>
+      <description>Herzlich willkommen auf den Webseiten der Veranstaltung Computergrafik im 2. Semester an der Fakultät Digitale Medien der Hochschule Furtwangen.
+Inhalt  Struktur der Veranstaltung Ziele der Veranstaltung Hinweise zu Blender Abkürzungen  1. Struktur der Veranstaltung Computergrafik unterschiedlich für MIB, OMB und MKB Computergrafik ist für MIB ein komplettes Modul (6 ECTS) bestehend aus 2 SWS Vorlesung und 2 SWS Praktikum. Für OMB und MKB ist Computergrafik ein Teil (3 ECTS) jeweils eines mit Mathematik kombinierten Moduls.</description>
+    </item>
+    
+    <item>
+      <title>Lektion 1 - Intro</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter01/lecture01/</link>
+      <pubDate>Sat, 04 Mar 2017 15:38:00 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter01/lecture01/</guid>
+      <description>Inhalt  Blender UI Primitive und Transformationen Hierarchien Keyframe Animation Farbe und Beleuchtungsberechnung  1. Blender UI Um mit Blender arbeiten zu können, muss ein grundsätzliches Verständnis über User-Interface bestehen. Eine gute Einleitung gibt es z.B. im Guide to Blender 2.8 - Part 1: The Interface
+Die wohl bekannteste Tutorialreihe zu Blender 2.8+ von Andrew Price: Blender 2.8 Beginner Tutorial Series.
+In den folgenden Tutorials werden immer wieder Teile des Blender-User-Interface im Text benannt.</description>
+    </item>
+    
+    <item>
+      <title>Lektion 2 - Einfaches Modelling</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter02/lecture01/</link>
+      <pubDate>Sat, 04 Mar 2017 15:38:00 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter02/lecture01/</guid>
+      <description>Inhalt  Der Edit-Mode Modifier Mirror Boolean Subdivision Surface Clay Modelling  1. Der Edit-Mode Bausteine der 3D-Geometrie (Polytope) Der 3D Viewport hat verschiedene Object Interaction Modes (rot) mit denen sich z.B. im Object Mode (Default) auf oberster Ebene Objekte (Meshes, Lights, Cameras etc.) in der Szene manipulieren lassen, wie wir es bereits bei der ersten Übung kennengelernt haben.
+Im Edit Mode von Blender kann die Geometrie einzelner Objekte verändert bzw.</description>
+    </item>
+    
+    <item>
+      <title>Lektion 3 - Geometrie verstehen</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/lecture01/</link>
+      <pubDate>Sat, 04 Mar 2017 15:38:00 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/lecture01/</guid>
+      <description>Inhalt  Topologie Geometrie from Scratch Edge Flow Editor-Anordnung  1. Topologie Das Verhältnis zwischen Punkten, Kanten und Flächen, also die Zuordnung, welcher Eckpunkt mit welchem anderen eine Kante bildet und welche Kante mit welchen anderen Kanten eine Fläche Bildet, nennen wir im Folgenden Topologie.
+Die im letzten Kapitel gezeigten Modellierungstechniken verändern entweder die Topologie gar nicht (Position, Rotation, Skalierung auf Selektionen von Punkten, Kanten oder Flächen) oder aber sie erzeugen nach festen Regeln neue Topologie und haben ein &amp;ldquo;konsistentes&amp;rdquo; Mesh zur Folge (Bevel, Extrude, Loop-Cut, diverse Modifier).</description>
+    </item>
+    
+    <item>
+      <title>Lektion 4 - Shading &amp; Rendering</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/lecture01/</link>
+      <pubDate>Sat, 04 Mar 2017 15:38:00 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/lecture01/</guid>
+      <description>Inhalt  Rendering Cycles-Nodes Grundlagen Grundprinzip Shader  Fortsetzung in Kapitel 5 (Texturen, Mix Nodes, Bump und Displacement, Node Gruppen, UV Editing) 1. Rendering Rendering beschreibt den Prozess, aus den bestehenden Szenen-Daten (Modelle, Materialien, Licht, Kamera) ein Bild Blender zu berechnen. Rendering findet genau genommen schon im 3D-Editor statt, hier sogar in Echtzeit, um überhaupt interaktiv Änderungen an der Szene vornehmen zu können. Meist beschreibt aber der Begriff Rendering den Vorgang, explizit ein Bild in hoher Qualität mit allen Material- und Licht-Einstellungen zu berechnen.</description>
+    </item>
+    
+    <item>
+      <title>Lektion 5 - Materialien &amp; Texturen</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/lecture01/</link>
+      <pubDate>Sat, 04 Mar 2017 15:38:00 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/lecture01/</guid>
+      <description>Inhalt  Texturen Mix Nodes Bump und Displacement Node Gruppen UV Editing  5. Texturen Bilder als Textur verwenden Um Bilder auf 3D Objekten darstellen zu können, benötigen diese 2D Koordinaten auf die das Bild projiziert werden kann. Cycles kann diese mit den verschiedenen Optionen des Texture Coordinate Nodes automatisch generieren. Für gleichmäßige Texturen ist hierfür der Object Output am besten geeignet - kombiniert mit der Box Projektion im Image Texture Node.</description>
+    </item>
+    
+    <item>
+      <title>Lektion 6 - Animation</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter06/lecture01/</link>
+      <pubDate>Sat, 04 Mar 2017 15:38:00 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter06/lecture01/</guid>
+      <description>Inhalt  Pfad Animation Constraints Rigging Physik Simulation Shape Keys Partikel  1. Pfad Animation Sollen Objekte über die Zeit ihre Position ändern, kann die Position direkt mit Keyframes verändert werden. Oft ist es aber wünschenswert, den genauen Verlauf der Bewegung zu definieren. Hier hilft die Pfad-Animation mit deren Hilfe der Bewegungspfad direkt als Kurve im 3D-Editor eingezeichnet werden kann.
+ Kurve Einfügen Einfügen mit Shift+A -&amp;gt; z.B. Bézier-Kurve. Kurve Editieren mit Befehlen analog zum Mesh-Editing:  Bézier-Kontroll- und -Tangentepunkte anfassen und verschieben durch RMB.</description>
+    </item>
+    
+    <item>
+      <title>MIB 2. Semesterhälfte</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter08/lecture01/</link>
+      <pubDate>Wed, 09 Mar 2016 00:11:02 +0100</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter08/lecture01/</guid>
+      <description>Diese Seite enthält Informationen und Inhalte zur zweiten Semesterhälfte des Fachs Computergrafik im Studiengang MIB.
+Allgemeines Studenten der Medieninformatik betrachten die in der ersten Semesterhälfte erlernten Kenntnisse über Computergrafik im Kontext der Echtzeit-3D-Programmierung, wie sie z.B. in Games zum Einsatz kommt. Kenntnisse über Geometrie, Transformationen, Hierarchien, Materialgebung, Texturierung usw. werden programmier-nahen Kontext und im Einsatzgebiet in einer 3D-Engine betrachtet.
+Aufbau der 2. Semesterhälfte Formal wird es weiterhin zu den Terminen der ersten Semesterhälfte Vorlesungen und Übungen geben.</description>
+    </item>
+    
+    <item>
+      <title>Leistungsbeispiele</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/leistungsbeispiele/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/leistungsbeispiele/</guid>
+      <description>Hall of Fame Hier können Sie sich einige Beispiele sehr guter Animationen aus den vergangenen Semestern ansehen. Die Exponate übertreffen die Anforderungen bei Weitem. Zeigen jedoch auch was teilweise ohne Vorkenntnisse in den wenigen Wochen für Erfolge möglich sind.
+ Titel: Jacob
+Gruppenmitglieder: Roland Heer    Titel: Red Velvet
+Gruppenmitglieder: Dominik Seyfried, Predrag Grba, Maximilian Braun    Titel: Drive
+Gruppenmitglieder: Alexandru Mihai, Daniel Mainberger, Marvin Huebler    Titel: Low Of The Poly</description>
+    </item>
+    
+    <item>
+      <title>Projektauftrag - Animationsfilm</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/projektauftrag/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/projektauftrag/</guid>
+      <description>Aufgabe Ziel ist es, eine Animation mit den gelernten 3D-Modelling, -Shading und -Animationstechniken zu konzipieren und umzusetzen. Inhaltlich besteht vollkommene Freiheit.
+Beispiele:  (Technische) Visualisierung in Form eines Lehrvideos: Wie funktioniert eigentlich&amp;hellip;  &amp;hellip;ein Verbrennungsmotor? &amp;hellip;die Energierückgewinnung bei der Bremse eines E-Autos? &amp;hellip;ein Laser-/Tintenstrahl-Drucker? &amp;hellip; eigene Ideen!  Logo-Animation eines realen oder eines  Fantasie-LogosoFantasie-Logo ggf. inspiriert durch real existierendes. Kamerafahrt durch das Logo Umgebung passend zum Produkt/zur Organisation des Logos Transformation von Objekten in Teile des Logos Ende: Logo sieht aus „wie gedruckt“ Ggf.</description>
+    </item>
+    
+    <item>
+      <title>Resourcen &amp; Tutorials</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/tutorials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/tutorials/</guid>
+      <description>Projektstrukturierung    Art/Länge Titel Thema Quelle     7:19 Collections - Blender 2.80 Fundamentals Collections YouTube - Blender (offizieller Kanal)   9:14 Blender - Kollaboration und Collections Kollaboration &amp;amp; Collections Simon Storl-Schulke   13:22 Append / Link Blend Files in 2.8 - Switch to Blender Kollaboration YouTube - Lukas Stratmann    Basics    Art/Länge Titel Thema Quelle     26:00 Blender 2.</description>
+    </item>
+    
+    <item>
+      <title>Tipps und Hinweise zum Projektauftrag</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/tipps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/abgabe/tipps/</guid>
+      <description>stellt Fragen Wenn ihr nicht weiter kommt, fragt einen der Tutoren. Wir sind auch in der zweiten Semesterhälfte jede Woche bei den Übungen da. Notfalls auch per E-Mail.
+Zeitmanagement Früh anfangen und Zeit nutzen. Wer erst im Dezember anfängt, hat schon verloren. Erfahrungsgemäß wird die Zeit nach hinten sehr knapp. Die Zeit läuft AB JETZT! Insbesondere Gruppen, die sich noch nicht kennen, sollten früh viel Zeit miteinander verbringen.
+Regelmäßige Gruppentreffen.</description>
+    </item>
+    
+    <item>
+      <title>Übung 1 - Basics</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter01/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter01/exercise01_b/</guid>
+      <description>Arbeiten mit Primitiven Das folgende Kapitel behandelt die Grundlagen der Blender-Bedienung. Es wird das Arbeiten im 3-dimensionalen Raum, das Erstellen und Verändern primitiver Objekte, die Hierarchieanordnung mit Pivot und grundlegende Materialzuweisung geübt. Dazu wird über den Verlauf der Übung ein Katapult erstellt.
+1. Vorbereitung Für Laptopnutzer: Um den Übungen folgen zu können und Blender ohne Umstände zu nutzen wird in der Regel eine Mouse benötigt. Sollte Blender bei euch ruckeln und eine sehr schlechte Performance liefern, solltet ihr mit einem Rechtsklick auf die Blender.</description>
+    </item>
+    
+    <item>
+      <title>Übung 1 - Intro</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter01/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter01/exercise01_a/</guid>
+      <description>Objekte, Transformation uns Szenenaufbau Das folgende Kapitel behandelt die Grundlagen der Blender-Bedienung. Es wird das Arbeiten im 3-dimensionalen Raum, das Erstellen und Verändern primitiver Objekte, die Hierarchieanordnung mit Pivot und grundlegende Materialzuweisung geübt. Dazu wird über den Verlauf der Übung ein kleines U-Boot modelliert.
+1. Vorbereitung 1.1 Benutzeroberfläche Für Laptopnutzer: Um den Übungen folgen zu können und Blender ohne Umstände zu nutzen wird in der Regel eine Mause benötigt. Sollte Blender bei euch ruckeln und eine sehr schlechte Performance liefern, solltet ihr mit einem Rechtsklick auf die Blender.</description>
+    </item>
+    
+    <item>
+      <title>Übung 2.1 - Polygonal Modeling</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter02/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter02/exercise01_a/</guid>
+      <description>Der Edit-Mode Im folgenden Kapitel werden die Grundlagen des Modellierens erläutert. Dazu erstellen wir eine Schatztruhe.
+1. Vorbereitung  Erstellt ein neues Blender-File.   Wechselt jetzt ins Modeling Workspace 1.
+ Beim Wechsel zum Modeling Workspace wird bereits automatisch der Edit Mode aktiviert. Um zwischen Edit Mode und Object Mode zu wechseln könnt ihr das Interaction Mode Menu 2 oder den Shortcut Tab nutzen.
+   Im Editmode kann nun die tatsächliche Geometrie von Objekten verändert werden</description>
+    </item>
+    
+    <item>
+      <title>Übung 2.1 - Polygonal Modeling</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter02/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter02/exercise01_b/</guid>
+      <description>Wichtiger Hinweis     Die Abgabe für diese Übung besteht aus zwei Teilen: der Schilder und einem Schwert! Lesen Sie dazu unten den Absatz &amp;ldquo;Aufgabe&amp;rdquo;.    Der Edit-Mode Im folgenden Kapitel werden die Grundlagen des Modellierens erläutert. Dazu erstellen wir einen mittelalterlichen Schild. Die Arbeitsweise des steigenden Detailgrades und der Aufbau eines 3D-Meshs sind besonders zu beachten.
+1. Vorbereitung  Erstellt ein neues Blender-File.</description>
+    </item>
+    
+    <item>
+      <title>Übung 3.1 - Subdivision Surface Modeling</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise01_a/</guid>
+      <description>Box Modeling Im folgenden Kapitel behandeln wir eine Modelliertechnik, die Subdivision Surface Modeling genannt wird. Es handelt sich hierbei grundsätzlich um Box-Modeling, da wir durch Extrudieren einer Box einen &amp;ldquo;Käfig&amp;rdquo; (=Control Cage) modellieren und damit ein Subdivision Surface kontrollieren (siehe Subdivision Surface Modifier).
+Im Verlauf der Übung werden wir für unsere Unterwasserszene ein paar Korallen und einen Fisch modellieren.
+1. Modifier 1.1 Subdivision Surface  Öffnet eine neue Blender-Szene Fügt dem Würfel im Modifier Tab der Properties Editors einen Subdivision Surface Modifier hinzu 1</description>
+    </item>
+    
+    <item>
+      <title>Übung 3.1 - Subdivision Surface Modeling</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise01_b/</guid>
+      <description>Box Modeling Im folgenden Kapitel behandeln wir eine Modelliertechnik, die Subdivision Surface Modeling genannt wird. Es handelt sich hierbei grundsätzlich um Box-Modeling, da wir durch Extrudieren einer Box einen &amp;ldquo;Käfig&amp;rdquo; (=Control Cage) modellieren und damit ein Subdivision Surface kontrollieren (siehe Subdivision Surface Modifier).
+Diese Methode ist wie das Formen von Knete (deshalb auch manchmal &amp;ldquo;Clay Modeling&amp;rdquo; genannt) und eignet sich besonders zur Erstellung organischer Modelle. Um die Arbeitsweise anschaulich zu erklären nutzen wir das Beispiel eines Drachen.</description>
+    </item>
+    
+    <item>
+      <title>Übung 3.2 - Sculpting</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise02_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise02_a/</guid>
+      <description>Sculpting Das folgende Kapitel gibt einen kurzen Überblick zu Sculpting. Mit Sculpting lassen sich sehr schöne Details erarbeiten. Als Beispiel nutzen wir den groben, mit Clay-Modelling erstellten Drachen aus der vorherigen Übung.
+1. Vorbereitung  Öffnet euren Drachen.   Dupliziert ihn mit Shift + D und blendet das Duplikat im Outliner (1) oder mit H aus.   Wendet euren Subdivision Surface nun an indem ihr auf apply (1) drückt.</description>
+    </item>
+    
+    <item>
+      <title>Übung 3.2 - Sculpting</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise02_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter03/exercise02_b/</guid>
+      <description>Sculpting Das folgende Kapitel gibt einen kurzen Überblick zu Sculpting. Mit Sculpting lassen sich sehr schöne Details erarbeiten. Als Beispiel nutzen wir den groben, mit Clay-Modelling erstellten Drachen aus der vorherigen Übung.
+1. Vorbereitung  Öffnet euren Drachen.   Dupliziert ihn mit Shift + D und blendet das Duplikat im Outliner (1) oder mit H aus.   Wendet euren Subdivision Surface nun an indem ihr auf apply (1) drückt.</description>
+    </item>
+    
+    <item>
+      <title>Übung 4.1 - Shading</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/exercise01_b/</guid>
+      <description>In der folgenden Übung werden wir unserem Schwert Materialien geben und zum Rendern in Szene setzen. Das Schild wird in Übung 5 dazukommen.
+1. Vorbereitung  Öffnet das in Übung 2 modellierte Schwert. Alternativ kann auch dieses Modell verwendet werden. Wechselt in den Shading Workspace   Nun haben sich einige neue Bereiche geöffnet:
+ unten seht ihr nun den Shader Editor. Hier wird immer das Material des markierten Objekts angezeigt.</description>
+    </item>
+    
+    <item>
+      <title>Übung 4.1 - Shading und Rendering</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/exercise01_a/</guid>
+      <description>In der folgenden Übung werden wir eine Unterwasserszene rendern, um in den nachfolgenden Übungen unsere bisherig erstellten Objekte hineinzusetzen.
+1. Wasseroberfläche 1.1 Setup  Startet eine neue Blender Szene Löscht den Würfel und das Punktlicht aus der Szene heraus Fügt der Szene eine neue Plane hinzu (Shift + A → Mesh → Plane). Diese Plane soll unsere Wasseroberfläche werden. Benennt sie entsprechend. Skaliert die Plane ca. um das 50 fache (S + 5 + 0) Verschiebt und dreht die Kamera so, dass sie die Wasseroberfläche von leicht schräg unten betrachtet.</description>
+    </item>
+    
+    <item>
+      <title>Übung 4.2 - Licht und Rendering</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/exercise02_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter04/exercise02_b/</guid>
+      <description>1. Szenenanordnung Wechselt zum zurück zum Layout Workspace
+ Stellt die Ansicht auf Rendered um [1] Ordnet eure Objekte (Schwert &amp;amp; Stein) hübsch an. Modelliert einen einfachen Untergrund hinzu, dem ihr das gleiche Material wie dem Stein geben könnt (alternativ könnt ihr natürlich auch ein neues Material entwerfen). Platziert die Kamera. Klickt dazu auf das Kamera-Icon [2] oben Rechts in der 3D Ansicht (oder Numpad + 0). Über den View → Navigation → Walk Navigation kann ein &amp;ldquo;Ego&amp;rdquo; Modus aktiviert werden, in dem ihr die Ansicht mit WASD und der Maus anpassen könnt.</description>
+    </item>
+    
+    <item>
+      <title>Übung 5.1 - Ein Fisch und UV Editing</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise01_a/</guid>
+      <description>In der folgenden Aufgabe werden wir einen Fisch modellieren und texturieren. Als Beispiel wird in dieser Aufgabe ein Clownfisch modelliert verwendet, die Wahl der Fischart steht euch jedoch offen
+1. Vorbereitung  Sucht die Seitenansicht eines Fisches eurer Wahl im Internet oder verwendet dieses Beispielbild:   Erstellt eine neue Blender Szene
+ Wecheselt in die Seitenansicht 1
+ zieht das Bild per Drag &amp;amp; Drop aus dem Dateiexplorer in die Blender Szene 2 und verschiebt es ca.</description>
+    </item>
+    
+    <item>
+      <title>Übung 5.1 - UV Editing</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise01_b/</guid>
+      <description>In der folgenden Aufgabe bereiten wir den Schild für die Texturierung vor. Dafür müssen wir Blender mitteilen, wie die 2D Textur auf das 3D Objekt projeziert werden soll. Dieser Vorgang wird UV-Editing genannt.
+1. Vorbereitung  Öffnet euren zuvor modelliertes Schild. Alternativ kann auch dieses Modell verwendet werden.
+ Selektiert den Schild
+ Wechselt in den Texture Paint Workspace
+ Fügt unter Texture Slots eine neue UV-Grid Textur als &amp;ldquo;Base Color&amp;rdquo; hinzu</description>
+    </item>
+    
+    <item>
+      <title>Übung 5.2 - Texture Painting</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise02_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise02_a/</guid>
+      <description>Nun, da wir den Fisch in 5.1 für die Texturierung vorbereitet haben, können wir ihm Farbe und Struktur geben.
+1. Vorbereitung  Öffnet euren in der vorherigen Aufgabe vorbereiteten Fisch Selektiert den Fisch Wechselt in den Texture Paint Workspace  2. Farbe 2.1 Optional: Schuppentextur  Sucht im Internet - z.b. auf texturehaven.com oder textureninja.com nach einer möglichst neutral gefärbten Schuppentextur. Alternativ kann auch diese Textur verwendet werden. Fügt im Reiter Texture eine neue Pinsel-Textur hinzu Wechselt zum Texture Tab des Properties Editors und öffnet für die nun markierte Brush-Textur die zuvor heruntergeladene Schuppentextur aus.</description>
+    </item>
+    
+    <item>
+      <title>Übung 5.2 - Texture Painting</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise02_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter05/exercise02_b/</guid>
+      <description>Nun, da wir den Schild in 5.1 für die Texturierung vorbereitet haben, können wir ihm Farbe und Struktur geben.
+1. Vorbereitung  Öffnet euren in der vorherigen Aufgabe vorbereiteten Schild Selektiert den Schild Wechselt in den Texture Paint Workspace  2. Farbe  Sucht im Internet - z.b. auf texturehaven.com oder textureninja.com nach einer Holztextur. Stehen beim Download mehrere Texturarten zur Auswahl, braucht ihr für die Farbe nur Diffuse bzw.</description>
+    </item>
+    
+    <item>
+      <title>Übung 6 - Katapultbelagerung</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter06/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter06/exercise01_b/</guid>
+      <description>In dieser Übung wollen wir den Arm des in Übung 1 modellierten Katapults animieren und Physiksimulation nutzen, um ein Geschoss zu werfen.
+Vorbereitung  Öffnet euer Katapult. Falls ihr im Laufe der Übung feststellt, dass sich euer Modell nicht für die Aufgabe eignet, könnt ihr dieses Beispielmodell verwenden.
+ Da wir in dieser Übung mit Physik arbeiten, sind die richtigen Maße des Katapults wichtig. Öffnet dafür mit N die Sidebar.</description>
+    </item>
+    
+    <item>
+      <title>Übung 6.1 - Animation</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter06/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter06/exercise01_a/</guid>
+      <description>In dieser Übung wollen wir das U-Boot aus Übung 1 animieren und Partikelsysteme nutzen, um Blasen zu erzeugen
+ Vorbereitung  Öffnet euer U-Boot. Falls ihr im Laufe der Übung feststellt, dass sich euer Modell nicht für die Aufgabe eignet, könnt ihr dieses Beispielmodell verwenden.  1. Schiffsschraube 1.1 Schraube modellieren  Falls noch nicht geschehen, modelliert eine einfache Schiffsschraube für das U-Boot    Hilfreich ist hierfür, den Pivot-Point auf 3D Cursor zu stellen, um die drei einzelnen Rotorblätter je um 120° um diesen zu drehen.</description>
+    </item>
+    
+    <item>
+      <title>Übung 7.1 - Rigging</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise01_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise01_b/</guid>
+      <description>In dieser Übung werden wir den Drachen mithilfe eines Skeletts verformbar machen und animieren.
+Vorbereitung  Öffnet euren Drachen Wenn ihr im Laufe der Übung feststellt, dass sich euer Drache nicht eignet, kann auch dieses Beispielmodell verwendet werden. Stellt den Preview Wert des Multiresolution Modifiers so niedrig ein [1], dass die Anzahl der Polygone [2] je nach Rechnerkapazität 100.000 - 200.000 nicht überschreitet. Bei verwendung des Beispielmodells, entfällt dieser Schritt.</description>
+    </item>
+    
+    <item>
+      <title>Übung 7.1 - Rigging und Skelettanimation</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise01_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise01_a/</guid>
+      <description>In dieser Übung werden wir den Fisch mithilfe eines Skeletts verformbar machen und animieren.
+ Vorbereitung  Öffnet euren Fisch o.ä. aus Übung 5 Wendet den Mirror Modifier des Fisches mit Apply an.   Das muss getan werden, da beim Rigging Gruppen von Vertices den verschiedenen Knochen zugeordnet werden. Wenn nur eine Seite modelliert wurde und die andere automatisch rüberkopiert wird, geschieht dies auch mit den Vertex Gruppen und dementsprechend bewegen sich z.</description>
+    </item>
+    
+    <item>
+      <title>Übung 7.2 - Partikel und Feuer</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise02_a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise02_a/</guid>
+      <description>In dieser Aufgabe werden wir den Drachen Feuer speien lassen.
+1. Partikel 1.1 Emiter  Deaktiviert falls noch nicht geschehen Automatic Keyframing Fügt eine neue Plane hinzu. Wählt als Parent den Knochen im Kopf des Drachen aus (Properties Panel → Object → Relations → Parent Type Bone). Benennt evtl. den Kopfknochen, um ihn in der Liste leichter zu finden.
+ Verschiebt die Plane an die Stelle im Rachen des Drachen, aus der das Feuer herauskommen soll.</description>
+    </item>
+    
+    <item>
+      <title>Übung 7.2 - Partikel und Feuer</title>
+      <link>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise02_b/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sftp.hs-furtwangen.de/~lochmann/computergrafik2019/script/chapter07/exercise02_b/</guid>
+      <description>In dieser Aufgabe werden wir den Drachen Feuer speien lassen.
+1. Partikel 1.1 Emiter  Deaktiviert falls noch nicht geschehen Automatic Keyframing Fügt eine neue Plane hinzu. Wählt als Parent den Knochen im Kopf des Drachen aus (Properties Panel → Object → Relations → Parent Type Bone). Benennt evtl. den Kopfknochen, um ihn in der Liste leichter zu finden.
+ Verschiebt die Plane an die Stelle im Rachen des Drachen, aus der das Feuer herauskommen soll.</description>
+    </item>
+    
+  </channel>
+</rss>

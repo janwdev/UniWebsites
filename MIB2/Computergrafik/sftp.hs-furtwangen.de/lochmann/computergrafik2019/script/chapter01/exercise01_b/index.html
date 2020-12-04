@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="de">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Übung 1 - Basics - Computergrafik</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <meta name="description" content="Online-Material zum Fach Computergrafik.">
+    
+    <link rel="canonical" href="index.html">
+    
+
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Computergrafik">
+    <meta property="og:image" content="../../images/lecture_logo_cg.png">
+    <meta name="apple-mobile-web-app-title" content="Computergrafik">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/lecture_icon.png">
+    <link rel="icon" type="image/x-icon" href="../../images/lecture_icon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../../fonts/icon.eot');
+        src: url('../../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../../fonts/icon.woff')
+               format('woff'),
+             url('../../fonts/icon.ttf')
+               format('truetype'),
+             url('../../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../../stylesheets/application.css">
+    <link rel="stylesheet" href="../../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../../../../fonts.googleapis.com/cssa5a5.css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script src="../../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-light-green palette-accent-lime">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Übung 1 - Basics
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="../../index.html" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../images/lecture_logo_cg.png">
+        </div>
+      
+      <div class="name">
+        <strong>Computergrafik </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Allgemeines" href="../../general/index.html">
+	
+	Allgemeines
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 1</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="1.0 - Lektion - Blender" href="../lecture01/index.html">
+	
+	1.0 - Lektion - Blender
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a class="current" title="1.1 - Übung - Intro" href="index.html">
+	
+	1.1 - Übung - Intro
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 2</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="2.0 - Lektion - Einfaches Modelling" href="../../chapter02/lecture01/index.html">
+	
+	2.0 - Lektion - Einfaches Modelling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="2.1 - Übung - Polygonal Modeling" href="../../chapter02/exercise01_b/index.html">
+	
+	2.1 - Übung - Polygonal Modeling
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 3</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="3.0 - Lektion - Geometrie verstehen" href="../../chapter03/lecture01/index.html">
+	
+	3.0 - Lektion - Geometrie verstehen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.1 - Übung - Box Modeling" href="../../chapter03/exercise01_b/index.html">
+	
+	3.1 - Übung - Box Modeling
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="3.2 - Übung - Scultping" href="../../chapter03/exercise02_b/index.html">
+	
+	3.2 - Übung - Scultping
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 4</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="4 - Lektion - Shading &amp; Rendering" href="../../chapter04/lecture01/index.html">
+	
+	4 - Lektion - Shading &amp; Rendering
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.1 - Übung - Shading" href="../../chapter04/exercise01_b/index.html">
+	
+	4.1 - Übung - Shading
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="4.2 - Übung - Licht &amp; Rendering" href="../../chapter04/exercise02_b/index.html">
+	
+	4.2 - Übung - Licht &amp; Rendering
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 5</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="5 - Lektion - Materialien &amp; Texturen" href="../../chapter05/lecture01/index.html">
+	
+	5 - Lektion - Materialien &amp; Texturen
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.1 - Übung - UV Editing" href="../../chapter05/exercise01_b/index.html">
+	
+	5.1 - Übung - UV Editing
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="5.2 - Übung - Texture Painting" href="../../chapter05/exercise02_b/index.html">
+	
+	5.2 - Übung - Texture Painting
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 6</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="6 - Lektion - Animation" href="../../chapter06/lecture01/index.html">
+	
+	6 - Lektion - Animation
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="6 - Übung - Katapultbelagerung" href="../../chapter06/exercise01_b/index.html">
+	
+	6 - Übung - Katapultbelagerung
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Kapitel 7</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="7.1 - Übung - Rigging" href="../../chapter07/exercise01_b/index.html">
+	
+	7.1 - Übung - Rigging
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="7.2 - Übung - Partikel &amp; Feuer" href="../../chapter07/exercise02_b/index.html">
+	
+	7.2 - Übung - Partikel &amp; Feuer
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">Teamprojekt (Nur MKB/OMB)</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Projektauftrag (PDF)" href="../../project/WS20_Projektauftrag.html">
+	
+	Projektauftrag (PDF)
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Leistungsbeispiele" href="../../abgabe/leistungsbeispiele/index.html">
+	
+	Leistungsbeispiele
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">FELIX</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Ergebnisse einreichen" href="https://felix.hs-furtwangen.de/url/RepositoryEntry/3991732902">
+	
+	Ergebnisse einreichen
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Übung 1 - Basics </h1>
+
+			
+
+<h2 id="arbeiten-mit-primitiven">Arbeiten mit Primitiven</h2>
+
+<p><strong>Das folgende Kapitel behandelt die Grundlagen der Blender-Bedienung. Es wird das Arbeiten im 3-dimensionalen Raum, das Erstellen und Verändern primitiver Objekte, die Hierarchieanordnung mit Pivot und grundlegende Materialzuweisung geübt. Dazu wird über den Verlauf der Übung ein Katapult erstellt.</strong></p>
+
+<h2 id="1-vorbereitung">1. Vorbereitung</h2>
+
+<p><strong>Für Laptopnutzer:</strong> Um den Übungen folgen zu können und Blender ohne Umstände zu nutzen wird in der Regel eine Mouse benötigt. Sollte Blender bei euch ruckeln und eine sehr schlechte Performance liefern, solltet ihr mit einem Rechtsklick auf die Blender.exe eure Onboard-Grafikkarte auswählen.</p>
+
+<ul>
+<li><strong>Für Laptops ohne Num-Pad:</strong> Das Num-Pad ist für das Arbeiten in Blender wichtig und sollte daher wie folgt emuliert werden. <code>Edit</code> → <code>Preferences</code> → <code>Input</code> → <code>Emulate Numpad</code>. Durch die Emulierung könnt ihr eure normalen Zahlen-Tasten <code>1</code>, <code>2</code>, <code>3</code> etc. anstelle der Zahlen des Num-Pads benutzen.</li>
+</ul>
+
+<p><img src="img/NewFile.png" alt="img" /></p>
+
+<ul>
+<li>Startet Blender.</li>
+<li>Führt nun zuerst, je nach eigenem Setup, die oben genannten Änderungen durch.</li>
+</ul>
+
+<blockquote>
+<p>Die Benutzeroberfläche von Blender ist individuell anpassbar und kommt mit 10 vorgefertigten Layouts, so genannten <em>Workspaces</em> (<code>Layout</code>, <code>Modeling</code>, <code>Sculpting</code>, <code>UV Editing</code> etc.). Für die üblichen Arbeitsschritte gibt es optimierte <em>Workspaces</em>, die sich über die Reiter direkt neben der <em>Menu Bar</em> wechseln lassen. Standardmäßig ist der Workspace &ldquo;Layout&rdquo; eingestellt.</p>
+
+<p>Blender ist zusätzlich in rechteckige Fenster unterteilt, die man anhand der abgerundeten Ecken unterscheiden kann. Durch <code>Linksklick</code> auf den Fensterrand (Mousezeiger ändert sich in Doppelpfeil) bei gleichzeitigem Halten und Ziehen lässt sich jedes Fenster in seiner Größe anpassen. Durch <code>Klick</code> in eine der Ecken (Mousezeiger ändert sich in ein Fadenkreuz) kann man durch Ziehen entweder Fenster teilen oder wieder zu einem einzigen verbinden.</p>
+
+<p>In jedem Fenster befindet sich außerdem in dessen linken-oberen Ecke ein Dropdown-Menu über welches der angezeigte <em>Editor Type</em> gewechselt werden kann. Dazu zählen z.B. <em>3D-Viewport</em>, <em>Timeline</em>, <em>Outliner</em>, <em>UV-</em> und <em>Graph Editor</em>.</p>
+</blockquote>
+
+<p><img src="img/SelectAll.png" alt="img" /></p>
+
+<ul>
+<li>Um die Start-Szene zu bereinigen drückt ihr zunächst die Taste <code>A</code>, um alle Objekte auszuwählen, und anschließend <code>X</code> um die ausgewählten Objekte zu löschen.</li>
+</ul>
+
+<p>Um euch im 3-dimensionalen Raum zu bewegen, braucht ihr die <code>Mittlere Maustaste</code> um euch zu drehen und <code>Shift + Mittlere Maustaste</code> um euch zu bewegen.
+&gt; Die Mausfunktionen für den Bereich, in dem sich die Maus momentan befindet, werden auch in der Fußzeile von Blender angezeigt.</p>
+
+<h2 id="2-gerüst">2. Gerüst</h2>
+
+<ul>
+<li>Im <em>3D-Viewport</em> könnt ihr über die Schaltfläche <code>Add</code> oder mit dem Shortcut <code>Shift + A</code> neue Objekte hinzufügen. Wählt im <code>Add Menu</code> → <code>Mesh</code> → <code>Cube</code> um einen Würfel der Szene hinzuzufügen.</li>
+</ul>
+
+<p><img src="img/NumberPanel.png" alt="img" /></p>
+
+<ul>
+<li>Drückt <code>N</code> um die <em>Sidebar</em> aufzurufen. Dort könnt ihr, unter anderem die Position, Rotation und Skalierung eurer ausgewählten Objekte einsehen und ändern.</li>
+</ul>
+
+<p><img src="img/Grundgeruest.png" alt="img" /></p>
+
+<ul>
+<li>Erstellt insgesamt vier Würfel und skaliert, rotiert und positioniert sie passend als viereckiges Grundgerüst. Im Menü links könnt ihr auf die verschiedenen Transformationstools zugreifen.</li>
+</ul>
+
+<blockquote>
+<p>Zur Transformation von Objekten können auch die Shortcuts <code>G</code> (Verschieben), <code>R</code> (Rotatieren) und <code>S</code> (Skalieren) verwendet werden. Durch anschließendes Drücken von <code>X</code>, <code>Y</code> oder <code>Z</code> kann die Transformation auf die jeweilige Achse beschränkt werden.</p>
+</blockquote>
+
+<p><img src="img/Aufhaengung.png" alt="img" /></p>
+
+<ul>
+<li>Stellt anschließend zwei Quader als Aufhängung gegeneinander.</li>
+</ul>
+
+<blockquote>
+<p>Vom <a href="https://docs.blender.org/manual/en/latest/editors/3dview/object/editing/transform/control/orientations.html#orientations">globalen ins lokale Koordinatensystem</a> zu wechseln kann manchmal sehr hilfreich sein.</p>
+</blockquote>
+
+<p><img src="img/Aufhaengung_Duplizieren.png" alt="img" /></p>
+
+<ul>
+<li>Wählt beide Quader der Aufhängung aus und dupliziert sie mit <code>Shift + D</code>. Positioniert die duplizierten Objekte auf der anderen Seite des Gerüsts, sodass die Aufhängung für den Wurfarm fertig ist.</li>
+</ul>
+
+<p>Mit gedrückter <code>Shift</code>-Taste könnt ihr Objekte zur bisherigen Auswahl hinzufügen oder abziehen.
+<strong>ACHTUNG:</strong> Wenn ihr Objekte dupliziert und statt mit der <code>linken Maustaste</code> die Position zu bestätigen die <code>rechte Maustaste</code> verwendet um den Vorgang abzubrechen, habt ihr das Duplizieren nicht abgebrochen, sondern die Objekte an die selbe Position dupliziert, wie die ursprünglichen Objekte. Dadurch entsteht schnell doppelte Geometrie, die man unbedingt vermeiden sollte. Wenn ihr den Vorgang des Duplizierens rückgängig machen wollt, drückt stattdessen <code>Strg + Z</code> nachdem ihr bestätigt habt.</p>
+
+<p><img src="img/OriginToGeometry.png" alt="img" /></p>
+
+<ul>
+<li><p>Wenn ihr mit eurem Grundgerüst zufrieden seid, solltet ihr die Objekte zu einem einzigen Objekt verbinden. Wählt dafür alle Objekte des Gerüsts aus und drückt anschließend <code>Strg + J</code>.</p></li>
+
+<li><p>Der <em>Origin</em> eures Objekts ist nun an der Position des <em>Origins</em> des zuletzt ausgewählten Objekts vor dem Zusammenfügen. Um ihn wieder in die Mitte eurer Geometrie zu bekommen, wählt ihr im Menü <code>Object</code> → <code>Set Origin</code> → <code>Origin to Geometry</code>.</p></li>
+</ul>
+
+<blockquote>
+<p>Es gibt unterschiedliche Möglichkeiten den Pivot anhand von Geometrie oder durch den 3D-Cursor zu verschieben. Probiert einfach mal damit herum und schaut euch die Ergebnisse an.</p>
+</blockquote>
+
+<h2 id="3-wurfarm">3. Wurfarm</h2>
+
+<p>Erstellt vorerst einen Wurfarm, der waagerecht in der Szene liegt.</p>
+
+<p><img src="img/VerticesCount.png" alt="img" /></p>
+
+<ul>
+<li>Rotiert den Zylinder, sodass er waagerecht liegt und skaliert ihn anschließend in der Länge.</li>
+</ul>
+
+<blockquote>
+<p>Wann immer ihr eine Aktion durchführt, erscheint ein extra Menü(2) für die jeweilige Aktion in dem ihr die genauen Zahlen eintragen könnt. Sobald ihr eine andere Aktion durchführt verschwindet das Menü für die bisherige Aktion und kann auch nicht wieder aufgerufen werden.</p>
+</blockquote>
+
+<p><img src="img/Wurfarm.png" alt="img" /></p>
+
+<ul>
+<li>Erstellt am einen Ende des Wurfarms eine Halterung für Steine, die geschleudert werden sollen. Nutzt dafür einen Kegel und einen Torus.</li>
+</ul>
+
+<p><img src="img/Achse_u_Gewicht.png" alt="img" /></p>
+
+<ul>
+<li><p>Als ein Gegengewicht könnt ihr einfach einen neuen Cube benutzen.</p></li>
+
+<li><p>Um den Wurfarm zu vervollständigen fügt ihr noch eine Achse hinzu, die waagerecht im rechten Winkel zu eurem Wurfarm liegt und lang genug ist, um die beiden Aufhängungen zu verbinden.</p></li>
+
+<li><p>Erstellt nun eine geeignete Hierarchie, indem ihr mit <code>Ctrl + P</code> oder dem Kontext-Menü mit der <code>rechten Maustaste</code> für die Objekte Parents hinzufügt.</p></li>
+</ul>
+
+<blockquote>
+<p>Die Halterung für die Steine und das Gewicht sollte sich mit dem Wurfarm mitbewegen, der Wurfarm mit der Achse und die Achse mit dem Gerüst.</p>
+</blockquote>
+
+<h2 id="4-räder">4. Räder</h2>
+
+<p><img src="img/Raeder.png" alt="img" /></p>
+
+<ul>
+<li><p>Erstellt Räder mit 4 weiteren Zylindern und positioniert sie passend am Grundgerüst.</p></li>
+
+<li><p>Denkt daran auch die Räder passend in eure Hierarchie einzubauen.</p></li>
+</ul>
+
+<h2 id="5-material">5. Material</h2>
+
+<p><img src="img/Mat_1.png" alt="img" /></p>
+
+<ul>
+<li><p>Wählt rechts im Properties-Panel dem Tab &ldquo;Material&rdquo;(1) aus.</p></li>
+
+<li><p>Erstellt mit &ldquo;New&rdquo;(2) ein neues Material.</p></li>
+</ul>
+
+<p><img src="img/Mat_2.png" alt="img" /></p>
+
+<p>Dabei erstellt Blender automatisch einen Principled Shader, an dem uns vorerst nur die &ldquo;Base Color&rdquo; interessiert.</p>
+
+<p><img src="img/Mat_3.png" alt="img" /></p>
+
+<ul>
+<li><p>Um eure zugewiesenen Materialien zu sehen, stellt eure Display-Methode auf LookDev(1).</p></li>
+
+<li><p>Erstellt passende Materialien für alle eure Objekte, indem ihr jeweils die Base Color des Principled Shaders verändert.</p></li>
+</ul>
+
+<h2 id="aufgabe">Aufgabe</h2>
+
+<ul>
+<li>Stellt euer Katapult fertig und fügt ein paar extra Details wie Steine als Munition, Dübel in den Rädern und Co. hinzu.</li>
+</ul>
+
+<h2 id="ressourcen-tutorials-zum-thema">Ressourcen &amp; Tutorials zum Thema</h2>
+
+<table>
+<thead>
+<tr>
+<th>Art/Länge</th>
+<th>Titel</th>
+<th>Thema</th>
+<th>Quelle</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="../../general/icons/playlist.png" class="resicon"> je 2-10min</td>
+<td><a href="https://www.youtube.com/watch?v=MF1qEhBSfq4&amp;list=PLa1F2ddGya_-UvuAqHAksYnB0qL9yWDO6"><strong>Blender 2.8 Fundamentals</strong></a></td>
+<td>Interface &amp; Basics</td>
+<td><a href="https://www.youtube.com/channel/UCSMOQeBJ2RAnuFungnQOxLg">YouTube - Blender (offizieller Kanal)</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 26:00</td>
+<td><a href="https://youtu.be/hrH4Rzmb8Jg"><strong>Blender 2.8 Beginner Tutorial - Part 2: Interface &amp; Navigation</strong></a></td>
+<td>Interface &amp; Basics</td>
+<td><a href="https://www.youtube.com/channel/UCWWybvw9jnpOdJq_6wTHryA">YouTube - CG Boost</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/video.png" class="resicon"> 14:30</td>
+<td><a href="https://youtu.be/TPrnSACiTJ4"><strong>Beginner Blender Tutorial - Part 1</strong></a></td>
+<td>Interface &amp; Basics</td>
+<td><a href="https://www.youtube.com/channel/UCOKHwx1VCdgnxwbjyb9Iu1g">YouTube - Blenderguru</a></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/article.png" class="resicon"></td>
+<td><a href="https://docs.blender.org/manual/en/latest/index.html"><strong>Blender Reference Manual</strong></a></td>
+<td>Offizielle Blender Dokumentation</td>
+<td></td>
+</tr>
+
+<tr>
+<td><img src="../../general/icons/article.png" class="resicon"></td>
+<td><a href="https://blenderartists.org/c/support/basics-interface"><strong>blenderartists.org - Support</strong></a></td>
+<td>Größtes Blender Forum (englisch) für Fragen und Support</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="gelerntes">Gelerntes</h2>
+
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Kontext</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Alles Auswählen</td>
+<td>Object Mode</td>
+<td>A</td>
+</tr>
+
+<tr>
+<td>Löschen</td>
+<td>Object Mode</td>
+<td>X</td>
+</tr>
+
+<tr>
+<td>Objekte Einfügen</td>
+<td>Object Mode</td>
+<td>Shift + A</td>
+</tr>
+
+<tr>
+<td>Number Panel</td>
+<td>Object Mode</td>
+<td>N</td>
+</tr>
+
+<tr>
+<td>Translate</td>
+<td>Object Mode</td>
+<td>G</td>
+</tr>
+
+<tr>
+<td>Skalieren</td>
+<td>Object Mode</td>
+<td>S</td>
+</tr>
+
+<tr>
+<td>Rotieren</td>
+<td>Object Mode</td>
+<td>R</td>
+</tr>
+
+<tr>
+<td>Achsenwahl</td>
+<td>Object Mode</td>
+<td>X, Y, Z</td>
+</tr>
+
+<tr>
+<td>Duplizieren</td>
+<td>Object Mode</td>
+<td>Shift + D</td>
+</tr>
+
+<tr>
+<td>Zur Auswahl hinzufügen</td>
+<td>Object Mode</td>
+<td>Shift + Auswahl</td>
+</tr>
+
+<tr>
+<td>Objekte verbinden</td>
+<td>Object Mode</td>
+<td>Ctrl + J</td>
+</tr>
+
+<tr>
+<td>Parenting</td>
+<td>Object Mode</td>
+<td>Ctrl + P</td>
+</tr>
+</tbody>
+</table>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io/" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../../abgabe/tipps/index.html" title="Tipps und Hinweise zum Projektauftrag">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Tipps und Hinweise zum Projektauftrag
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../exercise01_a/index.html" title="Übung 1 - Intro">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Übung 1 - Intro
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="../../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="../../../../../../cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
